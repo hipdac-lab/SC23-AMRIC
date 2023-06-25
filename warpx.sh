@@ -1,6 +1,4 @@
-mkdir warpx_directory
 cd warpx_directory
-git clone https://github.com/FabioGrosso/AMRIC-WarpX.git WarpX
 git clone https://github.com/ECP-WarpX/picsar.git
 git clone https://github.com/ECP-WarpX/warpx-data.git
 

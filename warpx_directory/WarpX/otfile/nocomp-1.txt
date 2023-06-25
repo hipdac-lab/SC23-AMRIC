@@ -1,0 +1,104 @@
+MPI initialized with 8 MPI processes
+MPI initialized with thread support level 3
+AMReX (23.04-24-g27ef4ea56945-dirty) initialized
+WarpX (23.04-34-g8b26728f257d-dirty)
+
+    __        __             __  __
+    \ \      / /_ _ _ __ _ __\ \/ /
+     \ \ /\ / / _` | '__| '_ \\  /
+      \ V  V / (_| | |  | |_) /  \
+       \_/\_/ \__,_|_|  | .__/_/\_\
+                        |_|
+
+--- INFO    : restart from checkpoint diags/chk001000
+Level 0: dt = 1.085956903e-16 ; dx = 4.6875e-07 ; dy = 4.6875e-07 ; dz = 6.640625e-08
+Level 1: dt = 1.085956903e-16 ; dx = 2.34375e-07 ; dy = 2.34375e-07 ; dz = 3.3203125e-08
+
+Grids Summary:
+  Level 0   8 grids  16777216 cells  100 % of domain
+            smallest grid: 128 x 128 x 128  biggest grid: 128 x 128 x 128
+  Level 1   11 grids  11534336 cells  8.59375 % of domain
+            smallest grid: 128 x 128 x 64  biggest grid: 128 x 128 x 64
+
+-------------------------------------------------------------------------------
+--------------------------- MAIN EM PIC PARAMETERS ----------------------------
+-------------------------------------------------------------------------------
+Precision:            | DOUBLE
+Particle precision:   | DOUBLE
+Geometry:             | 3D (XYZ)
+Operation mode:       | Electromagnetic
+                      | - vacuum
+-------------------------------------------------------------------------------
+Current Deposition:   | Esirkepov 
+Particle Pusher:      | Boris 
+Charge Deposition:    | standard 
+Field Gathering:      | energy-conserving 
+Particle Shape Factor:| 3
+-------------------------------------------------------------------------------
+Maxwell Solver:       | Yee 
+-------------------------------------------------------------------------------
+Moving window:        |    ON  
+                      |  - moving_window_dir = z 
+                      |  - moving_window_v = 299792458
+------------------------------------------------------------------------------- 
+For full input parameters, see the file: warpx_used_inputs
+
+STEP 1001 starts ...
+--- INFO    : Writing plotfile diags/plt001001
+ 
+size of buffer on proc 1: 20971520
+ 
+size of buffer on proc 2: 20971520
+ 
+size of buffer on proc 3: 20971520
+ 
+size of buffer on proc 4: 20971520
+ 
+size of buffer on proc 5: 20971520
+ 
+size of buffer on proc 6: 20971520
+ 
+size of buffer on proc 7: 20971520
+procOffsets: 0 20971520 41943040 62914560 83886080 104857600 125829120 146800640 
+ 
+size of buffer on proc 0: 20971520
+pre time = 0.311706259  seconds
+
+real write time = 2.532352999  seconds
+
+ 
+size of buffer on proc 7: 10485760
+ 
+size of buffer on proc 1: 20971520
+ 
+size of buffer on proc 2: 20971520
+ 
+size of buffer on proc 3: 10485760
+ 
+size of buffer on proc 4: 10485760
+ 
+size of buffer on proc 5: 10485760
+ 
+size of buffer on proc 6: 10485760
+procOffsets: 0 20971520 41943040 62914560 73400320 83886080 94371840 104857600 
+ 
+size of buffer on proc 0: 20971520
+pre time = 0.207150398  seconds
+
+real write time = 0.811573009  seconds
+
+Write h5plotfile time = 4.069049891  seconds
+
+
+
+**** WARNINGS ******************************************************************
+* GLOBAL warning list  after  [ FIRST STEP ]
+*
+* No recorded warnings.
+********************************************************************************
+
+STEP 1001 ends. TIME = 1.08704286e-13 DT = 1.085956903e-16
+Evolve time = 15.170573 s; This step = 15.170573 s; Avg. per step = 15.170573 s
+
+Total Time                     : 25.38607158
+AMReX (23.04-24-g27ef4ea56945-dirty) finalized

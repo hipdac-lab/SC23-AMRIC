@@ -1,0 +1,7 @@
+libensemble
+matplotlib
+nlopt
+numpy
+pytest
+scipy
+yt

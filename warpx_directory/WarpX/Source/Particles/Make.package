@@ -1,0 +1,22 @@
+CEXE_sources += MultiParticleContainer.cpp
+CEXE_sources += WarpXParticleContainer.cpp
+CEXE_sources += RigidInjectedParticleContainer.cpp
+CEXE_sources += PhysicalParticleContainer.cpp
+CEXE_sources += PhotonParticleContainer.cpp
+CEXE_sources += LaserParticleContainer.cpp
+CEXE_sources += ParticleBoundaryBuffer.cpp
+CEXE_sources += ParticleBoundaries.cpp
+CEXE_sources += SpeciesPhysicalProperties.cpp
+
+include $(WARPX_HOME)/Source/Particles/Algorithms/Make.package
+include $(WARPX_HOME)/Source/Particles/Pusher/Make.package
+include $(WARPX_HOME)/Source/Particles/Deposition/Make.package
+include $(WARPX_HOME)/Source/Particles/Gather/Make.package
+include $(WARPX_HOME)/Source/Particles/Sorting/Make.package
+include $(WARPX_HOME)/Source/Particles/ParticleCreation/Make.package
+include $(WARPX_HOME)/Source/Particles/ElementaryProcess/Make.package
+include $(WARPX_HOME)/Source/Particles/Collision/Make.package
+include $(WARPX_HOME)/Source/Particles/Filter/Make.package
+include $(WARPX_HOME)/Source/Particles/Resampling/Make.package
+
+VPATH_LOCATIONS   += $(WARPX_HOME)/Source/Particles

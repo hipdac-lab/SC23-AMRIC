@@ -1,0 +1,198 @@
+==============================================================================
+ WarpX Job Information
+==============================================================================
+number of MPI processes: 32
+
+
+==============================================================================
+ Build Information
+==============================================================================
+build date:    2023-04-16 11:18:16.812858
+build machine: Linux DESKTOP-901V21C 5.15.90.1-microsoft-standard-WSL2 #1 SMP Fri Jan 27 02:56:13 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
+build dir:     /opt/wpx/WarpX
+AMReX dir:     /opt/amrex
+
+COMP:          gcc
+COMP version:  9.4.0
+
+C++ compiler:  mpicxx
+C++ flags:      -Werror=return-type -g -O3 -Wall -Wextra -Wlogical-op -Wfloat-conversion -Wnull-dereference -Wmisleading-indentation -Wduplicated-cond -Wduplicated-branches -Wmissing-include-dirs -Wpedantic -Wshadow -Woverloaded-virtual -Wnon-virtual-dtor -std=c++17  -pthread   -DBL_USE_MPI -DAMREX_USE_MPI -DAMREX_MPI_THREAD_MULTIPLE -DBL_NO_FORT -DAMREX_GPU_MAX_THREADS=0 -DBL_SPACEDIM=3 -DAMREX_SPACEDIM=3 -DBL_FORT_USE_UNDERSCORE -DAMREX_FORT_USE_UNDERSCORE -DBL_Linux -DAMREX_Linux -DAMREX_PARTICLES -DNDEBUG -DOMPI_SKIP_MPICXX -DWARPX_DIM_3D -DWARPX_ZINDEX=2 -DPICSAR_NO_ASSUMED_ALIGNMENT -DWARPX -DWARPX_USE_HDF5 -DAMREX_USE_HDF5 -Itmp_build_dir/s/3d.gnu.MTMPI.EXE -I. -I/opt/amrex/Src/Extern/HDF5 -I/opt/hdf5-1.12.2/install/include -I./Source -I./Source/Particles/Filter -I/opt/amrex/Src/Base -I/opt/amrex/Src/Base/Parser -I/opt/amrex/Src/Particle -I/opt/amrex/Src/Boundary -I/opt/amrex/Src/AmrCore -I/opt/amrex/Src/LinearSolvers/MLMG -I/opt/amrex/Tools/C_scripts 
+
+Fortran comp:  mpif90
+Fortran flags:  -g -O3 -ffree-line-length-none -fno-range-check -fno-second-underscore -fimplicit-none 
+
+Link flags:    -Xlinker -rpath='/opt/wpx/WarpX' -Xlinker -rpath=/opt/hdf5-1.12.2/install/lib -L. -L/opt/hdf5-1.12.2/install/lib -Xlinker -rpath -Xlinker /opt/hdf5-1.12.2/install/lib
+Libraries:      -pthread -L/usr/lib/x86_64-linux-gnu/openmpi/lib -lmpi_cxx -lmpi -lhdf5 -lz -ldl 
+
+WarpX  git describe: 23.04-34-g8b26728f-dirty
+AMReX  git describe: 23.04-24-g27ef4ea56-dirty
+PICSAR git describe: 1903ecff
+
+
+==============================================================================
+ Grid Information
+==============================================================================
+ level: 0
+   number of boxes = 32
+   maximum zones   = 128 128 1024 
+
+ level: 1
+   number of boxes = 40
+   maximum zones   = 256 256 2048 
+
+ Boundary conditions
+   -x: interior
+   +x: interior
+   -y: interior
+   +y: interior
+   -z: interior
+   +z: interior
+
+
+==============================================================================
+ Inputs File Parameters
+==============================================================================
+max_step = 1000
+amr.max_grid_size = 128
+amr.blocking_factor = 16 32
+geometry.dims = 3
+geometry.prob_lo = -30.e-6 -30.e-6 -56.e-6
+geometry.prob_hi = 30.e-6 30.e-6 12.e-6
+amr.max_level = 1
+warpx.fine_tag_lo = -5.e-6 -5.e-6 -50.e-6
+warpx.fine_tag_hi = 5.e-6 5.e-6 -30.e-6
+boundary.field_lo = periodic periodic pec
+boundary.field_hi = periodic periodic pec
+warpx.verbose = 1
+warpx.do_dive_cleaning = 0
+warpx.use_filter = 1
+warpx.cfl = 1.
+warpx.do_moving_window = 1
+warpx.moving_window_dir = z
+warpx.moving_window_v = 1.0
+warpx.do_dynamic_scheduling = 0
+warpx.serialize_initial_conditions = 1
+algo.particle_shape = 3
+particles.species_names = electrons
+electrons.charge = -q_e
+electrons.mass = m_e
+electrons.injection_style = NUniformPerCell
+electrons.num_particles_per_cell_each_dim = 1 1 1
+electrons.xmin = -20.e-6
+electrons.xmax = 20.e-6
+electrons.ymin = -20.e-6
+electrons.ymax = 20.e-6
+electrons.zmin = 0
+electrons.profile = constant
+electrons.density = 2.e23
+electrons.momentum_distribution_type = at_rest
+electrons.do_continuous_injection = 1
+electrons.addIntegerAttributes = regionofinterest
+electrons.attribute.regionofinterest(x,y,z,ux,uy,uz,t) = (z>12.0e-6) * (z<13.0e-6)
+electrons.addRealAttributes = initialenergy
+electrons.attribute.initialenergy(x,y,z,ux,uy,uz,t) =  ux*ux + uy*uy + uz*uz
+lasers.names = laser1
+laser1.profile = Gaussian
+laser1.position = 0. 0. 9.e-6
+laser1.direction = 0. 0. 1.
+laser1.polarization = 0. 1. 0.
+laser1.e_max = 16.e12
+laser1.profile_waist = 5.e-6
+laser1.profile_duration = 15.e-15
+laser1.profile_t_peak = 30.e-15
+laser1.profile_focal_distance = 100.e-6
+laser1.wavelength = 0.8e-6
+diagnostics.diags_names = chk
+chk.format = checkpoint
+chk.intervals = 400
+chk.diag_type = Full
+warpx.reduced_diags_names = FP
+FP.type = FieldProbe
+FP.intervals = 10
+FP.integrate = 0
+FP.probe_geometry = Line
+FP.x_probe = 0
+FP.y_probe = 0
+FP.z_probe = -56e-6
+FP.x1_probe = 0
+FP.y1_probe = 0
+FP.z1_probe = 12e-6
+FP.resolution = 300
+FP.do_moving_window_FP = 1
+amrex.abort_on_out_of_gpu_memory = 1
+amrex.the_arena_is_managed = 0
+particles.do_tiling = 1
+amrex.v = 1
+amrex.verbose = 1
+amrex.regtest_reduction = 0
+amrex.signal_handling = 1
+amrex.throw_exception = 0
+amrex.call_addr2line = 1
+amrex.abort_on_unused_inputs = 0
+amrex.handle_sigsegv = 1
+amrex.handle_sigterm = 0
+amrex.handle_sigint = 1
+amrex.handle_sigabrt = 1
+amrex.handle_sigfpe = 1
+amrex.fpe_trap_invalid = 0
+amrex.fpe_trap_zero = 0
+amrex.fpe_trap_overflow = 0
+amrex.use_gpu_aware_mpi = 0
+amrex.the_arena_init_size = 0
+amrex.the_device_arena_init_size = 8388608
+amrex.the_managed_arena_init_size = 8388608
+amrex.the_pinned_arena_init_size = 8388608
+amrex.the_arena_release_threshold = 9223372036854775807
+amrex.the_device_arena_release_threshold = 9223372036854775807
+amrex.the_managed_arena_release_threshold = 9223372036854775807
+amrex.the_pinned_arena_release_threshold = 9223372036854775807
+amrex.the_async_arena_release_threshold = 9223372036854775807
+fab.init_snan = 0
+DistributionMapping.v = 0
+DistributionMapping.verbose = 0
+DistributionMapping.efficiency = 0.90000000000000002
+DistributionMapping.sfc_threshold = 0
+DistributionMapping.node_size = 0
+DistributionMapping.verbose_mapper = 0
+fab.initval = nan
+fab.do_initval = 0
+fabarray.maxcomp = 25
+vismf.v = 0
+vismf.headerversion = 1
+vismf.groupsets = 0
+vismf.setbuf = 1
+vismf.usesingleread = 0
+vismf.usesinglewrite = 0
+vismf.checkfilepositions = 0
+vismf.usepersistentifstreams = 0
+vismf.usesynchronousreads = 0
+vismf.usedynamicsetselection = 1
+vismf.iobuffersize = 2097152
+vismf.allowsparsewrites = 1
+amrex.async_out = 0
+amrex.async_out_nfiles = 64
+machine.verbose = 0
+machine.very_verbose = 0
+geometry.prob_lo = -3.0000000000000001e-05 -3.0000000000000001e-05 -5.5999999999999999e-05
+geometry.prob_hi = 3.0000000000000001e-05 3.0000000000000001e-05 1.2e-05
+amr.n_cell = 128 128 1024
+amr.max_grid_size = 128
+amr.blocking_factor = 16 32
+geometry.is_periodic = 1 1 0
+geometry.coord_sys = 0
+amr.v = 0
+amr.n_proper = 1
+amr.grid_eff = 0.69999999999999996
+amr.refine_grid_layout = 1
+amr.refine_grid_layout_x = 1
+amr.refine_grid_layout_y = 1
+amr.refine_grid_layout_z = 1
+amr.check_input = 1
+vismf.usesingleread = 1
+vismf.usesinglewrite = 1
+particles.particles_nfiles = 1024
+particles.use_prepost = 0
+particles.do_unlink = 1
+particles.do_mem_efficient_sort = 1
+lattice.reverse = 0
+warpx.used_inputs_file = warpx_used_inputs

@@ -1,0 +1,72 @@
+Bin/
+main?d.*.ex
+Python/pywarpx/libwarpx*.so
+d/
+f/
+o/
+build/
+tmp_build_dir/
+test_dir
+test_dir/
+AMReX_buildInfo.cpp
+Backtrace.*
+*.vth
+*.sw[opqrs]
+
+####################
+# AMReX data files #
+####################
+plt*
+chk*
+
+##########
+# Python #
+##########
+*.pyc
+__pycache__
+Python/build/
+Python/dist/
+Python/pywarpx.egg-info/
+_tmppythonbuild/
+pywarpx.egg-info/
+
+##########
+# Sphinx #
+##########
+Docs/amrex-doxygen-web.tag.xml
+Docs/warpx-doxygen-web.tag.xml
+Docs/openpmd-api-doxygen-web.tag.xml
+Docs/doxyhtml/
+Docs/doxyxml/
+Docs/source/_static/
+
+####################
+# Package Managers #
+####################
+# anonymous Spack environments
+# https://spack.readthedocs.io/en/latest/environments.html#anonymous-environments
+.spack-env/
+spack.lock
+
+#######
+# IDE #
+#######
+.idea/
+cmake-build-*/
+.kdev?/
+*.kdev?
+
+##########
+# VsCode #
+##########
+.vscode
+
+# File-based project format:
+*.iws
+
+######
+# OS #
+######
+.DS_Store
+.AppleDouble
+.LSOverride
