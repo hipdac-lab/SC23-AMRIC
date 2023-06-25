@@ -1,0 +1,4 @@
+ifeq ($(USE_GRAV), TRUE)
+CEXE_sources += Gravity.cpp
+CEXE_headers += Gravity.H
+endif

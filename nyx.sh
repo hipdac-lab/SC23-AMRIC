@@ -1,8 +1,5 @@
 cd $AMRIC_HOME
-git clone https://github.com/FabioGrosso/AMRIC-AMReX.git amrex
 
-cd $AMRIC_HOME
-git clone https://github.com/FabioGrosso/AMRIC-Nyx.git Nyx
 cd Nyx/subprojects
 . build-sun.sh
 
