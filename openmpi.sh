@@ -17,4 +17,5 @@
     export MANPATH=$OMPI_DIR/share/man:$MANPATH
     export C_INCLUDE_PATH=/opt/ompi/include:$C_INCLUDE_PATH
     export CPLUS_INCLUDE_PATH=/opt/ompi/include:$CPLUS_INCLUDE_PATH
+    cd $AMRIC_HOME
 
