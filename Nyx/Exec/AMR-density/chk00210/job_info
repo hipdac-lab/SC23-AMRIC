@@ -1,0 +1,267 @@
+==============================================================================
+ Nyx Job Information
+==============================================================================
+inputs file: inchk
+
+number of MPI processes: 8
+
+CPU time used since start of simulation (CPU-hours): 1.86361
+
+==============================================================================
+ Plotfile Information
+==============================================================================
+output data / time: Sun Apr 16 22:31:45 2023
+output dir:         /home/nyx128
+
+
+==============================================================================
+ Cosmology Information
+==============================================================================
+Omega_m (comoving):      0.31
+Omega_lambda (comoving): 0.69
+h (comoving):            0.675
+
+
+==============================================================================
+ Build Information
+==============================================================================
+build date:    2023-04-16 19:43:04.858523
+build machine: Linux DESKTOP-901V21C 5.15.90.1-microsoft-standard-WSL2 #1 SMP Fri Jan 27 02:56:13 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
+build dir:     /opt/Nyx/Exec/AMR-density
+AMReX dir:     /opt/amrex
+
+COMP:          gnu
+COMP version:  9.4.0
+
+C++ compiler:  mpicxx
+C++ flags:      -Werror=return-type -g -O3 -std=c++17  -pthread   -DAMREX_TINY_PROFILING -DBL_USE_MPI -DAMREX_USE_MPI -DBL_NO_FORT -DAMREX_GPU_MAX_THREADS=0 -DBL_SINGLE_PRECISION_PARTICLES -DAMREX_SINGLE_PRECISION_PARTICLES -DBL_SPACEDIM=3 -DAMREX_SPACEDIM=3 -DBL_FORT_USE_UNDERSCORE -DAMREX_FORT_USE_UNDERSCORE -DBL_Linux -DAMREX_Linux -DAMREX_PARTICLES -DNDEBUG -DAMREX_NO_PROBINIT -DOMPI_SKIP_MPICXX -DCRSEGRNDOMP -DBL_SINGLE_PRECISION_PARTICLES -DGRAVITY -DHEATCOOL -DCONST_SPECIES -DSDC -DAMREX_USE_SUNDIALS -DAMREX_USE_HDF5 -Itmp_build_dir/s/3d.gnu.TPROF.MPI.EXE -I. -I/opt/amrex/Src/Extern/SUNDIALS -I/opt/amrex/Src/Extern/HDF5 -I/opt/hdf5-1.12.2/install/include -I/opt/Nyx/subprojects/sundials/instdir/include -I. -I../../Source/Driver -I../../Source/TimeStep -I../../Source/Hydro -I../../Source/EOS -I../../Source/HeatCool -I../../Source/IO -I../../Source/Initialization -I../../Source/DerivedQuantities -I../../Source/Forcing -I../../Exec -I../../Source/Particle -I../../Source/Monitors -I../../Source/Gravity -I../../Source/AGN -I/opt/amrex/Src/Base -I/opt/amrex/Src/Base/Parser -I/opt/amrex/Src/AmrCore -I/opt/amrex/Src/Amr -I/opt/amrex/Src/Boundary -I/opt/amrex/Src/Particle -I/opt/amrex/Src/Extern/SUNDIALS -I/opt/amrex/Src/Base -I/opt/amrex/Src/AmrCore -I/opt/amrex/Src/Amr -I/opt/amrex/Src/Boundary -I/opt/amrex/Src/Particle -I/opt/amrex/Src/Extern/SUNDIALS -I/opt/amrex/Src/LinearSolvers/MLMG -I/opt/amrex/Src/LinearSolvers/MLMG -I/opt/amrex/Tools/C_scripts 
+
+Fortran comp:  mpif90
+Fortran flags:  -g -O3 -ffree-line-length-none -fno-range-check -fno-second-underscore -fimplicit-none 
+
+Link flags:    -Xlinker -rpath='/opt/Nyx/Exec/AMR-density' -Xlinker -rpath=/opt/hdf5-1.12.2/install/lib -Xlinker -rpath=/opt/Nyx/subprojects/sundials/instdir/lib -L. -L/opt/hdf5-1.12.2/install/lib -L/opt/Nyx/subprojects/sundials/instdir/lib -Xlinker -rpath -Xlinker /opt/hdf5-1.12.2/install/lib
+Libraries:      -pthread -L/usr/lib/x86_64-linux-gnu/openmpi/lib -lmpi_cxx -lmpi -lhdf5 -lz -ldl -L/opt/Nyx/subprojects/sundials/instdir/lib -lsundials_cvode -L/opt/Nyx/subprojects/sundials/instdir/lib -lsundials_arkode -L/opt/Nyx/subprojects/sundials/instdir/lib -lsundials_nvecserial 
+
+Nyx    git hash: 21.10-130-gd32083e0-dirty
+AMReX git hash:  23.04-24-g27ef4ea56-dirty
+
+
+==============================================================================
+ Grid Information
+==============================================================================
+ level: 0
+   number of boxes = 8
+   maximum zones   = 128 128 128 
+
+ level: 1
+   number of boxes = 8
+   maximum zones   = 256 256 256 
+
+ Boundary conditions
+   -x: interior
+   +x: interior
+   -y: interior
+   +y: interior
+   -z: interior
+   +z: interior
+
+
+==============================================================================
+ Inputs File Parameters
+==============================================================================
+max_step = 220
+amr.mffile_nstreams = 4
+amr.precreateDirectories = 1
+amr.prereadFAHeaders = 1
+amr.checkpoint_headerversion = 2
+vismf.groupsets = 0
+vismf.setbuf = 1
+vismf.usesingleread = 1
+vismf.usesinglewrite = 1
+vismf.checkfilepositions = 1
+vismf.usepersistentifstreams = 1
+vismf.usesynchronousreads = 0
+vismf.usedynamicsetselection = 1
+nyx.ppm_type = 1
+nyx.use_colglaz(nvals = 1)  :: [0]
+nyx.corner_coupling(nvals = 1)  :: [1]
+nyx.strang_split = 0
+nyx.sdc_split = 1
+nyx.add_ext_src = 0
+nyx.heat_cool_type = 11
+nyx.h_species = .76
+nyx.he_species = .24
+nyx.small_dens = 1.e-2
+nyx.small_temp = 1.e-2
+nyx.do_santa_barbara = 1
+nyx.init_sb_vels = 1
+gravity.ml_tol = 1e-05
+gravity.sl_tol = 1e-05
+gravity.mlmg_agglomeration = 1
+gravity.mlmg_consolidation = 1
+nyx.initial_z = 200
+nyx.final_z = 2.0
+amr.data_log = run/runlog
+amr.restart = chk00200
+gravity.no_sync = 1
+gravity.no_composite = 1
+geometry.is_periodic = 1 1 1
+geometry.coord_sys = 0
+geometry.prob_lo = 0 0 0
+geometry.prob_hi = 3.90625 3.90625 3.90625
+amr.n_cell = 128 128 128
+amr.max_grid_size = 128 128 128
+fabarray.mfiter_tile_size = 1024000 8 8
+nyx.lo_bc = 0 0 0
+nyx.hi_bc = 0 0 0
+nyx.do_hydro = 1
+nyx.do_grav = 1
+nyx.comoving_h = 0.675
+nyx.comoving_OmB = 0.0487
+nyx.comoving_OmM = .31
+nyx.inhomo_reion = 0
+nyx.inhomo_zhi_file(nvals = 1)  :: [zhi.bin]
+nyx.inhomo_grid(nvals = 1)  :: [512]
+nyx.uvb_rates_file = TREECOOL_middle
+nyx.uvb_density_A = 1.0
+nyx.uvb_density_B = 0.0
+nyx.reionization_zHI_flash = -1.0
+nyx.reionization_zHeII_flash = -1.0
+nyx.reionization_T_zHI = 2.0e4
+nyx.reionization_T_zHeII = 1.5e4
+nyx.do_dm_particles = 1
+nyx.particle_init_type = BinaryFile
+nyx.binary_particle_file = 128_hi3-90625.nyx
+particles.nparts_per_read(nvals = 1)  :: [2097152]
+nyx.relative_max_change_a = 0.01
+particles.cfl = 0.5
+nyx.cfl = 0.5
+nyx.init_shrink = 1.0
+nyx.change_max = 2.0
+nyx.dt_cutoff = 5.e-20
+nyx.sum_interval = -1
+nyx.v = 1
+gravity.v = 1
+amr.v = 1
+mg.v = 1
+particles.v = 2
+amr.max_level = 1
+amr.ref_ratio = 2 2 2 2
+amr.blocking_factor = 16 32
+amr.subcycling_mode = Auto
+amr.regrid_int = 2 2 2 2
+amr.n_error_buf = 2 2 2 2
+amr.refine_grid_layout = 1
+amr.regrid_on_restart = 1
+amr.refinement_indicators = density
+amr.density.value_greater = 1
+amr.density.field_name = overden
+nyx.tagging_base = 1.01
+amr.checkpoint_files_output = 1
+amr.check_file = chk
+amr.check_int = 10
+amr.checkpoint_nfiles = 64
+amr.plot_files_output = 0
+amr.plot_file = run/plt
+amr.plot_int = 1
+nyx.plot_z_values = 7.0 6.0 5.0 4.0 3.0 2.0
+amr.plot_vars(nvals = 7)  :: [density, xmom, ymom, zmom, rho_e, Temp, phi_grav]
+amr.derive_plot_vars(nvals = 3)  :: [particle_x_velocity, particle_y_velocity, particle_z_velocity]
+amr.probin_file(nvals = 1)  :: []
+amrex.abort_on_out_of_gpu_memory = 1
+nyx.minimize_memory = 1
+nyx.hydro_tile_size = 64 64 64
+nyx.sundials_tile_size = 64 64 64
+nyx.sundials_use_tiling = 1
+amrex.the_arena_is_managed = 0
+amrex.max_gpu_streams(nvals = 1)  :: [8]
+tiny_profiler.device_synchronize_around_region = 0
+amrex.use_profiler_syncs = 0
+nyx.sundials_alloc_type = 5
+nyx.fix_random_seed = 1
+nyx.load_balance_start_z = 12.0
+nyx.load_balance_int = 100
+nyx.load_balance_wgt_strategy = 1
+nyx.load_balance_strategy = KNAPSACK
+particles.nreaders(nvals = 1)  :: [32]
+amrex.v = 1
+amrex.verbose = 1
+amrex.regtest_reduction = 0
+amrex.signal_handling = 1
+amrex.throw_exception = 0
+amrex.call_addr2line = 1
+amrex.abort_on_unused_inputs = 0
+amrex.handle_sigsegv = 1
+amrex.handle_sigterm = 0
+amrex.handle_sigint = 1
+amrex.handle_sigabrt = 1
+amrex.handle_sigfpe = 1
+amrex.fpe_trap_invalid = 0
+amrex.fpe_trap_zero = 0
+amrex.fpe_trap_overflow = 0
+amrex.use_gpu_aware_mpi = 0
+amrex.the_arena_init_size = 0
+amrex.the_device_arena_init_size = 8388608
+amrex.the_managed_arena_init_size = 8388608
+amrex.the_pinned_arena_init_size = 8388608
+amrex.the_arena_release_threshold = 9223372036854775807
+amrex.the_device_arena_release_threshold = 9223372036854775807
+amrex.the_managed_arena_release_threshold = 9223372036854775807
+amrex.the_pinned_arena_release_threshold = 9223372036854775807
+amrex.the_async_arena_release_threshold = 9223372036854775807
+fab.init_snan = 0
+DistributionMapping.v = 0
+DistributionMapping.verbose = 0
+DistributionMapping.efficiency = 0.90000000000000002
+DistributionMapping.sfc_threshold = 0
+DistributionMapping.node_size = 0
+DistributionMapping.verbose_mapper = 0
+fab.initval = nan
+fab.do_initval = 0
+fabarray.maxcomp = 25
+vismf.v = 0
+vismf.headerversion = 1
+vismf.iobuffersize = 2097152
+vismf.allowsparsewrites = 1
+amrex.async_out = 0
+amrex.async_out_nfiles = 64
+machine.verbose = 0
+machine.very_verbose = 0
+tiny_profiler.verbose = 0
+tiny_profiler.v = 0
+amr.n_proper = 1
+amr.grid_eff = 0.69999999999999996
+amr.refine_grid_layout_x = 1
+amr.refine_grid_layout_y = 1
+amr.refine_grid_layout_z = 1
+amr.check_input = 1
+amr.use_efficient_regrid = 0
+amr.plotfile_on_restart = 0
+amr.insitu_on_restart = 0
+amr.checkpoint_on_restart = 0
+amr.compute_new_dt_on_regrid = 0
+amr.file_name_digits = 5
+amr.message_int = 10
+amr.plot_nfiles = 64
+amr.check_per = -1
+amr.plot_per = -1
+amr.plot_log_per = -1
+amr.small_plot_file = smallplt
+amr.small_plot_int = -1
+amr.small_plot_per = -1
+amr.small_plot_log_per = -1
+amr.write_plotfile_with_checkpoint = 1
+amr.stream_max_tries = 4
+amr.abort_on_stream_retry_failure = 0
+amr.plot_headerversion = 1
+amr.loadbalance_with_workestimates = 0
+amr.loadbalance_level0_int = 2
+amr.loadbalance_max_fac = 1.5
+particles.do_tiling = 0
+particles.use_prepost = 0
+particles.do_unlink = 1
+particles.do_mem_efficient_sort = 1
+particles.datadigits_read = 5
+particles.aggregation_type = None
+particles.aggregation_buffer = 2
+particles.particles_nfiles = 256
