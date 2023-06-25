@@ -1,0 +1,506 @@
+#ifndef SZ_GENERAL_COMPRESSOR_HPP
+#define SZ_GENERAL_COMPRESSOR_HPP
+
+#include "SZ3/encoder/HuffmanEncoder.hpp"
+#include "SZ3/compressor/Compressor.hpp"
+#include "SZ3/frontend/Frontend.hpp"
+#include "SZ3/encoder/Encoder.hpp"
+#include "SZ3/lossless/Lossless.hpp"
+#include "SZ3/utils/FileUtil.hpp"
+#include "SZ3/utils/Config.hpp"
+#include "SZ3/utils/Timer.hpp"
+#include "SZ3/def.hpp"
+#include <cstring>
+
+size_t arrSum(size_t *arr, size_t n) {
+    size_t sum = 0; 
+    for (size_t i = 0; i < n; i++)
+        sum += arr[i];
+    return sum;
+}
+
+namespace SZ {
+    template<class T, uint N, class Frontend, class Encoder, class Lossless>
+    class SZGeneralCompressor : public concepts::CompressorInterface<T> {
+    public:
+
+
+        SZGeneralCompressor(Frontend frontend, Encoder encoder, Lossless lossless) :
+                frontend(frontend), encoder(encoder), lossless(lossless) {
+            static_assert(std::is_base_of<concepts::FrontendInterface<T, N>, Frontend>::value,
+                          "must implement the frontend interface");
+            static_assert(std::is_base_of<concepts::EncoderInterface<int>, Encoder>::value,
+                          "must implement the encoder interface");
+            static_assert(std::is_base_of<concepts::LosslessInterface, Lossless>::value,
+                          "must implement the lossless interface");
+        }
+
+        uchar *compress(const Config &conf, T *data, size_t &compressed_size) {
+            Timer timer(true);
+            size_t maxBlk = conf.maxBlk;
+            size_t blkSize = conf.blkSize;
+            size_t szBlk = conf.blockSize;
+            size_t* c = conf.meta;
+            size_t estRt = int(std::cbrt(conf.totalLength));
+            int* metaTemp = new int[10 * ((estRt - 1) / 6 + 1) * ((estRt - 1) / 6 + 1) * ((estRt - 1) / 6 + 1)];
+            size_t regCnt;
+            size_t regCntSum = 0;
+            std::vector<int> quant_inds;
+            std::vector<int> meta_inds;
+            size_t bufferSize = 59305830;
+            uchar *buffer = new uchar[bufferSize];
+            uchar *buffer_pos = buffer;
+            uchar *buffer_temp = buffer;
+
+            if (conf.ifTree == false)
+            {
+                // size_t *ind = new size_t[maxBlk]{0};
+                // for(int i = 0; i < maxBlk; ++i) {
+                //     ind[i] = c[i] * blkSize * (i + 1) * blkSize * (i + 1) * blkSize * (i + 1);
+                //     // std::cout << ind[i] << std::endl;
+                // }
+
+                // double **ts = new double*[maxBlk]{0};
+                // size_t k=0;
+                // for(int i = 0; i < maxBlk; ++i) {
+                //     ts[i] = new double[ind[i]];
+                //     for (size_t j = 0; j < ind[i]; j++)
+                //     {
+                //         ts[i][j] = data[k];
+                //         k++;
+                //     }
+                // }
+
+                // for(int i = 0; i < maxBlk; ++i) {
+                //     if (c[i] > 0) {
+                //         conf.dims[2] = blkSize * (i + 1);
+                //         conf.dims[1] = blkSize * (i + 1);
+                //         conf.dims[0] = blkSize * (i + 1) * c[i];
+                //         // std::cout << "dims: "<<conf.dims[0] << " " <<conf.dims[1] << " " <<conf.dims[2] << std::endl;
+                //         auto quant_blk = frontend.compress(ts[i], conf.dims[2], conf.dims[1],conf.dims[0]);
+                //         quant_inds.insert(quant_inds.end(), quant_blk.begin(), quant_blk.end());
+                //         std::cout << "quant size: " << quant_inds.size() << std::endl;
+                //         // bufferSize += 1.5 * (frontend.size_est());
+                //     }
+                // }
+            } 
+            else if (conf.ifTree == true) {
+                // std::cout << "ttttttttttttt" << std::endl;
+                size_t *ind = new size_t[maxBlk]{0};
+                for(int i = 0; i < maxBlk; ++i) {
+                    ind[i] = c[i] * pow(2, i)* blkSize * blkSize * blkSize;
+                    // std::cout << ind[i] << std::endl;
+                }
+
+                double ***ts = new double**[maxBlk]{0};
+                size_t h=0;
+                for(int i = 0; i < maxBlk; ++i) 
+                {
+                    ts[i] = new double*[c[i]];
+                    for (size_t j = 0; j < c[i]; j++) 
+                    {
+                        ts[i][j] = new double [int(pow(2, i))* blkSize * blkSize * blkSize];
+                        for (size_t k = 0; k < pow(2, i)* blkSize * blkSize * blkSize; k++) 
+                        {
+                            ts[i][j][k] = data[h];
+                            h++;
+                        }
+                    }   
+                }
+                // std::cout << "h" << h << std::endl;
+
+                for(int i = 0; i < maxBlk; ++i) {
+                    if (c[i] > 0) {
+                        double treeBlkSize = pow(2, i);
+                        double temp_0 = std::cbrt(treeBlkSize);
+                        double temp_1 = std::cbrt(treeBlkSize * 2);
+                        double temp_2 = std::cbrt(treeBlkSize/2);
+                        if (temp_0 - int(temp_0) == 0){
+                            size_t blkNum_x = int(temp_0);
+                            size_t x = blkSize * blkNum_x;
+                            size_t y = blkSize * blkNum_x;
+                            size_t z = blkSize * blkNum_x;
+                            for (size_t j = 0; j < c[i]; j++)
+                            {
+                                // if (i == 0)
+                                // {
+                                //     szBlk = 8;
+                                // }
+                                auto quant_blk = frontend.compress(ts[i][j], x, y, z, szBlk);
+                                quant_inds.insert(quant_inds.end(), quant_blk.begin(), quant_blk.end());
+                                // std::cout << "quant size: " << quant_inds.size() << std::endl;
+                                int* meta_blk = frontend.save(buffer_pos, regCnt, szBlk);
+                                szBlk = conf.blockSize;
+                                // meta_inds.insert(meta_inds.end(), meta_blk.begin(), meta_blk.end());
+                                for (size_t k = 0; k < regCnt; k++)
+                                {
+                                    metaTemp[regCntSum] = meta_blk[k];
+                                    regCntSum++;
+                                } 
+                            }
+                            // char * tp3d = new char[blkNum_x*blkNum_x*blkNum_x*c[i]]{0};
+                            // for (size_t z = 0; z < blkNum_x * c[i]; z++){
+                            //     for (size_t y = 0; y < blkNum_x; y++){
+                            //         for (size_t x = 0; x < blkNum_x; x++){
+                            //             size_t ind_0 = 0;
+                            //             for (size_t k = z * blkSize; k < (z + 1) * blkSize; k++){
+                            //                 for (size_t j = y * blkSize; j < (y + 1) * blkSize; j++){
+                            //                     for (size_t u = x * blkSize; u < (x + 1) * blkSize; u++){
+                            //                         if (ts[i][u + (j * blkNum_x * blkSize) + (k * blkNum_x * blkSize * blkNum_x * blkSize)] != 0){
+                            //                             ind_0 = 1;
+                            //                         }
+                            //                     }
+                            //                 }
+                            //             }
+                            //             if (ind_0 == 0){
+                            //                 tp3d[x + (y * blkNum_x) + (z * blkNum_x * blkNum_x)] = 0;
+                            //             }else{
+                            //                 tp3d[x + (y * blkNum_x) + (z * blkNum_x * blkNum_x)] = 1;
+                            //             }		
+                            //         }	
+                            //     }
+                            // }
+                            // ts[i] =treeGsp(ts[i], tp3d, blkNum_x* blkSize, blkNum_x* blkSize, blkNum_x * c[i] * blkSize,blkSize, 4, 4, blkNum_x);
+                            
+                            // frontend.clear();
+                            // std::cout << "metaBlk size test: " << ((x - 1) / 6 + 1) * ((y - 1) / 6 + 1) * ((z - 1) / 6 + 1) << std::endl;
+                        } else if (temp_1 - int(temp_1) == 0){
+                            size_t blkNum_x = int(temp_1);
+				            size_t blkNum_z = blkNum_x/2;
+                            size_t x = blkSize * blkNum_x;
+                            size_t y = blkSize * blkNum_x;
+                            size_t z = blkSize * blkNum_x/2;
+                            // char * tp3d = new char[blkNum_x*blkNum_x*blkNum_z*c[i]]{0};
+                            // for (size_t z = 0; z < blkNum_z * c[i]; z++){
+                            //     for (size_t y = 0; y < blkNum_x; y++){
+                            //         for (size_t x = 0; x < blkNum_x; x++){
+                            //             size_t ind_0 = 0;
+                            //             for (size_t k = z * blkSize; k < (z + 1) * blkSize; k++){
+                            //                 for (size_t j = y * blkSize; j < (y + 1) * blkSize; j++){
+                            //                     for (size_t u = x * blkSize; u < (x + 1) * blkSize; u++){
+                            //                         if (ts[i][u + (j * blkNum_x * blkSize) + (k * blkNum_x * blkSize * blkNum_x * blkSize)] != 0){
+                            //                             ind_0 = 1;
+                            //                         }
+                            //                     }
+                            //                 }
+                            //             }
+                            //             if (ind_0 == 0){
+                            //                 tp3d[x + (y * blkNum_x) + (z * blkNum_x * blkNum_x)] = 0;
+                            //             }else{
+                            //                 tp3d[x + (y * blkNum_x) + (z * blkNum_x * blkNum_x)] = 1;
+                            //             }		
+                            //         }	
+                            //     }
+                            // }
+                            // ts[i] = treeGsp(ts[i], tp3d, blkNum_x* blkSize, blkNum_x* blkSize, blkNum_z * c[i] * blkSize,blkSize, 4, 4, blkNum_z);
+                            for (size_t j = 0; j < c[i] ; j++)
+                            {
+                                auto quant_blk = frontend.compress(ts[i][j], x, y, z, szBlk);
+                                quant_inds.insert(quant_inds.end(), quant_blk.begin(), quant_blk.end());
+                                // std::cout << "quant size: " << quant_inds.size() << std::endl;
+                                int* meta_blk = frontend.save(buffer_pos, regCnt, szBlk);
+                                // meta_inds.insert(meta_inds.end(), meta_blk.begin(), meta_blk.end());
+                                for (size_t k = 0; k < regCnt; k++)
+                                {
+                                    metaTemp[regCntSum] = meta_blk[k];
+                                    regCntSum++;
+                                } 
+                            }
+                            // frontend.clear();
+                        } else {
+                            size_t blkNum_x = int(temp_2);
+				            size_t blkNum_z = blkNum_x * 2;
+                            size_t x = blkSize * blkNum_x;
+                            size_t y = blkSize * blkNum_x;
+                            size_t z = 2 * blkSize * blkNum_x;
+                            // char * tp3d = new char[blkNum_x*blkNum_x*blkNum_z*c[i]]{0};
+                            // for (size_t z = 0; z < blkNum_z * c[i]; z++){
+                            //     for (size_t y = 0; y < blkNum_x; y++){
+                            //         for (size_t x = 0; x < blkNum_x; x++){
+                            //             size_t ind_0 = 0;
+                            //             for (size_t k = z * blkSize; k < (z + 1) * blkSize; k++){
+                            //                 for (size_t j = y * blkSize; j < (y + 1) * blkSize; j++){
+                            //                     for (size_t u = x * blkSize; u < (x + 1) * blkSize; u++){
+                            //                         if (ts[i][u + (j * blkNum_x * blkSize) + (k * blkNum_x * blkSize * blkNum_x * blkSize)] != 0){
+                            //                             ind_0 = 1;
+                            //                         }
+                            //                     }
+                            //                 }
+                            //             }
+                            //             if (ind_0 == 0){
+                            //                 tp3d[x + (y * blkNum_x) + (z * blkNum_x * blkNum_x)] = 0;
+                            //             }else{
+                            //                 tp3d[x + (y * blkNum_x) + (z * blkNum_x * blkNum_x)] = 1;
+                            //             }		
+                            //         }	
+                            //     }
+                            // }
+                            // ts[i] = treeGsp(ts[i], tp3d, blkNum_x* blkSize, blkNum_x* blkSize, blkNum_z * c[i] * blkSize,blkSize, 4, 4, blkNum_z);
+                            for (size_t j = 0; j < c[i] ; j++)
+                            {
+                                auto quant_blk = frontend.compress(ts[i][j], x, y, z, szBlk);
+                                quant_inds.insert(quant_inds.end(), quant_blk.begin(), quant_blk.end());
+                                // std::cout << "quant size: " << quant_inds.size() << std::endl;
+                                int* meta_blk = frontend.save(buffer_pos, regCnt, szBlk);
+                                // meta_inds.insert(meta_inds.end(), meta_blk.begin(), meta_blk.end());
+                                for (size_t k = 0; k < regCnt; k++)
+                                {
+                                    metaTemp[regCntSum] = meta_blk[k];
+                                    regCntSum++;
+                                } 
+                            }
+                            // frontend.clear();
+                        }
+                    }
+                }
+                std::cout << "regCntSum: " << regCntSum << std::endl;
+
+
+            }
+
+            
+
+            // int* meta = new int[regCntSum];
+            // for (size_t i = 0; i < regCntSum; i++)
+            // {
+            //     meta[i] = metaTemp[i];
+            //     i++;
+            // }
+            // delete [] metaTemp;
+
+            // std::string outName = "/data/lab/tao/daoce/lanlData/test1.bin";
+            // std::ofstream fout;
+            // fout.open(outName, std::ofstream::binary);
+            // if (fout.fail()) {
+            //     std::cout << "Error opening file" << std::endl;
+            //     return 0;
+            // }
+            // for (size_t i = 0; i < regCntSum; ++i) 
+            // {
+            //     fout.write( reinterpret_cast<char*>(&metaTemp[i]) , sizeof(int));
+            // }
+            // fout.close();
+
+            HuffmanEncoder<int> reg_huffman = HuffmanEncoder<int>();
+            reg_huffman.preprocess_encode(metaTemp, regCntSum, 0);
+            buffer_temp = buffer_pos;
+            reg_huffman.save(buffer_pos);
+            std::cout << "metatree size: " << buffer_pos - buffer_temp << std::endl;
+            buffer_temp = buffer_pos;
+            reg_huffman.encode(metaTemp, regCntSum, buffer_pos);
+            std::cout << "meta size: " << buffer_pos - buffer_temp << std::endl;
+            reg_huffman.postprocess_encode();
+
+            // HuffmanEncoder<int> indicator_huffman = HuffmanEncoder<int>();
+            // indicator_huffman.preprocess_encode(meta_inds, 8);
+            // indicator_huffman.save(buffer_pos);
+            // indicator_huffman.encode(meta_inds, buffer_pos);
+            // indicator_huffman.postprocess_encode();
+
+            encoder.preprocess_encode(quant_inds, 0);
+            buffer_temp = buffer_pos;
+            encoder.save(buffer_pos);
+            std::cout << "datatree size: " << buffer_pos - buffer_temp << std::endl;
+            // std::cout << "meta bufferSize: " << buffer_pos - buffer << std::endl;
+            buffer_temp = buffer_pos;
+            encoder.encode(quant_inds, buffer_pos);
+            std::cout << "data size: " << buffer_pos - buffer_temp << std::endl;
+            encoder.postprocess_encode();
+
+            assert(buffer_pos - buffer < bufferSize);
+            std::cout << "real bufferSize: " << buffer_pos - buffer << std::endl;
+
+            uchar *lossless_data = lossless.compress(buffer, buffer_pos - buffer, compressed_size);
+            lossless.postcompress_data(buffer);
+
+            return lossless_data;
+
+            // std::vector<int> quant_inds = frontend.compress(data);
+
+            // encoder.preprocess_encode(quant_inds, 0);
+            // size_t bufferSize = 1.2 * (frontend.size_est() + encoder.size_est() + sizeof(T) * quant_inds.size());
+
+            // uchar *buffer = new uchar[bufferSize];
+            // uchar *buffer_pos = buffer;
+
+            // frontend.save(buffer_pos);
+
+            // encoder.save(buffer_pos);
+            // encoder.encode(quant_inds, buffer_pos);
+            // encoder.postprocess_encode();
+
+            // assert(buffer_pos - buffer < bufferSize);
+
+            // uchar *lossless_data = lossless.compress(buffer, buffer_pos - buffer, compressed_size);
+            // lossless.postcompress_data(buffer);
+
+            // return lossless_data;
+        }
+
+        T *decompress(uchar const *cmpData, const size_t &cmpSize, size_t num) {
+            T *dec_data = new T[num];
+            return decompress(cmpData, cmpSize, dec_data);
+        }
+
+        T *decompress(uchar const *cmpData, const size_t &cmpSize, T *decData) {
+            size_t remaining_length = cmpSize;
+            size_t init_length = cmpSize;
+            size_t regCnt;
+            size_t regCntSum = 0;
+            // std::cout << "cmpSize: " << cmpSize << std::endl;
+
+            Timer timer(true);
+            auto compressed_data = lossless.decompress(cmpData, remaining_length);
+            uchar const *compressed_data_pos = compressed_data;
+            // uchar const *init_pos = compressed_data;
+            size_t maxBlk = frontend.get_blkNum();
+            size_t* c = frontend.get_meta();
+            size_t cSum = 0;
+            for (size_t i = 0; i < maxBlk; i++){
+                cSum += c[i];
+            }
+            uchar const *ptr[cSum];
+            size_t remainArr[cSum];
+            size_t regArrTemp[cSum];
+            size_t blkSize = frontend.get_blkSize();
+            // size_t cnt = 0;
+            size_t count = 0;
+            std::vector<int> temp;
+            for (size_t i = 0; i < maxBlk; i++)
+            {
+                if (c[i] > 0) {
+                    for (size_t j = 0; j < c[i]; j++){
+                        ptr[count] = compressed_data_pos;
+                        remainArr[count] = remaining_length;
+                        frontend.load(compressed_data_pos, remaining_length, 1, 1, 1, regCnt, temp, 0);
+                        regArrTemp[count] = regCnt;
+                        regCntSum += regCnt;
+                        count++;
+                    }
+                    // std::cout << "remaining_length_outer: " << remaining_length << std::endl;
+                }
+            }
+
+            HuffmanEncoder<int> reg_huffman = HuffmanEncoder<int>();
+            reg_huffman.load(compressed_data_pos, remaining_length);
+            auto reg_vector = reg_huffman.decode(compressed_data_pos, regCntSum);
+            reg_huffman.postprocess_decode();
+            // int *reg_type = reg_vector.data();
+
+            size_t *regArr = new size_t[count]{0};
+            for(int i = 0; i < count; ++i) {
+                regArr[i] = regArrTemp[i];
+            }
+
+            encoder.load(compressed_data_pos, remaining_length);
+
+            timer.start();
+            auto quant_inds = encoder.decode(compressed_data_pos, frontend.get_num_elements());
+
+            std::cout << "de quant size: " << quant_inds.size() << std::endl;
+            // size_t *ind = new size_t[maxBlk]{0};
+            // for(int i = 0; i < maxBlk; ++i) {
+            //     ind[i] = c[i] * pow(2, i)* blkSize * blkSize * blkSize;
+            //     // cnt += ind[i];
+            //     // std::cout << c[i] << " " << blkSize << std::endl;
+            // }
+            // std::cout << "cnt: " << cnt << std::endl;
+            // double **ts = new double*[maxBlk];
+            // size_t k = 0;
+            // for(int i = 0; i < maxBlk; ++i) {
+            //     ts[i] = new double[ind[i]];
+            // }
+            // size_t *indNew = new size_t[count]{0};
+            // count = 0;
+            // for(int i = 0; i < maxBlk; ++i) {
+            //     if (ind[i] != 0){
+            //         indNew[count] = ind[i];
+            //         count++;
+            //     }  
+            // }
+            
+            double ***ts = new double**[maxBlk]{0};
+            size_t h=0;
+            for(int i = 0; i < maxBlk; ++i) 
+            {
+                ts[i] = new double*[c[i]];
+                for (size_t j = 0; j < c[i]; j++) 
+                {
+                    ts[i][j] = new double [int(pow(2, i))* blkSize * blkSize * blkSize];
+                }   
+            }
+
+            count = 0;
+            size_t x, z;
+            size_t tempInd = 0;
+            for (size_t i = 0; i < maxBlk; i++)
+            {
+                // std::cout << "iii: " << i << std::endl;
+                if (c[i] > 0) {
+                    double treeBlkSize = pow(2, i);
+                    double temp_0 = std::cbrt(treeBlkSize);
+                    double temp_1 = std::cbrt(treeBlkSize * 2);
+                    double temp_2 = std::cbrt(treeBlkSize/2);
+                    if (temp_0 - int(temp_0) == 0){
+                        x = blkSize * int(temp_0);
+                        z = x;
+                    } else if (temp_1 - int(temp_1) == 0) {
+                        x = blkSize * int(temp_1);
+                        z = x/2;
+                    } else {
+                        x = blkSize * int(temp_2);
+                        z = x * 2;
+                    }
+                    for (size_t j = 0; j < c[i]; j++) {
+                        // frontend.load(init_pos, init_length, x, x, z * c[i]);
+                        std::vector<int> sub_reg {reg_vector.begin() + arrSum(regArr, count), reg_vector.begin() + arrSum(regArr, count + 1)};
+                        frontend.load(ptr[count], remainArr[count], x, x, z, regCnt, sub_reg, 1);
+                        // std::cout << z * c[i] << " " << x << " " << x << std::endl;
+                        std::vector<int> sub_quant {quant_inds.begin() + tempInd, quant_inds.begin() + tempInd + x * x * z};
+                        tempInd += x * x * z;
+                        encoder.postprocess_decode();
+                        frontend.decompress(sub_quant, ts[i][j]);
+                        // frontend.clear();
+                        count++;
+                    }
+                }
+            }
+
+            //   for(int i = 0; i < 2; ++i) {
+            //         for (size_t j = 0; j < ind[i]; j++){
+            //             std::cout << i << " " << j << " " << ts[i][j] << std::endl;
+            //         }
+            //     }
+
+            lossless.postdecompress_data(compressed_data);
+            
+            h = 0;
+            for (size_t i = 0; i < maxBlk; i++){
+                for (size_t j = 0; j < c[i]; j++) {
+                    for (size_t k = 0; k < pow(2, i)* blkSize * blkSize * blkSize; k++) 
+                    {
+                        decData[h] = ts[i][j][k];
+                        h++;
+                    }
+                }
+            }
+            return decData;
+        }
+
+
+    private:
+        Frontend frontend;
+        Encoder encoder;
+        Encoder encoder0;
+        Lossless lossless;
+    };
+
+    template<class T, uint N, class Frontend, class Encoder, class Lossless>
+    std::shared_ptr<SZGeneralCompressor<T, N, Frontend, Encoder, Lossless>>
+    make_sz_general_compressor(Frontend frontend, Encoder encoder, Lossless lossless) {
+        return std::make_shared<SZGeneralCompressor<T, N, Frontend, Encoder, Lossless>>(frontend, encoder, lossless);
+    }
+
+
+}
+#endif
