@@ -1,0 +1,2 @@
+/usr/bin/ar qc libhdf5sz3.a CMakeFiles/hdf5sz3.dir/src/H5Z_SZ3.o
+/usr/bin/ranlib libhdf5sz3.a
