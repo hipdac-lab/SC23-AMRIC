@@ -119,7 +119,6 @@ echo export AMRIC_HOME=$(pwd) >> ~/.bashrc
 ### Step 2: Load or install CMake and numpy. For example, in Ubuntu
 ```
 pip3 install numpy
-sudo snap install cmake
 sudo snap install cmake --classic
 ```
 ### Step 3: Load or install OpenMPI. For example, in Ubuntu (7 mins)
