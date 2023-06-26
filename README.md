@@ -131,7 +131,7 @@ sudo bash openmpi.sh
 ```
 . hdf5.sh
 ```
-### Step 5: Install optimized SZ3 (de)compressor and H5Z-SZ3 (de)compression filter (5 mins)
+### Step 5: Install optimized SZ3 compressor and H5Z-SZ3 compression filter (5 mins)
 ```
 . compressor.sh
 ```
