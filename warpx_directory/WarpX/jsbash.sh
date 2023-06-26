@@ -4,18 +4,18 @@ do
     echo "Running iteration $i..."
     echo "0.005" > eb.txt
     echo "sz2"
-    source ./sz2.sh
+    source ./64-sz2.sh
     jsrun -n 8 ./sz2 inputs > otfile/sz2-$i.txt
     mv diags/plt001001.h5 diags/sz2-001.h5
 
     echo "0.005" > eb.txt
     echo "sz3"
-    source ./sz3.sh
+    source ./64-sz3.sh
     jsrun -n 8 ./sz3 inputs > otfile/sz3-$i.txt
     mv diags/plt001001.h5 diags/sz3-001.h5
 
     echo "0.01" > eb.txt
-    source ./base.sh
+    source ./64-base.sh
     echo "nocomp"
     jsrun -n 8 ./nocomp inputs > otfile/nocomp-$i.txt
     mv diags/plt001001.h5 diags/nocomp.h5
