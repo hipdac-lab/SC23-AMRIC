@@ -20,8 +20,7 @@ gdown https://drive.google.com/uc?id=14v_xUmET-HvCFO3LqmD4sNJL65jBcd0L&export=do
 ```
 or via GitHub
 ```
-git clone https://github.com/hipdac-lab/AMRIC-\
-image.git
+git clone https://github.com/hipdac-lab/AMRIC-image.git
 cat AMRIC-image/img/amric.sif-* > amric.sif
 ```
 ### Step 3: Build and run the image file (need root privilege)
@@ -110,32 +109,75 @@ export AMRIC_HOME=$(pwd)
 echo "# start of AMRIC env" >> ~/.bashrc
 echo export AMRIC_HOME=$(pwd) >> ~/.bashrc
 ```
-### Step 1: 
+### Step 2: Load or install CMake. For example, in Ubuntu:
 ```
+sudo snap install cmake
+sudo snap install cmake --classic
 ```
-### Step 1: 
+### Step 3: Load or install OpenMPI. For example, in Ubuntu (7 mins):
 ```
+sudo bash openmpi.sh 
+. mpi_env.sh
 ```
-### Step 1: 
+### Step 4: Download and install the HDF5 library (4 mins)
 ```
+. hdf5.sh
 ```
-### Step 1: 
+### Step 5: Install optimized SZ3 (de)compressor and H5Z-SZ3 (de)compression filter (5 mins)
 ```
+. compressor.sh
 ```
-### Step 1: 
+### Step 6: Install AMReX and Nyx with AMRIC (8 mins)
 ```
+. nyx.sh
 ```
-### Step 1: 
+### Step 7: Install WarpX with AMRIC (9 mins)
 ```
+. warpx.sh
 ```
-### Step 1: 
+### Step 8: Download qcat (compression analysis tool, 1 min)
 ```
+. qcat.sh
 ```
-### Step 1: 
+### Step 9: Run WarpX with no compression, AMReX’s original compression, and AMRIC (3 mins)
 ```
+cd $AMRIC_HOME/warpx_directory/WarpX
+. bash.sh
 ```
-### Step 1: 
+### Step 10: Run NYX with no compression, AMReX’s original compression, and AMRIC (3 mins).
 ```
+cd $AMRIC_HOME/Nyx/Exec/AMR-density
+. bash.sh
+```
+### Step 11: Evaluate WarpX’s data quality and compression ratio for original AMReX compression and our AMRIC.
+```
+cd $AMRIC_HOME/warpx_directory/WarpX/diags
+cp $AMRIC_HOME/SZ_SLE/build/tools/H5Z-SZ3/test/des-w .
+cp $AMRIC_HOME/orisz3/build/tools/H5Z-SZ3/test/ss-w .
+cp $AMRIC_HOME/orisz3/build/tools/H5Z-SZ3/test/stack-w .
+cp $AMRIC_HOME/qcat/install/bin/compareData .
+. decomp.sh > out.txt
+. qualityCR.sh
+```
+### Step 12: Evaluate NYX’s data quality and compression ratio for original AMReX compression and our AMRIC.
+```
+cd $AMRIC_HOME/Nyx/Exec/AMR-density/run
+cp $AMRIC_HOME/qcat/install/bin/compareData .
+cp $AMRIC_HOME/SZ_SLE/build/tools/H5Z-SZ3/test/des .
+cp $AMRIC_HOME/orisz3/build/tools/H5Z-SZ3/test/ss .
+cp $AMRIC_HOME/orisz3/build/tools/H5Z-SZ3/test/stack .
+. decomp.sh > out.txt
+. qualityCR.sh
+```
+### Step 13: Compare I/O performance between baselines (i.e., no compression and ori AMReX compression) and AMRIC in WarpX.
+```
+cd $AMRIC_HOME/warpx_directory/WarpX/otfile
+. io.sh
+```
+### Step 14: Compare I/O performance between baselines (i.e., no compression and ori AMReX compression) and AMRIC in Nyx.
+```
+cd $AMRIC_HOME/Nyx/Exec/AMR-density/otfile
+. io.sh
 ```
 
 
