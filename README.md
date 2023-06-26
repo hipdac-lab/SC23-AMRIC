@@ -1,6 +1,6 @@
 # SC23-AMRIC Artifacts
 
-AMRIC is a novel in-situ lossy compression framework that leverages the HDF5 filter to enhance both I/O efficiency and compression quality for Adaptive Mesh Refinement (AMR) applications. AMRIC was implemented into the AMReX framework and evaluated on two real-world AMR applications, Nyx and WarpX.
+AMRIC is a novel in-situ lossy compression framework that leverages the HDF5 filter to enhance both I/O efficiency and compression quality for Adaptive Mesh Refinement (AMR) applications. AMRIC was implemented into the [AMReX](https://amrex-codes.github.io/amrex/) framework and evaluated on two real-world AMR applications, Nyx and WarpX.
 
 While preparing the artifacts, we executed them on a single node from the Chameleon Cloud, equipped with two Intel Xeon Gold 6242 CPUs and 192 GB of memory (specifically, ```compute_skylake``` configuration). We recommend that reviewers also use the Chameleon Cloud for artifact evaluation.
 
