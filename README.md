@@ -109,12 +109,12 @@ export AMRIC_HOME=$(pwd)
 echo "# start of AMRIC env" >> ~/.bashrc
 echo export AMRIC_HOME=$(pwd) >> ~/.bashrc
 ```
-### Step 2: Load or install CMake. For example, in Ubuntu:
+### Step 2: Load or install CMake. For example, in Ubuntu
 ```
 sudo snap install cmake
 sudo snap install cmake --classic
 ```
-### Step 3: Load or install OpenMPI. For example, in Ubuntu (7 mins):
+### Step 3: Load or install OpenMPI. For example, in Ubuntu (7 mins)
 ```
 sudo bash openmpi.sh 
 . mpi_env.sh
