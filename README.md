@@ -109,8 +109,9 @@ export AMRIC_HOME=$(pwd)
 echo "# start of AMRIC env" >> ~/.bashrc
 echo export AMRIC_HOME=$(pwd) >> ~/.bashrc
 ```
-### Step 2: Load or install CMake. For example, in Ubuntu
+### Step 2: Load or install CMake and numpy. For example, in Ubuntu
 ```
+pip3 install numpy
 sudo snap install cmake
 sudo snap install cmake --classic
 ```
