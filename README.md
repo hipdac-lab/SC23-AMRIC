@@ -1,6 +1,6 @@
 # SC23-AMRIC Artifacts
 
-AMRIC is a novel in-situ lossy compression framework that leverages the HDF5 filter to enhance both I/O efficiency and compression quality for Adaptive Mesh Refinement (AMR) applications. AMRIC was implemented into the [AMReX](https://amrex-codes.github.io/amrex/) framework and evaluated on two real-world AMR applications, Nyx and WarpX.
+AMRIC is a novel in-situ lossy compression framework that leverages the HDF5 filter to enhance both I/O efficiency and compression quality for Adaptive Mesh Refinement (AMR) applications. AMRIC was integrated into the [AMReX](https://amrex-codes.github.io/amrex/) framework and evaluated on two real-world AMR applications, Nyx and WarpX.
 
 While preparing the artifacts, we executed them on a single node from the Chameleon Cloud, equipped with two Intel Xeon Gold 6242 CPUs and 192 GB of memory (specifically, ```compute_skylake``` configuration). We recommend that reviewers also use the Chameleon Cloud for artifact evaluation.
 
@@ -148,12 +148,12 @@ sudo bash openmpi.sh
 ### Step 9: Run WarpX with no compression, AMReX’s original compression, and AMRIC (3 mins)
 ```
 cd $AMRIC_HOME/warpx_directory/WarpX
-. bash.sh
+. runwarpx.sh
 ```
 ### Step 10: Run NYX with no compression, AMReX’s original compression, and AMRIC (3 mins).
 ```
 cd $AMRIC_HOME/Nyx/Exec/AMR-density
-. bash.sh
+. runnyx.sh
 ```
 ### Step 11: Evaluate WarpX’s data quality and compression ratio for original AMReX compression and our AMRIC.
 ```
