@@ -1,9 +1,10 @@
 # SC23-AMRIC Artifacts
 
+While preparing the artifacts, we executed them on a single node from the Chameleon Cloud, equipped with two Intel Xeon Gold 6242 CPUs and 192 GB of memory (specifically, ```compute_skylake``` configuration). We recommend that reviewers also use the Chameleon Cloud for artifact evaluation.
+
 ## Method 1: Use Singularity Image (Recommended)
 The entire workflow takes approximately 10 minutes to execute, including downloading container image and preparing environment (3 mins), running WarpX simulation (3 mins), running Nyx simulation (3 mins), and evaluating compression performance (1 min).
 
-While preparing the artifacts, we executed them on a single node from the Chameleon Cloud, equipped with two Intel Xeon Gold 6242 CPUs and 192 GB of memory (specifically, ```compute\_skylake``` configuration). We recommend that reviewers also use the Chameleon Cloud for artifact evaluation.
 ### Minimum system requirements
 OS: Ubuntu (20.04 is recommended)
 
