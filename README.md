@@ -1,4 +1,4 @@
-# SC23-AMRIC Artifacts
+# AMRIC: A Novel In Situ Lossy Compression Framework for Efficient I/O in Adaptive Mesh Refinement Applications
 
 [![DOI](https://zenodo.org/badge/658166802.svg)](https://zenodo.org/badge/latestdoi/658166802)
 
