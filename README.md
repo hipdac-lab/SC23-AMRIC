@@ -187,7 +187,90 @@ cd $AMRIC_HOME/warpx_directory/WarpX/otfile
 cd $AMRIC_HOME/Nyx/Exec/AMR-density/otfile
 . io.sh
 ```
-## Method 2: Build from source
-### Minimum system & software libraries requirements
+## Expected Evaluation Results
+### The expected results for WarpX’s data quality and compression ratio (method 1 step 6) are:
+```
+----- Data Quality for original AMReX Compression -----
+PSNR = 58.600102
+---------- Data Quality for AMRIC-SZ-L/R ----------
+PSNR = 61.749515
+---------- Data Quality for AMRIC-SZInterp ----------
+PSNR = 59.146966
+---------- CR for original AMReX Compression ----------
+CR is: 14.62
+---------- CR for AMRIC-SZ-L/R ----------
+CR is: 108.94
+---------- CR for AMRIC-SZInterp ----------
+CR is: 131.41
+```
+### The expected results for Nyx’s data quality and compression ratio (method 1 step 7) are:
+```
+----- Data Quality for original AMReX Compression -----
+PSNR = 61.977332
+---------- Data Quality for AMRIC-SZ_L/R ----------
+PSNR = 66.650492
+---------- Data Quality for AMRIC-SZInterp ----------
+PSNR = 66.566370
+---------- CR for original AMReX Compression ----------
+CR is: 6.53
+---------- CR for AMRIC-SZ_L/R ----------
+CR is: 13.08
+---------- CR for AMRIC-SZInterp ----------
+CR is: 11.25
+```
+### The expected results for WarpX’s I/O performance  (method 1 step 8) are:
+```
+---------- Writing Time for No Compression ----------
+***** run 0 *****
+No Compression Total time = 1.514 seconds
+No Compression Preprocess time = 0.216 seconds
+No Compression writing time = 1.322 seconds
+------------------------ END ------------------------
+------ Writing Time for original AMReX Compression ------
+***** run 0 *****
+original AMReX Total time = 4.734 seconds
+original AMReX Preprocess time = 0.189 seconds
+original AMReX Writing+Compression time = 4.493 seconds
+------------------------ END ------------------------
+---------- Writing Time for AMRIC-SZ_L/R ----------
+***** run 0 *****
+AMRIC-SZ_L/R Total time = 1.115 seconds
+AMRIC-SZ_L/R Preprocess time = 0.223 seconds
+AMRIC-SZ_L/R Writing+Compression time = 0.906 seconds
+------------------------ END ------------------------
+---------- Writing Time for AMRIC-SZInterp ----------
+***** run 0 *****
+AMRIC-SZ_Interp Total time = 1.878 seconds
+AMRIC-SZ_Interp Preprocess time = 0.950 seconds
+AMRIC-SZ_Interp Writing+Compression time = 0.937 seconds
+------------------------ END ------------------------
+```
+### The expected results for Nyx’s I/O performance  (method 1 step 9) are:
+```
+---------- Writing Time for No Compression ----------
+***** run 0 *****
+No Compression Total time = 0.195 seconds
+No Compression Preprocess time = 0.016 seconds
+No Compression writing time = 0.177 seconds
+------------------------ END ------------------------
+----- Writing Time for original AMReX Compression -----
+***** run 0 *****
+original AMReX Total time = 0.674 seconds
+original AMReX Preprocess time = 0.020 seconds
+original AMReX Writing+Compression time = 0.649 seconds
+------------------------ END ------------------------
+---------- Writing Time for AMRIC-SZ_L/R ----------
+***** run 0 *****
+AMRIC-SZ_L/R Total time = 0.182 seconds
+AMRIC-SZ_L/R Preprocess time = 0.018 seconds
+AMRIC-SZ_L/R Writing+Compression time = 0.155 seconds
+------------------------ END ------------------------
+---------- Writing Time for AMRIC-SZInterp ----------
+***** run 0 *****
+AMRIC-SZ_Interp Total time = 0.230 seconds
+AMRIC-SZ_Interp Preprocess time = 0.102 seconds
+AMRIC-SZ_Interp Writing+Compression time = 0.122 seconds
+------------------------ END ------------------------
+```
 
 
