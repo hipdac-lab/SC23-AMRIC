@@ -12,11 +12,17 @@ Processor: >= 8 cores
 ### Step 1: Install Singularity
 Install [Singularity](https://singularity-tutorial.github.io/01-installation/)
 
-### Step 2: Download the pre-built Singularity image file
+### Step 2: Download the pre-built Singularity image file via gdown
 Press Enter after finishing.
 ```
 sudo pip3 install gdown
 gdown https://drive.google.com/uc?id=14v_xUmET-HvCFO3LqmD4sNJL65jBcd0L&export=download
+```
+or via GitHub
+```
+git clone https://github.com/hipdac-lab/AMRIC-\
+image.git
+cat AMRIC-image/img/amric.sif-* > amric.sif
 ```
 ### Step 3: Build and run the image file (need root privilege)
 ```
@@ -79,20 +85,57 @@ cd /home/nyx128/otfile/
 
 ## Method 2: Build from source
 ### Minimum system & software libraries requirements
-OS: Linux
+OS: Linux (Ubuntu is recommended)
 
 Memory: >= 16 GB RAM
 
 Processor: >= 8 cores
 
-gcc/9.3.0
+gcc/9.4.0 (or 9.3.0)
 
 cmake (>= 3.23)
 
-spectrum-mpi/10.4.0.3
+OpenMPI/4.1.1 (install scripts provided, or spectrum-mpi)
 
 python/3.8
 
 hdf5/1.12.2 (install scripts provided)
+
+
+### Step 1: Download AMRIC, checkpoint files, and set up environmental variables (2 mins)
+```
+git clone https://github.com/hipdac-lab/SC23-AMRIC.git
+cd SC23-AMRIC
+export AMRIC_HOME=$(pwd)
+echo "# start of AMRIC env" >> ~/.bashrc
+echo export AMRIC_HOME=$(pwd) >> ~/.bashrc
+```
+### Step 1: 
+```
+```
+### Step 1: 
+```
+```
+### Step 1: 
+```
+```
+### Step 1: 
+```
+```
+### Step 1: 
+```
+```
+### Step 1: 
+```
+```
+### Step 1: 
+```
+```
+### Step 1: 
+```
+```
+### Step 1: 
+```
+```
 
 
