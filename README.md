@@ -82,7 +82,7 @@ cd /home/nyx128/otfile/
 . io.sh
 ```
 
-## Method 2: Build from source
+## Method 2: Build From Source
 ### Minimum system & software libraries requirements
 OS: Linux (Ubuntu is recommended)
 
