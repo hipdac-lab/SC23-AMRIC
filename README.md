@@ -179,5 +179,7 @@ cd $AMRIC_HOME/warpx_directory/WarpX/otfile
 cd $AMRIC_HOME/Nyx/Exec/AMR-density/otfile
 . io.sh
 ```
+## Method 2: Build from source
+### Minimum system & software libraries requirements
 
 
