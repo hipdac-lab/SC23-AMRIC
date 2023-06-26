@@ -14,6 +14,8 @@ Memory: >= 16 GB RAM
 
 Processor: >= 8 cores
 
+Storage: >= 32 GBs
+
 ### Step 1: Install Singularity
 Install [Singularity](https://singularity-tutorial.github.io/01-installation/)
 
