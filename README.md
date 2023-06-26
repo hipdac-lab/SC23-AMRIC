@@ -225,24 +225,28 @@ CR is: 11.25
 No Compression Total time = 1.514 seconds
 No Compression Preprocess time = 0.216 seconds
 No Compression writing time = 1.322 seconds
+...
 ------------------------ END ------------------------
 ------ Writing Time for original AMReX Compression ------
 ***** run 0 *****
 original AMReX Total time = 4.734 seconds
 original AMReX Preprocess time = 0.189 seconds
 original AMReX Writing+Compression time = 4.493 seconds
+...
 ------------------------ END ------------------------
 ---------- Writing Time for AMRIC-SZ_L/R ----------
 ***** run 0 *****
 AMRIC-SZ_L/R Total time = 1.115 seconds
 AMRIC-SZ_L/R Preprocess time = 0.223 seconds
 AMRIC-SZ_L/R Writing+Compression time = 0.906 seconds
+...
 ------------------------ END ------------------------
 ---------- Writing Time for AMRIC-SZInterp ----------
 ***** run 0 *****
 AMRIC-SZ_Interp Total time = 1.878 seconds
 AMRIC-SZ_Interp Preprocess time = 0.950 seconds
 AMRIC-SZ_Interp Writing+Compression time = 0.937 seconds
+...
 ------------------------ END ------------------------
 ```
 ### The expected results for Nyx’s I/O performance  (method 1 step 9) are:
@@ -252,24 +256,28 @@ AMRIC-SZ_Interp Writing+Compression time = 0.937 seconds
 No Compression Total time = 0.195 seconds
 No Compression Preprocess time = 0.016 seconds
 No Compression writing time = 0.177 seconds
+...
 ------------------------ END ------------------------
 ----- Writing Time for original AMReX Compression -----
 ***** run 0 *****
 original AMReX Total time = 0.674 seconds
 original AMReX Preprocess time = 0.020 seconds
 original AMReX Writing+Compression time = 0.649 seconds
+...
 ------------------------ END ------------------------
 ---------- Writing Time for AMRIC-SZ_L/R ----------
 ***** run 0 *****
 AMRIC-SZ_L/R Total time = 0.182 seconds
 AMRIC-SZ_L/R Preprocess time = 0.018 seconds
 AMRIC-SZ_L/R Writing+Compression time = 0.155 seconds
+...
 ------------------------ END ------------------------
 ---------- Writing Time for AMRIC-SZInterp ----------
 ***** run 0 *****
 AMRIC-SZ_Interp Total time = 0.230 seconds
 AMRIC-SZ_Interp Preprocess time = 0.102 seconds
 AMRIC-SZ_Interp Writing+Compression time = 0.122 seconds
+...
 ------------------------ END ------------------------
 ```
 
