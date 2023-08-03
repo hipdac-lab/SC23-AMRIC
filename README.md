@@ -29,7 +29,7 @@ gdown https://drive.google.com/uc?id=14v_xUmET-HvCFO3LqmD4sNJL65jBcd0L&export=do
 ```
 or via GitHub
 ```
-git clone https://github.com/hipdac-lab/AMRIC-image.git
+git clone https://github.com/hipdac-lab/SC23-AMRIC-Image.git
 cat AMRIC-image/img/amric.sif-* > amric.sif
 ```
 ### Step 3: Build and run the image file (need root privilege)
