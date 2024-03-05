@@ -1,0 +1,1483 @@
+MPI initialized with 8 MPI processes
+MPI initialized with thread support level 0
+Initializing SUNDIALS with 1 threads...
+SUNDIALS initialized.
+AMReX (v0.1.0-4-g1404a6ca47bc-dirty) initialized
+Successfully read inputs file ... 
+
+AMReX git describe: v0.1.0-4-g1404a6c-dirty
+
+Nyx git describe:   v0.1.0-4-g1404a6c-dirty
+Integrating heating/cooling method with the following method: Vectorized CVODE
+Nyx::hydro_tile_size unset, using fabarray.mfiter_tile_size default: (1024000,8,8)
+Suggested default for currently compiled CPU / GPU: nyx.hydro_tile_size=(1024,16,16)
+Nyx::sundials_tile_size unset, using fabarray.mfiter_tile_size default: (1024000,8,8)
+Suggested default for currently compiled CPU / GPU: nyx.sundials_tile_size=(1024,16,16)
+Nyx::setting species concentrations to 0.76 and 0.24 in the hydro and in the EOS 
+0 Species: 
+restarting calculation from file: chk00240
+Successfully read inputs file ... 
+read CPU time: 8568.999781
+Getting Gconst from nyx_constants: 4.300927161e-09
+Using -5.404704468e-08 for 4 pi G in Gravity.cpp 
+ParticleContainer spread across MPI nodes - bytes (num particles): [Min: 9815360 (245384), Max: 12795720 (319893), Total: 83886080 (2097152)]
+ParticleContainer::Redistribute() time: 0.019206147
+
+ParticleContainer::Restart() time: 0.052245672
+...setting old_a_time to 0.0003122594115
+Gravity ... defining average density in Gravity::set_mass_offset to be 3.760710653e+10
+Gravity ... multilevel solve for new phi at base level 0 to finest level 0
+ParticleContainer::AssignCellDensitySingleLevel) time: 0.010168641
+ ... subtracting average density 3.760710653e+10 from RHS at each level 
+ ... subtracting 5.090236664e-05 to ensure solvability 
+MLMG: Initial rhs               = 227419.3223
+MLMG: Initial residual (resid0) = 0.1123605734
+MLMG: Final Iter. 1 resid, resid/bnorm = 0.001080686303, 4.751954636e-09
+MLMG: Timers: Solve = 0.029369348 Iter = 0.020334357 Bottom = 6.8249e-05
+ParticleContainer::AssignCellDensitySingleLevel) time: 0.009479206
+Average     gas density 6290643274
+Average       dm density 3.131646326e+10
+Average    total density 3.760710653e+10
+Average temperature 1004.439052
+... setting small_dens to 0.01
+... setting small_temp to 0.01
+... setting small_pres to 1.304195428e-06
+Restart time = 0.512802912 seconds.
+...estdt from hydro at level 0: 4.251869085e-05
+Min particles      : 245384
+Max particles      : 319893
+[The  Pinned Arena] space (MB) allocated spread across MPI: [8 ... 8]
+[The  Pinned Arena] space (MB) used      spread across MPI: [0 ... 0]
+NyxParticleContainer<NSR,NSI,NAR,NAI>::estTimestep() time: 0.01209451
+...estdt from particles at level 0: 4.277773587e-05
+...estdt after call to comoving   : 4.826870287e-06
+...change in a is 0.9996073458 percent
+Nyx::est_time_step at level 0:  estdt = 4.826870287e-06
+Integrating a from time 0.0003122594115 by dt = 4.826870287e-06
+Old / new A time      0.0003122594115 0.0003170862818
+Old / new A           0.06801847575 0.06869839343
+Old / new z           13.70188782 13.55638116
+Setting the current time in the state data to 0.0003122594115
+BA SIZE 0
+FLEV    0
+Calling redistribute because the size of BoxArray changed 
+ParticleContainer spread across MPI nodes - bytes (num particles): [Min: 9815360 (245384), Max: 12795720 (319893), Total: 83886080 (2097152)]
+ParticleContainer::Redistribute() time: 0.06924383
+
+Gravity ... multilevel solve for new phi at base level 0 to finest level 0
+ParticleContainer::AssignCellDensitySingleLevel) time: 0.012336595
+ ... subtracting average density 3.760710653e+10 from RHS at each level 
+ ... subtracting 5.125999451e-05 to ensure solvability 
+MLMG: Initial rhs               = 227419.3223
+MLMG: Initial residual (resid0) = 0.00108068631
+MLMG: No iterations needed
+MLMG: Timers: Solve = 0.008431357 Iter = 0 Bottom = 0
+  Level 0   8 grids  2097152 cells  100 % of domain
+            smallest grid: 64 x 64 x 64  biggest grid: 64 x 64 x 64
+
+[Level 0 step 241] ADVANCE with dt = 4.826870287e-06
+Gravity ... multilevel solve for old phi at base level 0 to finest level 0
+ParticleContainer::AssignCellDensitySingleLevel) time: 0.010810638
+ ... subtracting average density 3.760710653e+10 from RHS at each level 
+ ... subtracting 5.125999451e-05 to ensure solvability 
+MLMG: Initial rhs               = 227419.3223
+MLMG: Initial residual (resid0) = 0.00108068631
+MLMG: No iterations needed
+MLMG: Timers: Solve = 0.008182839 Iter = 0 Bottom = 0
+moveKickDrift ... updating particle positions and velocity
+STARTING SDC_ITER LOOP 0
+... Computing hydro advance
+Updating state with the hydro sources ... 
+Enforce minimum density... 
+... Solving heating-cooling with SDC and CVode
+Nyx::sdc_reactions() time = 6.081869986
+
+Gravity ... single level solve for new phi at level 0
+ParticleContainer::AssignCellDensitySingleLevel) time: 1.496971527
+ ... solve for phi at level 0
+ ... subtracting average density from RHS in solve ... 3.760710653e+10
+ ... subtracting 9.441375732e-05 to ensure solvability 
+MLMG: Initial rhs               = 230470.7317
+MLMG: Initial residual (resid0) = 7532.83316
+MLMG: Final Iter. 4 resid, resid/bnorm = 0.02054275986, 8.913392041e-08
+MLMG: Timers: Solve = 0.090182773 Iter = 0.078636462 Bottom = 0.000385996
+moveKick ... updating velocity only
+[Level 0 step 241] Advanced 2097152 cells
+ParticleContainer spread across MPI nodes - bytes (num particles): [Min: 9808760 (245219), Max: 12819440 (320486), Total: 83886080 (2097152)]
+ParticleContainer::Redistribute() time: 0.019538511
+
+
+[STEP 241] Coarse TimeStep time: 10.20075891
+[STEP 241] FAB kilobyte spread across MPI nodes: [156166 ... 156190]
+
+STEP = 241 TIME = 0.0003170862818 DT = 4.826870287e-06
+
+PLOTFILE: file = run/plt00241
+
+HDF5 plotfile using SZ
+-1
+procMap: 1 2 3 4 5 6 7 0 
+sortedProcs: 0 1 2 3 4 5 6 7 
+-1
+bbb: 8
+-1
+-1
+-1
+-1
+-1
+-1
+maxBuff: 331776
+procOffsets: 0 331776 663552 995328 1327104 1658880 1990656 2322432 
+fakelevel: -1 myProc: 6 16 496 tempCnt: 49600
+fakelevel: -1 myProc: 7 21 491 tempCnt: 49100
+fakelevel: -1 myProc: 0 10 502 tempCnt: 50200
+fakelevel: -1 myProc: 4 28 484 tempCnt: 48400
+fakelevel: -1 myProc: 3 31 481 tempCnt: 48100
+fakelevel: -1 myProc: 1 87 425 tempCnt: 42500
+fakelevel: -1 myProc: 5 22 490 tempCnt: 49000
+fakelevel: -1 myProc: 2 27 485 tempCnt: 48500
+pre time = 0.001209002  seconds
+
+real write time = 0.005301313  seconds
+
+0
+0
+0
+0
+0
+0
+0
+0
+procMap: 1 2 3 4 5 6 7 0 
+sortedProcs: 0 1 2 3 4 5 6 7 
+bbb: 8
+maxBuff: 331776
+procOffsets: 0 331776 663552 995328 1327104 1658880 1990656 2322432 
+fakelevel: 0 myProc: 6 16 496 tempCnt: 10368
+fakelevel: 0 myProc: 2 27 485 tempCnt: 17496
+fakelevel: 0 myProc: 7 21 491 tempCnt: 13608
+fakelevel: 0 myProc: 0 10 502 tempCnt: 6480
+fakelevel: 0 myProc: 3 31 481 tempCnt: 20088
+fakelevel: 0 myProc: 4 28 484 tempCnt: 18144
+fakelevel: 0 myProc: 5 22 490 tempCnt: 14256
+fakelevel: 0 myProc: 1 87 425 tempCnt: 56376
+pre time = 0.000916412  seconds
+
+real write time = 0.006504104  seconds
+
+Write h5plotfile time = 0.029788486  seconds
+
+Output file run/plt00241.temp at time 0.068698 and step 241
+Write plotfile time = 0.096800691  seconds
+
+Time w/o init: 10.26060718
+Run time = 10.78246426
+
+
+TinyProfiler total time across processes [min...avg...max]: 10.78 ... 10.78 ... 10.78
+
+----------------------------------------------------------------------------------------------------------
+Name                                                       NCalls  Excl. Min  Excl. Avg  Excl. Max   Max %
+----------------------------------------------------------------------------------------------------------
+Nyx::reactions_f                                              619      4.201      4.515       5.65  52.39%
+Nyx::umeth()                                                   64      1.996      2.037      2.078  19.27%
+Nyx::compute_new_temp()                                         5      1.456      1.503      1.653  15.33%
+FabArray::ParallelCopy_finish()                                62     0.0546      1.033       1.55  14.37%
+Nyx::sdc_reactions()                                            1  0.0001157     0.1973      1.481  13.74%
+Nyx::reactions_cells_finalize                                  64     0.3736     0.3839     0.4001   3.71%
+FillBoundary_finish()                                         285    0.09676     0.1371     0.1708   1.58%
+amrex::Copy()                                                  46    0.08931    0.09666     0.1005   0.93%
+FabArray::setVal()                                            197     0.0704    0.07279    0.07579   0.70%
+FabArray::ParallelCopy_nowait()                                62    0.06294    0.06717     0.0695   0.64%
+vol_weight_sum                                                  8   0.002513    0.03511    0.04708   0.44%
+ParticleContainer::RedistributeCPU()                            3    0.03586    0.03963    0.04676   0.43%
+MLPoisson::Fsmooth()                                          240    0.04179    0.04236    0.04504   0.42%
+Amr::writePlotFile()                                            1   0.004638    0.02911    0.04344   0.40%
+FabArray::norminf()                                            17   0.002902    0.03199    0.04287   0.40%
+ParticleContainer::ReadParticles()                              1     0.0305    0.03619    0.04052   0.38%
+FillBoundary_nowait()                                         285    0.03191    0.03444    0.04049   0.38%
+Nyx::umdrv()                                                   64    0.03831    0.03922    0.04044   0.38%
+Amr::coarseTimeStep()                                           1  3.325e-05   0.005289    0.04033   0.37%
+ParticleContainer::AssignCellDensitySingleLevel()               5    0.02812    0.03091    0.03612   0.33%
+ParticleContainer::RedistributeMPI()                            3    0.01892     0.0254    0.03448   0.32%
+VisMF::Read()                                                   4    0.02691     0.0276    0.02789   0.26%
+Nyx::srctoprim()                                               64   0.009802    0.01474    0.02765   0.26%
+DarkMatterParticleContainer::moveKickDrift()                    2    0.01436    0.01686     0.0246   0.23%
+Nyx::update_state_with_sources()                                1    0.01911    0.02045    0.02378   0.22%
+Nyx::reactions_cvode                                           64    0.01772    0.01913    0.02363   0.22%
+Nyx::reset_internal_energy()                                    6    0.01895    0.02197    0.02316   0.21%
+RedistributeMPI_copy                                            2    0.01517      0.018    0.02066   0.19%
+ParticleContainer::WriteParticles()                             1    0.01597    0.01772    0.01947   0.18%
+DarkMatterParticleContainer::moveKick()                         1    0.01287    0.01479    0.01909   0.18%
+H5DwriteData                                                    2    0.01702    0.01739    0.01789   0.17%
+Gravity::get_new_grav_vector()                                  4    0.01396    0.01454    0.01516   0.14%
+MLPoisson::Fapply()                                            42    0.01227    0.01335    0.01385   0.13%
+NyxParticleContainer<NSR,NSI,NAR,NAI>::estTimestep(lev)         1    0.01203    0.01207    0.01213   0.11%
+FabArray::Xpay()                                               40    0.01066    0.01139    0.01208   0.11%
+Gravity::get_old_grav_vector()                                  3     0.0106    0.01097    0.01119   0.10%
+Nyx::ctoprim()                                                 64   0.006652   0.008063    0.01016   0.09%
+MLCellLinOp::compGrad()                                         4   0.009257   0.009859    0.01016   0.09%
+amrex::Add()                                                   14   0.008788   0.009219    0.01006   0.09%
+Nyx::advance_hydro_plus_particles()                             1   0.008162   0.008616   0.009489   0.09%
+WriteBinaryParticleData()                                       1   0.006758    0.00774   0.008805   0.08%
+RedistributeMPI_locate                                          2   0.005881   0.006593    0.00786   0.07%
+H5writeAllLevel                                                 1   0.006301   0.006814   0.007218   0.07%
+MLLinOp::makeSubCommunicator()                                  2  9.824e-05   0.003545   0.006986   0.06%
+main()                                                          1   0.001062   0.002523   0.006346   0.06%
+Nyx::reactions_cells_initialize                                64   0.005812   0.005948   0.006093   0.06%
+WriteMultiLevelPlotfileHDF5SingleDset                           1   0.002211   0.005031   0.005562   0.05%
+MLMG::solve()                                                   4  0.0002813   0.001215   0.005165   0.05%
+MLMG::addInterpCorrection()                                    30   0.004042    0.00416   0.004608   0.04%
+Nyx::est_time_step()                                            1   0.002708   0.004095   0.004397   0.04%
+Amr::restart()                                                  1   0.003713   0.003858   0.003963   0.04%
+MultiFab::min()                                                 1  0.0002836    0.00188   0.003612   0.03%
+amrex::average_down                                            30   0.003162     0.0033   0.003367   0.03%
+Nyx::compute_rho_temp()::OnHost                                 1   0.002819   0.003143   0.003306   0.03%
+Amr::InitAmr()                                                  1   0.003056   0.003112   0.003164   0.03%
+ParticleContainer::BuildRedistributeMask                        2   0.002802   0.002837   0.002913   0.03%
+Amr::timeStep()                                                 1   0.002077   0.002464   0.002802   0.03%
+Gravity::set_mass_offset()                                      1   0.002758   0.002767   0.002794   0.03%
+H5writeMetadata                                                 0          0  0.0003442   0.002754   0.03%
+FabArray::plus()                                               17   0.002107   0.002336   0.002632   0.02%
+FabArray::sum()                                                 9   0.002323   0.002452   0.002587   0.02%
+Nyx::sdc_hydro()                                                1  0.0009768   0.001462   0.002552   0.02%
+ParticleContainer::Restart()                                    1    0.00102   0.001488    0.00247   0.02%
+MLCellLinOp::applyBC()                                        286   0.001682   0.001923   0.002414   0.02%
+FabArray::mult()                                               13   0.001649   0.002014   0.002272   0.02%
+Nyx::vol_weight_sum()::ReduceOpsOnDevice                        8   0.002135   0.002173    0.00226   0.02%
+MLMG::prepareForSolve()                                         4   0.001235   0.001589    0.00193   0.02%
+MultiFab::Subtract()                                            2  0.0009071   0.001061   0.001223   0.01%
+Nyx::reactions_alloc                                           64   0.001044   0.001075   0.001097   0.01%
+Nyx::post_restart()                                             1  0.0005581  0.0006903   0.001038   0.01%
+FillPatchIterator::Initialize                                  17  0.0004946  0.0006792  0.0008943   0.01%
+Nyx::init(old)                                                  1  0.0005654  0.0007035  0.0008743   0.01%
+FabArrayBase::CPC::define()                                   120  0.0005679  0.0006119  0.0008194   0.01%
+Nyx::reactions_cvsetup                                         64  0.0006636  0.0006838  0.0007029   0.01%
+Nyx::Nyx(Amr)                                                   1  9.844e-05  0.0001967  0.0006381   0.01%
+FabArrayBase::FB::FB()                                         22  0.0004886  0.0005379  0.0006191   0.01%
+FabArray::FillBoundary()                                      289  0.0005128  0.0005627  0.0006183   0.01%
+MLCellLinOp::defineAuxData()                                    2  0.0004593  0.0004887  0.0005372   0.00%
+Nyx::compute_rho_temp()                                         1  8.526e-06  0.0001738  0.0005006   0.00%
+Nyx::compute_gas_fractions()::OnHost                            1  0.0004744  0.0004858  0.0004993   0.00%
+Nyx::read_params()                                              1  0.0003869  0.0004125  0.0004829   0.00%
+Nyx::advance_hydro_pc_umdrv()                                   1  0.0003087  0.0004018  0.0004595   0.00%
+Nyx::post_timestep()::sum_write                                 1  4.068e-05  0.0001257   0.000427   0.00%
+MLMG::ResNormInf()                                              9  9.209e-05  0.0002414  0.0004266   0.00%
+Nyx::reactions_free                                            64  0.0003539   0.000383  0.0004199   0.00%
+MLCellLinOp::prepareForSolve()                                  4  0.0002902  0.0003263  0.0003777   0.00%
+Gravity::solve_with_MLMG                                        4  0.0001972  0.0002685  0.0003753   0.00%
+Nyx::derive()                                                   3  5.305e-05  0.0001086  0.0003743   0.00%
+WriteGenericPlotfileHeaderHDF5()                                0          0  4.495e-05  0.0003596   0.00%
+Nyx::restart()                                                  1  4.808e-05  9.973e-05  0.0003564   0.00%
+MLMG::oneIter()                                                 5  7.242e-05  0.0002659  0.0003485   0.00%
+FabArrayBase::getCPC()                                        158  0.0002969  0.0003151  0.0003383   0.00%
+FabArrayBase::getFB()                                         285  0.0002579  0.0002806  0.0003002   0.00%
+StateData::restartDoit()                                        5  0.0001653  0.0001995  0.0002895   0.00%
+FabArray<FAB>::SumBoundary_nowait()                             5  5.541e-05  0.0001124  0.0002635   0.00%
+BndryData::define()                                             2  0.0002285  0.0002444  0.0002537   0.00%
+StateDataPhysBCFunct::()                                       17  0.0001875  0.0002242  0.0002501   0.00%
+Gravity::actual_multilevel_solve()                              3  0.0001697  0.0002033  0.0002466   0.00%
+AmrLevel::restart()                                             1  0.0001626  0.0001924  0.0002401   0.00%
+MLCellLinOp::smooth()                                         120  0.0001732  0.0001877  0.0002171   0.00%
+Nyx::post_regrid()                                              1  0.0001137  0.0001459  0.0002101   0.00%
+Gravity::multilevel_solve_for_old_phi()                         1  4.926e-05  8.535e-05  0.0001993   0.00%
+DistributionMapping::LeastUsedCPUs()                            2  1.135e-05  8.949e-05  0.0001953   0.00%
+MLMG::getGradSolution()                                         4  3.276e-05  8.702e-05  0.0001668   0.00%
+FabArray::ParallelCopy()                                       57  0.0001271  0.0001429  0.0001574   0.00%
+FabArray::setDomainBndry()                                     17  0.0001018  0.0001173  0.0001263   0.00%
+FabArray::setVal(val, thecmd, scomp, ncomp)                    96  0.0001177  0.0001213  0.0001236   0.00%
+Nyx::integrate_state_struct_mfin                               64  0.0001125  0.0001178  0.0001235   0.00%
+MLLinOp::defineGrids()                                          2    6.4e-05  8.387e-05  0.0001219   0.00%
+ParticleContainer::AssignDensity()                              4  7.324e-05  8.804e-05  0.0001169   0.00%
+FillPatchSingleLevel                                           17  6.454e-05  7.655e-05  0.0001167   0.00%
+MLMG:computeResOfCorrection()                                  30  4.265e-05  5.602e-05  0.0001013   0.00%
+MLMG::computeMLResidual()                                       4  2.257e-05  4.009e-05  9.779e-05   0.00%
+MLCellLinOp::apply()                                           42  6.847e-05  7.581e-05  9.318e-05   0.00%
+MLMG::computeResidual()                                         5  3.088e-05  4.938e-05  8.876e-05   0.00%
+MLCGSolver::bicgstab                                            0          0  1.108e-05  8.863e-05   0.00%
+MLMG::mgVcycle_down::0                                          5  3.492e-05  5.101e-05  7.576e-05   0.00%
+MLCellLinOp::solutionResidual()                                 9  5.296e-05  6.001e-05  7.516e-05   0.00%
+Nyx::particle_post_restart()                                    1  4.013e-05  5.845e-05  7.425e-05   0.00%
+Nyx::reset_internal_energy_nostore()                            2  4.742e-05   5.72e-05  7.055e-05   0.00%
+sdc_reactions                                                   1  2.489e-05  4.016e-05  6.854e-05   0.00%
+Nyx::reactions_numsteps                                        64  5.155e-05  5.883e-05  6.819e-05   0.00%
+StateData::define()                                             5   4.25e-05  5.568e-05  6.611e-05   0.00%
+Nyx::particle_redistribute()                                    1  2.265e-05  3.154e-05  6.568e-05   0.00%
+Gravity::multilevel_solve_for_new_phi()                         2  3.206e-05  4.061e-05  6.361e-05   0.00%
+just_the_hydro                                                  1  1.467e-05  2.812e-05  6.201e-05   0.00%
+solve_for_old_phi                                               1  3.788e-05   5.17e-05  6.052e-05   0.00%
+Gravity::AddParticlesToRhsML()                                  3  4.001e-05  4.575e-05  5.942e-05   0.00%
+MLCellLinOp::setLevelBC()                                       4  4.023e-05  4.971e-05  5.924e-05   0.00%
+MLPoisson::define()                                             2  1.514e-05  3.917e-05  5.664e-05   0.00%
+DistributionMapping::SFCProcessorMapDoIt()                      2   1.63e-05    2.8e-05  5.402e-05   0.00%
+MLMG::mgVcycle()                                                5   3.89e-05  4.418e-05  5.385e-05   0.00%
+MLMG::actualBottomSolve()                                       5  4.738e-06  1.118e-05  5.316e-05   0.00%
+Nyx::reactions_single_copy                                     64  4.009e-05  4.241e-05  4.978e-05   0.00%
+MLCellLinOp::correctionResidual()                              30  4.064e-05  4.459e-05  4.924e-05   0.00%
+MLLinOp::define()                                               2  6.973e-06  1.574e-05  4.717e-05   0.00%
+Gravity::solve_for_new_phi()                                    1  2.711e-05  3.279e-05  4.716e-05   0.00%
+REG::R::Nyx::coarseTimeStep                                     1  8.607e-06   2.55e-05   4.46e-05   0.00%
+FabArray<FAB>::SumBoundary()                                    5  2.918e-05  3.342e-05  4.286e-05   0.00%
+Gravity::AddParticlesToRhs()                                    1  3.016e-05  3.566e-05  4.279e-05   0.00%
+Nyx::enforce_minimum_density()                                  1  1.717e-05  2.612e-05  3.833e-05   0.00%
+MLCellLinOp::defineBC()                                         2  2.505e-05   2.94e-05  3.822e-05   0.00%
+FabArray<FAB>::SumBoundary_finish()                             5  2.311e-05  2.989e-05  3.743e-05   0.00%
+MLCGSolver::ParallelAllReduce                                   7          0  4.256e-06  3.405e-05   0.00%
+Gravity::solve_for_phi()                                        1  1.561e-05  2.566e-05  3.317e-05   0.00%
+Nyx::compute_gas_fractions()                                    1  7.424e-06  2.104e-05  3.286e-05   0.00%
+NyxParticleContainer<NSR,NSI,NAR,NAI>::WriteNyxPlotFile()       1  8.425e-06  1.676e-05  3.237e-05   0.00%
+MLMG::mgVcycle_down::1                                          5  2.039e-05  2.374e-05  3.203e-05   0.00%
+NeighborParticleContainer::clearNeighborsCPU                    2  1.457e-05   2.08e-05   3.16e-05   0.00%
+MLPoisson::prepareForSolve()                                    4  1.267e-05  1.829e-05  3.101e-05   0.00%
+MLMG::mgVcycle_down::3                                          5  8.954e-06  1.279e-05  3.098e-05   0.00%
+Gravity::CorrectRhsUsingOffset()                                1  1.129e-05  1.693e-05   2.96e-05   0.00%
+MLMG::MLResNormInf()                                            4  1.269e-05  1.876e-05  2.632e-05   0.00%
+solve_for_new_phi                                               1  9.778e-06  1.412e-05  2.547e-05   0.00%
+REG::R::Nyx::advance::STEP1                                     1  1.415e-05  2.006e-05   2.49e-05   0.00%
+MLMG::mgVcycle_up::0                                            5  1.662e-05   1.92e-05  2.376e-05   0.00%
+amrex::Dot()                                                    5          0  2.795e-06  2.236e-05   0.00%
+Gravity::add_to_fluxes()                                        1  1.214e-05  1.685e-05  2.164e-05   0.00%
+Gravity::AddGhostParticlesToRhsML()                             3  1.469e-05  1.721e-05   2.04e-05   0.00%
+vol_weight_sum(name)                                            3  1.301e-05  1.659e-05  2.017e-05   0.00%
+Nyx::computeNewDt()                                             1  4.187e-06  6.602e-06  1.811e-05   0.00%
+Gravity::AddVirtualParticlesToRhs()                             1  5.651e-06  1.108e-05  1.757e-05   0.00%
+makeSFC                                                         8   5.86e-06  8.376e-06  1.731e-05   0.00%
+Nyx::particle_est_time_step()                                   1   1.01e-05  1.312e-05  1.651e-05   0.00%
+Nyx::post_timestep()::compute_temp                              1   5.06e-06  7.538e-06  1.608e-05   0.00%
+Nyx::post_timestep()                                            1  7.354e-06  1.005e-05  1.571e-05   0.00%
+MLMG::mgVcycle_down::2                                          5  9.937e-06  1.183e-05  1.567e-05   0.00%
+FabArray::Saxpy()                                               3          0  1.895e-06  1.516e-05   0.00%
+FabArray::LinComb()                                             2          0  1.703e-06  1.363e-05   0.00%
+AmrLevel::AmrLevel(dm)                                          1  8.978e-06  1.039e-05  1.249e-05   0.00%
+Amr::init()                                                     1  2.064e-06   4.87e-06  1.159e-05   0.00%
+Amr::initSubcycle()                                             1  8.867e-06  1.097e-05  1.147e-05   0.00%
+Nyx::postCoarseTimeStep()                                       1  5.149e-06  7.113e-06   1.12e-05   0.00%
+DistributionMapping::Distribute()                              10  6.602e-06   8.37e-06  1.056e-05   0.00%
+REG::R::Nyx::advance_hydro_plus_particles                       1  6.382e-06  8.505e-06  9.959e-06   0.00%
+MLMG::mgVcycle_up::1                                            5  7.192e-06  8.077e-06  9.899e-06   0.00%
+Nyx::remove_virtual_particles()                                 1  1.813e-06  4.391e-06  8.386e-06   0.00%
+Gravity::AddVirtualParticlesToRhsML()                           3   4.93e-06  6.178e-06  8.027e-06   0.00%
+MLMG::mgVcycle_down::5                                          5   6.46e-06  6.931e-06  7.301e-06   0.00%
+MLMG::mgVcycle_up::5                                            5   5.53e-06  6.193e-06  7.003e-06   0.00%
+MLMG::mgVcycle_down::4                                          5  5.969e-06  6.439e-06  6.991e-06   0.00%
+MLMG::mgVcycle_up::2                                            5  5.455e-06  5.956e-06  6.476e-06   0.00%
+MLMG::mgVcycle_bottom                                           5  5.241e-06  5.843e-06  6.451e-06   0.00%
+Nyx::read_init_params()                                         1  5.791e-06  6.015e-06  6.402e-06   0.00%
+Gravity::AddGhostParticlesToRhs()                               1  2.996e-06  4.647e-06  6.362e-06   0.00%
+MLMG::mgVcycle_up::4                                            5   5.36e-06  5.829e-06  6.231e-06   0.00%
+Nyx::post_timestep()::redist                                    1  2.615e-06  3.461e-06  6.053e-06   0.00%
+MLMG::mgVcycle_up::3                                            5   5.14e-06  5.274e-06  5.698e-06   0.00%
+ParticleContainer::RemoveParticlesAtLevel()                     2  2.615e-06  4.456e-06  5.571e-06   0.00%
+MLMG::MLRhsNormInf()                                            4  4.368e-06  4.688e-06   4.93e-06   0.00%
+MLLinOp::makeAgglomeratedDMap                                   2  2.814e-06  3.348e-06  4.857e-06   0.00%
+Nyx::setup_virtual_particles()                                  1  2.154e-06   3.29e-06  3.858e-06   0.00%
+Nyx::post_timestep()::do_reflux                                 1  2.515e-06  2.874e-06  3.697e-06   0.00%
+Nyx::doAnalysisNow()                                            1  1.102e-06  1.861e-06  3.366e-06   0.00%
+Nyx::Nyx()                                                      1  1.092e-06  1.809e-06  3.297e-06   0.00%
+Nyx::post_timestep()::remove_virt_ghost                         1  1.133e-06  1.917e-06  3.257e-06   0.00%
+Gravity::make_mg_bc()                                           1  1.082e-06   1.58e-06  3.055e-06   0.00%
+Nyx::remove_ghost_particles()                                   1  1.072e-06  1.443e-06  2.004e-06   0.00%
+----------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------
+Name                                                       NCalls  Incl. Min  Incl. Avg  Incl. Max   Max %
+----------------------------------------------------------------------------------------------------------
+main()                                                          1      10.78      10.78      10.78 100.00%
+REG::R::Nyx::coarseTimeStep                                     1      10.26      10.26      10.26  95.17%
+Amr::coarseTimeStep()                                           1      10.26      10.26      10.26  95.17%
+Amr::timeStep()                                                 1      10.14      10.16      10.18  94.44%
+REG::R::Nyx::advance::STEP1                                     1      9.309      9.311      9.315  86.38%
+REG::R::Nyx::advance_hydro_plus_particles                       1      9.309      9.311      9.315  86.38%
+Nyx::advance_hydro_plus_particles()                             1      9.309      9.311      9.315  86.38%
+just_the_hydro                                                  1      7.225      7.737      8.712  80.79%
+Nyx::sdc_hydro()                                                1      7.225      7.737      8.712  80.79%
+sdc_reactions                                                   1      4.915      5.428      6.401  59.36%
+Nyx::sdc_reactions()                                            1      4.915      5.428      6.401  59.36%
+Nyx::integrate_state_struct_mfin                               64      4.603      4.926      6.082  56.40%
+Nyx::reactions_cvode                                           64      4.219      4.534      5.673  52.61%
+Nyx::reactions_f                                              619      4.201      4.515       5.65  52.39%
+Nyx::advance_hydro_pc_umdrv()                                   1      2.056      2.099      2.153  19.97%
+Nyx::umdrv()                                                   64      2.035      2.076      2.116  19.62%
+Nyx::umeth()                                                   64      1.996      2.037      2.078  19.27%
+Nyx::compute_new_temp()                                         5      1.456      1.503      1.653  15.33%
+solve_for_new_phi                                               1     0.1059      1.079      1.594  14.78%
+Gravity::solve_for_new_phi()                                    1     0.1059      1.079      1.594  14.78%
+FabArray::ParallelCopy_finish()                                62     0.0546      1.033       1.55  14.37%
+ParticleContainer::AssignCellDensitySingleLevel()               5    0.05058      1.025      1.539  14.27%
+FabArray<FAB>::SumBoundary()                                    5    0.01284      0.992      1.508  13.99%
+FabArray<FAB>::SumBoundary_finish()                             5   0.003845     0.9849      1.502  13.93%
+Gravity::AddParticlesToRhs()                                    1    0.01069      0.984      1.498  13.89%
+Nyx::post_timestep()                                            1     0.6458     0.6557     0.6848   6.35%
+Amr::init()                                                     1     0.5128     0.5128     0.5129   4.76%
+Amr::restart()                                                  1     0.5128     0.5128     0.5129   4.76%
+Nyx::post_restart()                                             1     0.4773     0.4777     0.4787   4.44%
+Nyx::reactions_cells_finalize                                  64     0.3736     0.3839     0.4001   3.71%
+Nyx::post_timestep()::compute_temp                              1     0.2935     0.3048     0.3341   3.10%
+Nyx::post_timestep()::sum_write                                 1      0.333     0.3331     0.3333   3.09%
+FabArray::FillBoundary()                                      289     0.1321      0.173      0.204   1.89%
+FillBoundary_finish()                                         285    0.09676     0.1371     0.1708   1.58%
+Gravity::solve_with_MLMG                                        4     0.1485     0.1489     0.1492   1.38%
+MLMG::solve()                                                   4      0.136      0.136     0.1361   1.26%
+Gravity::get_new_grav_vector()                                  4    0.07865     0.1072     0.1195   1.11%
+Nyx::post_regrid()                                              1     0.1163     0.1167     0.1174   1.09%
+FabArray::ParallelCopy()                                       57     0.1088     0.1118     0.1168   1.08%
+FillPatchIterator::Initialize                                  17     0.1076      0.111     0.1159   1.07%
+FillPatchSingleLevel                                           17      0.107     0.1102     0.1149   1.07%
+ParticleContainer::RedistributeCPU()                            3    0.09336    0.09784     0.1036   0.96%
+Gravity::actual_multilevel_solve()                              3      0.101     0.1019     0.1023   0.95%
+amrex::Copy()                                                  46    0.08931    0.09666     0.1005   0.93%
+Amr::writePlotFile()                                            1    0.06131    0.08534     0.0995   0.92%
+Gravity::solve_for_phi()                                        1    0.09371    0.09437      0.095   0.88%
+MLMG::oneIter()                                                 5    0.08615    0.08647    0.08687   0.81%
+MLMG::mgVcycle()                                                5    0.08053    0.08076    0.08139   0.75%
+Gravity::get_old_grav_vector()                                  3    0.06893    0.07598    0.08108   0.75%
+FabArray::setVal()                                            197     0.0704    0.07279    0.07579   0.70%
+Gravity::multilevel_solve_for_new_phi()                         2    0.07525    0.07541    0.07551   0.70%
+Nyx::particle_redistribute()                                    1    0.06299    0.06648    0.07061   0.65%
+FabArray::ParallelCopy_nowait()                                62    0.06338    0.06763    0.06997   0.65%
+Nyx::init(old)                                                  1    0.05996    0.06184    0.06261   0.58%
+ParticleContainer::RedistributeMPI()                            3    0.04278    0.04999    0.06111   0.57%
+MLCellLinOp::smooth()                                         120    0.05719     0.0575    0.05811   0.54%
+Nyx::particle_post_restart()                                    1    0.05095    0.05137    0.05241   0.49%
+ParticleContainer::Restart()                                    1    0.05091    0.05132    0.05234   0.49%
+vol_weight_sum(name)                                            3   0.006246    0.03922    0.05065   0.47%
+vol_weight_sum                                                  8   0.004681    0.03728    0.04922   0.46%
+MLPoisson::Fsmooth()                                          240    0.04179    0.04236    0.04504   0.42%
+ParticleContainer::AssignDensity()                              4    0.04348    0.04408    0.04492   0.42%
+FabArray::norminf()                                            17   0.002902    0.03199    0.04287   0.40%
+FillBoundary_nowait()                                         285     0.0327    0.03526    0.04139   0.38%
+ParticleContainer::ReadParticles()                              1     0.0305    0.03619    0.04052   0.38%
+MLMG::mgVcycle_down::0                                          5    0.03839    0.03868    0.03914   0.36%
+Gravity::AddParticlesToRhsML()                                  3    0.03533    0.03637     0.0373   0.35%
+Nyx::restart()                                                  1    0.03022    0.03123    0.03179   0.29%
+AmrLevel::restart()                                             1    0.03012    0.03113    0.03143   0.29%
+StateData::restartDoit()                                        5    0.02989    0.03087    0.03106   0.29%
+WriteMultiLevelPlotfileHDF5SingleDset                           1    0.02951    0.02962    0.02977   0.28%
+MLCellLinOp::applyBC()                                        286    0.02487    0.02701    0.02892   0.27%
+solve_for_old_phi                                               1    0.02813    0.02855    0.02878   0.27%
+VisMF::Read()                                                   4    0.02691     0.0276    0.02789   0.26%
+Nyx::srctoprim()                                               64   0.009802    0.01474    0.02765   0.26%
+MLMG::mgVcycle_up::0                                            5    0.02683      0.027    0.02752   0.26%
+Gravity::multilevel_solve_for_old_phi()                         1    0.02569    0.02661    0.02712   0.25%
+NyxParticleContainer<NSR,NSI,NAR,NAI>::WriteNyxPlotFile()       1    0.02418    0.02548    0.02624   0.24%
+WriteBinaryParticleData()                                       1    0.02416    0.02546    0.02622   0.24%
+MLCellLinOp::solutionResidual()                                 9    0.02149    0.02458    0.02611   0.24%
+MLCellLinOp::apply()                                           42    0.02042    0.02378    0.02523   0.23%
+DarkMatterParticleContainer::moveKickDrift()                    2    0.01436    0.01686     0.0246   0.23%
+H5writeAllLevel                                                 1    0.02418     0.0242    0.02424   0.22%
+Nyx::update_state_with_sources()                                1    0.02087    0.02236    0.02408   0.22%
+Nyx::reset_internal_energy()                                    6    0.01895    0.02197    0.02316   0.21%
+MLMG::prepareForSolve()                                         4    0.01991    0.02064    0.02265   0.21%
+RedistributeMPI_copy                                            2    0.01517      0.018    0.02066   0.19%
+Nyx::post_timestep()::redist                                    1     0.0135    0.01778    0.01959   0.18%
+ParticleContainer::WriteParticles()                             1    0.01597    0.01772    0.01947   0.18%
+DarkMatterParticleContainer::moveKick()                         1    0.01287    0.01479    0.01909   0.18%
+H5DwriteData                                                    2    0.01702    0.01739    0.01789   0.17%
+Nyx::computeNewDt()                                             1    0.01486    0.01618    0.01645   0.15%
+Nyx::est_time_step()                                            1    0.01485    0.01618    0.01644   0.15%
+MLMG::computeMLResidual()                                       4     0.0102    0.01358    0.01509   0.14%
+MLPoisson::Fapply()                                            42    0.01227    0.01335    0.01385   0.13%
+Nyx::particle_est_time_step()                                   1    0.01205    0.01208    0.01214   0.11%
+NyxParticleContainer<NSR,NSI,NAR,NAI>::estTimestep(lev)         1    0.01203    0.01207    0.01213   0.11%
+FabArray::Xpay()                                               40    0.01066    0.01139    0.01208   0.11%
+MLMG::getGradSolution()                                         4     0.0111    0.01166    0.01194   0.11%
+MLCellLinOp::compGrad()                                         4    0.01107    0.01158    0.01184   0.11%
+MLMG::computeResidual()                                         5    0.01079    0.01109    0.01142   0.11%
+MLCellLinOp::correctionResidual()                              30    0.01034    0.01067    0.01102   0.10%
+MLMG:computeResOfCorrection()                                  30    0.01043    0.01072    0.01101   0.10%
+Nyx::ctoprim()                                                 64   0.006652   0.008063    0.01016   0.09%
+amrex::Add()                                                   14   0.008788   0.009219    0.01006   0.09%
+ParticleContainer::BuildRedistributeMask                        2   0.004052   0.008222   0.009977   0.09%
+FabArray<FAB>::SumBoundary_nowait()                             5   0.005712    0.00711   0.008963   0.08%
+Nyx::reset_internal_energy_nostore()                            2   0.007575   0.008035   0.008517   0.08%
+Nyx::Nyx(Amr)                                                   1   0.007107   0.007615   0.008491   0.08%
+MLPoisson::define()                                             2   0.001559   0.005054   0.008466   0.08%
+RedistributeMPI_locate                                          2   0.005881   0.006593    0.00786   0.07%
+MLLinOp::define()                                               2  0.0002087    0.00366    0.00715   0.07%
+MLLinOp::defineGrids()                                          2  0.0001963   0.003644   0.007138   0.07%
+MLLinOp::makeSubCommunicator()                                  2  9.824e-05   0.003545   0.006986   0.06%
+Gravity::set_mass_offset()                                      1   0.004825   0.005744   0.006983   0.06%
+MLMG::addInterpCorrection()                                    30   0.004291   0.005962   0.006616   0.06%
+MLMG::mgVcycle_down::1                                          5   0.005854   0.006215   0.006478   0.06%
+Nyx::reactions_cells_initialize                                64   0.005812   0.005948   0.006093   0.06%
+Nyx::derive()                                                   3    0.00357   0.004166   0.004656   0.04%
+MLMG::mgVcycle_up::1                                            5   0.003826   0.003871   0.003981   0.04%
+Nyx::enforce_minimum_density()                                  1  0.0003007   0.001906   0.003651   0.03%
+MultiFab::min()                                                 1  0.0002836    0.00188   0.003612   0.03%
+Amr::InitAmr()                                                  1   0.003516   0.003541   0.003587   0.03%
+amrex::average_down                                            30   0.003274   0.003424    0.00352   0.03%
+Nyx::compute_rho_temp()                                         1   0.003314   0.003317    0.00332   0.03%
+Nyx::compute_rho_temp()::OnHost                                 1   0.002819   0.003143   0.003306   0.03%
+H5writeMetadata                                                 0          0  0.0003892   0.003114   0.03%
+MLMG::mgVcycle_up::2                                            5   0.001052   0.002716   0.002993   0.03%
+FabArray::plus()                                               17   0.002107   0.002336   0.002632   0.02%
+FabArray::sum()                                                 9   0.002323   0.002452   0.002587   0.02%
+MLMG::ResNormInf()                                              9   0.001825   0.002136   0.002441   0.02%
+FabArray::mult()                                               13   0.001649   0.002014   0.002272   0.02%
+Nyx::vol_weight_sum()::ReduceOpsOnDevice                        8   0.002135   0.002173    0.00226   0.02%
+MLMG::mgVcycle_down::2                                          5   0.001259   0.001341   0.001394   0.01%
+MultiFab::Subtract()                                            2  0.0009071   0.001061   0.001223   0.01%
+FabArrayBase::getCPC()                                        158  0.0008648   0.000927   0.001141   0.01%
+MLCellLinOp::defineAuxData()                                    2  0.0008071  0.0008715   0.001128   0.01%
+Gravity::CorrectRhsUsingOffset()                                1  0.0005912   0.000839   0.001098   0.01%
+Nyx::reactions_alloc                                           64   0.001044   0.001075   0.001097   0.01%
+MLMG::MLResNormInf()                                            4  0.0007914  0.0008628   0.001035   0.01%
+MLMG::MLRhsNormInf()                                            4  0.0008568  0.0008918  0.0009339   0.01%
+FabArrayBase::getFB()                                         285  0.0007554  0.0008185  0.0009076   0.01%
+FabArrayBase::CPC::define()                                   120  0.0005679  0.0006119  0.0008194   0.01%
+Nyx::reactions_cvsetup                                         64  0.0006636  0.0006838  0.0007029   0.01%
+MLMG::mgVcycle_down::3                                          5  0.0001224  0.0001992  0.0006881   0.01%
+FabArrayBase::FB::FB()                                         22  0.0004886  0.0005379  0.0006191   0.01%
+MLMG::mgVcycle_up::3                                            5  8.392e-05   0.000144  0.0005583   0.01%
+Nyx::compute_gas_fractions()                                    1  0.0005064  0.0005068  0.0005073   0.00%
+MLCellLinOp::defineBC()                                         2  0.0004572  0.0004832  0.0005042   0.00%
+Nyx::compute_gas_fractions()::OnHost                            1  0.0004744  0.0004858  0.0004993   0.00%
+Nyx::read_params()                                              1  0.0003929  0.0004186  0.0004888   0.00%
+BndryData::define()                                             2  0.0004284  0.0004538  0.0004745   0.00%
+MLMG::mgVcycle_bottom                                           5  1.009e-05  6.784e-05  0.0004649   0.00%
+MLMG::actualBottomSolve()                                       5  4.738e-06  6.199e-05  0.0004597   0.00%
+Nyx::reactions_free                                            64  0.0003539   0.000383  0.0004199   0.00%
+MLPoisson::prepareForSolve()                                    4  0.0003063  0.0003445  0.0003904   0.00%
+MLCGSolver::bicgstab                                            0          0  4.771e-05  0.0003817   0.00%
+MLCellLinOp::prepareForSolve()                                  4  0.0002902  0.0003263  0.0003777   0.00%
+WriteGenericPlotfileHeaderHDF5()                                0          0  4.495e-05  0.0003596   0.00%
+MLMG::mgVcycle_down::4                                          5  0.0001116  0.0001315  0.0002637   0.00%
+StateDataPhysBCFunct::()                                       17  0.0001875  0.0002242  0.0002501   0.00%
+DistributionMapping::SFCProcessorMapDoIt()                      2  3.108e-05  0.0001218    0.00022   0.00%
+MLMG::mgVcycle_up::4                                            5  8.557e-05  0.0001063  0.0001964   0.00%
+DistributionMapping::LeastUsedCPUs()                            2  1.135e-05  8.949e-05  0.0001953   0.00%
+MLMG::mgVcycle_down::5                                          5  0.0001086  0.0001203  0.0001913   0.00%
+MLMG::mgVcycle_up::5                                            5  0.0001001  0.0001227  0.0001508   0.00%
+FabArray::setDomainBndry()                                     17  0.0001018  0.0001173  0.0001263   0.00%
+FabArray::setVal(val, thecmd, scomp, ncomp)                    96  0.0001177  0.0001213  0.0001236   0.00%
+AmrLevel::AmrLevel(dm)                                          1  5.154e-05  6.607e-05  7.819e-05   0.00%
+Nyx::reactions_numsteps                                        64  5.155e-05  5.883e-05  6.819e-05   0.00%
+StateData::define()                                             5   4.25e-05  5.568e-05  6.611e-05   0.00%
+MLCellLinOp::setLevelBC()                                       4  4.023e-05  4.971e-05  5.924e-05   0.00%
+Nyx::reactions_single_copy                                     64  4.009e-05  4.241e-05  4.978e-05   0.00%
+MLCGSolver::ParallelAllReduce                                   7          0  5.925e-06   4.74e-05   0.00%
+NeighborParticleContainer::clearNeighborsCPU                    2  1.457e-05   2.08e-05   3.16e-05   0.00%
+MLLinOp::makeAgglomeratedDMap                                   2  1.211e-05  1.582e-05  2.929e-05   0.00%
+makeSFC                                                         8  9.268e-06  1.248e-05  2.444e-05   0.00%
+amrex::Dot()                                                    5          0  2.795e-06  2.236e-05   0.00%
+Gravity::add_to_fluxes()                                        1  1.214e-05  1.685e-05  2.164e-05   0.00%
+Gravity::AddGhostParticlesToRhsML()                             3  1.469e-05  1.721e-05   2.04e-05   0.00%
+Gravity::AddVirtualParticlesToRhs()                             1  5.651e-06  1.108e-05  1.757e-05   0.00%
+FabArray::Saxpy()                                               3          0  1.895e-06  1.516e-05   0.00%
+Nyx::post_timestep()::remove_virt_ghost                         1  7.825e-06  1.221e-05  1.462e-05   0.00%
+FabArray::LinComb()                                             2          0  1.703e-06  1.363e-05   0.00%
+Amr::initSubcycle()                                             1  8.867e-06  1.097e-05  1.147e-05   0.00%
+Nyx::postCoarseTimeStep()                                       1  5.149e-06  7.113e-06   1.12e-05   0.00%
+Nyx::remove_virtual_particles()                                 1  3.837e-06  8.048e-06   1.11e-05   0.00%
+DistributionMapping::Distribute()                              10  6.602e-06   8.37e-06  1.056e-05   0.00%
+Gravity::AddVirtualParticlesToRhsML()                           3   4.93e-06  6.178e-06  8.027e-06   0.00%
+Nyx::read_init_params()                                         1  5.791e-06  6.015e-06  6.402e-06   0.00%
+Gravity::AddGhostParticlesToRhs()                               1  2.996e-06  4.647e-06  6.362e-06   0.00%
+ParticleContainer::RemoveParticlesAtLevel()                     2  2.615e-06  4.456e-06  5.571e-06   0.00%
+Nyx::setup_virtual_particles()                                  1  2.154e-06   3.29e-06  3.858e-06   0.00%
+Nyx::post_timestep()::do_reflux                                 1  2.515e-06  2.874e-06  3.697e-06   0.00%
+Nyx::doAnalysisNow()                                            1  1.102e-06  1.861e-06  3.366e-06   0.00%
+Nyx::Nyx()                                                      1  1.092e-06  1.809e-06  3.297e-06   0.00%
+Gravity::make_mg_bc()                                           1  1.082e-06   1.58e-06  3.055e-06   0.00%
+Nyx::remove_ghost_particles()                                   1  1.653e-06  2.242e-06  3.046e-06   0.00%
+----------------------------------------------------------------------------------------------------------
+
+
+
+BEGIN REGION R::Nyx::advance::STEP1
+
+--------------------------------------------------------------------------------------------------
+Name                                               NCalls  Excl. Min  Excl. Avg  Excl. Max   Max %
+--------------------------------------------------------------------------------------------------
+Nyx::reactions_f                                      619      4.201      4.515       5.65  52.39%
+Nyx::umeth()                                           64      1.996      2.037      2.078  19.27%
+FabArray::ParallelCopy_finish()                        42    0.02557     0.9999      1.515  14.05%
+Nyx::sdc_reactions()                                    1  0.0001157     0.1973      1.481  13.74%
+Nyx::compute_new_temp()                                 2     0.5811     0.6033     0.6615   6.13%
+Nyx::reactions_cells_finalize                          64     0.3736     0.3839     0.4001   3.71%
+FillBoundary_finish()                                 224    0.08594     0.1276     0.1623   1.50%
+amrex::Copy()                                          26    0.05442    0.06074    0.06445   0.60%
+FabArray::ParallelCopy_nowait()                        42    0.03712    0.04052    0.04421   0.41%
+FabArray::setVal()                                    103    0.03624    0.03919    0.04129   0.38%
+Nyx::umdrv()                                           64    0.03831    0.03922    0.04044   0.38%
+MLPoisson::Fsmooth()                                  192     0.0332    0.03376    0.03591   0.33%
+FillBoundary_nowait()                                 224    0.02709    0.02943    0.03468   0.32%
+Nyx::srctoprim()                                       64   0.009802    0.01474    0.02765   0.26%
+DarkMatterParticleContainer::moveKickDrift()            2    0.01436    0.01686     0.0246   0.23%
+Nyx::update_state_with_sources()                        1    0.01911    0.02045    0.02378   0.22%
+Nyx::reactions_cvode                                   64    0.01772    0.01913    0.02363   0.22%
+DarkMatterParticleContainer::moveKick()                 1    0.01287    0.01479    0.01909   0.18%
+ParticleContainer::AssignCellDensitySingleLevel()       2    0.01059     0.0117    0.01516   0.14%
+Gravity::get_old_grav_vector()                          3     0.0106    0.01097    0.01119   0.10%
+Nyx::reset_internal_energy()                            3   0.006809   0.009807    0.01097   0.10%
+Nyx::ctoprim()                                         64   0.006652   0.008063    0.01016   0.09%
+MLPoisson::Fapply()                                    32   0.008617   0.009397    0.00992   0.09%
+Nyx::advance_hydro_plus_particles()                     1   0.008162   0.008616   0.009489   0.09%
+FabArray::Xpay()                                       31   0.007613   0.008113     0.0086   0.08%
+Gravity::get_new_grav_vector()                          2   0.007359   0.007506   0.007684   0.07%
+amrex::Add()                                            9   0.005962    0.00637   0.007035   0.07%
+Nyx::reactions_cells_initialize                        64   0.005812   0.005948   0.006093   0.06%
+MLCellLinOp::compGrad()                                 2   0.004426   0.004967   0.005356   0.05%
+MLMG::solve()                                           2  0.0001102  0.0008772   0.004582   0.04%
+MLMG::addInterpCorrection()                            24   0.003244   0.003329   0.003718   0.03%
+MultiFab::min()                                         1  0.0002836    0.00188   0.003612   0.03%
+amrex::average_down                                    24    0.00242    0.00254   0.002624   0.02%
+Nyx::sdc_hydro()                                        1  0.0009768   0.001462   0.002552   0.02%
+FabArray::norminf()                                    10   0.001594   0.001698   0.001834   0.02%
+MLCellLinOp::applyBC()                                226   0.001275   0.001434   0.001828   0.02%
+FabArray::sum()                                         6   0.001539   0.001606   0.001688   0.02%
+FabArray::plus()                                       10   0.001298   0.001439   0.001617   0.01%
+MultiFab::Subtract()                                    2  0.0009071   0.001061   0.001223   0.01%
+FabArray::mult()                                        6   0.000806   0.001012   0.001116   0.01%
+Nyx::reactions_alloc                                   64   0.001044   0.001075   0.001097   0.01%
+MLMG::prepareForSolve()                                 2  0.0006669   0.000801   0.001038   0.01%
+Nyx::reactions_cvsetup                                 64  0.0006636  0.0006838  0.0007029   0.01%
+FillPatchIterator::Initialize                           8  0.0003047  0.0004045  0.0006317   0.01%
+vol_weight_sum                                          2  5.613e-05  0.0003465  0.0006042   0.01%
+Nyx::vol_weight_sum()::ReduceOpsOnDevice                2  0.0005222  0.0005254  0.0005309   0.00%
+FabArray::FillBoundary()                              226  0.0004433  0.0004766  0.0005301   0.00%
+Nyx::advance_hydro_pc_umdrv()                           1  0.0003087  0.0004018  0.0004595   0.00%
+Nyx::reactions_free                                    64  0.0003539   0.000383  0.0004199   0.00%
+MLMG::ResNormInf()                                      6  6.992e-05  0.0001781  0.0003683   0.00%
+Gravity::solve_with_MLMG                                2  9.709e-05  0.0001382  0.0002644   0.00%
+FabArrayBase::getFB()                                 224  0.0002278  0.0002454  0.0002616   0.00%
+MLCellLinOp::prepareForSolve()                          2  0.0001835  0.0002049  0.0002369   0.00%
+FabArrayBase::FB::FB()                                  8  0.0001618  0.0001848  0.0002299   0.00%
+Gravity::multilevel_solve_for_old_phi()                 1  4.926e-05  8.535e-05  0.0001993   0.00%
+FabArray<FAB>::SumBoundary_nowait()                     2  1.746e-05   4.19e-05  0.0001936   0.00%
+MLCellLinOp::smooth()                                  96  0.0001477   0.000157  0.0001823   0.00%
+StateDataPhysBCFunct::()                                8  0.0001229  0.0001527  0.0001808   0.00%
+FabArrayBase::getCPC()                                 42   0.000151  0.0001629  0.0001807   0.00%
+MLMG::oneIter()                                         4  5.721e-05  0.0001506  0.0001778   0.00%
+Nyx::integrate_state_struct_mfin                       64  0.0001125  0.0001178  0.0001235   0.00%
+FabArrayBase::CPC::define()                            11  8.038e-05  9.536e-05  0.0001069   0.00%
+FabArray::ParallelCopy()                               40  7.532e-05   9.24e-05  9.934e-05   0.00%
+FabArray::setDomainBndry()                              8  7.276e-05  8.558e-05   9.51e-05   0.00%
+FillPatchSingleLevel                                    8  3.655e-05  4.816e-05  8.699e-05   0.00%
+Gravity::actual_multilevel_solve()                      1  4.519e-05  6.142e-05  8.287e-05   0.00%
+MLMG::computeResidual()                                 4  2.773e-05  4.428e-05  7.736e-05   0.00%
+MLCellLinOp::apply()                                   32  5.352e-05  5.855e-05   7.41e-05   0.00%
+MLCGSolver::bicgstab                                    0          0  9.215e-06  7.372e-05   0.00%
+sdc_reactions                                           1  2.489e-05  4.016e-05  6.854e-05   0.00%
+Nyx::reactions_numsteps                                64  5.155e-05  5.883e-05  6.819e-05   0.00%
+just_the_hydro                                          1  1.467e-05  2.812e-05  6.201e-05   0.00%
+solve_for_old_phi                                       1  3.788e-05   5.17e-05  6.052e-05   0.00%
+Nyx::reactions_single_copy                             64  4.009e-05  4.241e-05  4.978e-05   0.00%
+MLCellLinOp::solutionResidual()                         6  3.224e-05  3.738e-05  4.889e-05   0.00%
+Gravity::solve_for_new_phi()                            1  2.711e-05  3.279e-05  4.716e-05   0.00%
+MLMG:computeResOfCorrection()                          24  3.242e-05   3.67e-05  4.601e-05   0.00%
+MLCellLinOp::correctionResidual()                      24  3.576e-05  3.961e-05  4.356e-05   0.00%
+ParticleContainer::AssignDensity()                      1  2.048e-05  2.939e-05  4.293e-05   0.00%
+Gravity::AddParticlesToRhs()                            1  3.016e-05  3.566e-05  4.279e-05   0.00%
+MLMG::actualBottomSolve()                               4  4.227e-06  9.385e-06  4.189e-05   0.00%
+MLMG::mgVcycle_down::0                                  4  2.121e-05  2.666e-05  3.998e-05   0.00%
+MLCellLinOp::setLevelBC()                               2   2.14e-05  2.727e-05  3.925e-05   0.00%
+Nyx::enforce_minimum_density()                          1  1.717e-05  2.612e-05  3.833e-05   0.00%
+Nyx::reset_internal_energy_nostore()                    1  2.265e-05  2.797e-05  3.831e-05   0.00%
+MLMG::mgVcycle()                                        4  2.577e-05  2.829e-05  3.348e-05   0.00%
+Gravity::solve_for_phi()                                1  1.561e-05  2.566e-05  3.317e-05   0.00%
+MLMG::computeMLResidual()                               2  1.013e-05  1.613e-05  3.147e-05   0.00%
+MLMG::mgVcycle_down::3                                  4  7.802e-06  1.171e-05   2.99e-05   0.00%
+Gravity::CorrectRhsUsingOffset()                        1  1.129e-05  1.693e-05   2.96e-05   0.00%
+Gravity::AddParticlesToRhsML()                          1  1.402e-05  1.957e-05  2.954e-05   0.00%
+MLMG::mgVcycle_down::1                                  4  1.749e-05   2.08e-05  2.943e-05   0.00%
+MLCGSolver::ParallelAllReduce                           5          0  3.659e-06  2.927e-05   0.00%
+solve_for_new_phi                                       1  9.778e-06  1.412e-05  2.547e-05   0.00%
+REG::R::Nyx::advance::STEP1                             1  1.415e-05  2.006e-05   2.49e-05   0.00%
+FabArray<FAB>::SumBoundary()                            2  1.377e-05  1.727e-05  2.306e-05   0.00%
+Gravity::add_to_fluxes()                                1  1.214e-05  1.685e-05  2.164e-05   0.00%
+MLMG::mgVcycle_up::0                                    4  1.451e-05  1.625e-05  2.056e-05   0.00%
+amrex::Dot()                                            4          0  2.429e-06  1.944e-05   0.00%
+FabArray<FAB>::SumBoundary_finish()                     2  9.217e-06  1.426e-05  1.844e-05   0.00%
+Gravity::AddVirtualParticlesToRhs()                     1  5.651e-06  1.108e-05  1.757e-05   0.00%
+MLMG::MLResNormInf()                                    2  8.385e-06  1.125e-05  1.601e-05   0.00%
+MLMG::mgVcycle_down::2                                  4  8.545e-06  1.028e-05  1.408e-05   0.00%
+MLMG::getGradSolution()                                 2  8.105e-06  1.019e-05  1.392e-05   0.00%
+FabArray::Saxpy()                                       2          0  1.727e-06  1.382e-05   0.00%
+FabArray::LinComb()                                     2          0  1.549e-06  1.239e-05   0.00%
+Gravity::AddGhostParticlesToRhsML()                     1   5.48e-06  7.285e-06  1.002e-05   0.00%
+REG::R::Nyx::advance_hydro_plus_particles               1  6.382e-06  8.505e-06  9.959e-06   0.00%
+MLMG::mgVcycle_up::1                                    4   6.29e-06  7.082e-06  8.867e-06   0.00%
+MLPoisson::prepareForSolve()                            2  6.062e-06  6.971e-06  8.106e-06   0.00%
+MLMG::mgVcycle_down::5                                  4  5.599e-06  6.051e-06  6.451e-06   0.00%
+Gravity::AddGhostParticlesToRhs()                       1  2.996e-06  4.647e-06  6.362e-06   0.00%
+MLMG::mgVcycle_up::5                                    4  4.748e-06  5.408e-06  6.192e-06   0.00%
+MLMG::mgVcycle_down::4                                  4  5.106e-06  5.553e-06   6.11e-06   0.00%
+MLMG::mgVcycle_up::2                                    4  4.772e-06   5.23e-06  5.664e-06   0.00%
+MLMG::mgVcycle_up::4                                    4  4.729e-06  5.185e-06   5.52e-06   0.00%
+MLMG::mgVcycle_bottom                                   4  4.588e-06  5.136e-06  5.501e-06   0.00%
+MLMG::mgVcycle_up::3                                    4  4.512e-06  4.648e-06  5.018e-06   0.00%
+Gravity::AddVirtualParticlesToRhsML()                   1  2.204e-06  3.181e-06  4.188e-06   0.00%
+Nyx::setup_virtual_particles()                          1  2.154e-06   3.29e-06  3.858e-06   0.00%
+MLMG::MLRhsNormInf()                                    2  2.414e-06   2.83e-06  3.186e-06   0.00%
+--------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------
+Name                                               NCalls  Incl. Min  Incl. Avg  Incl. Max   Max %
+--------------------------------------------------------------------------------------------------
+REG::R::Nyx::advance::STEP1                             1      9.309      9.311      9.315  86.38%
+REG::R::Nyx::advance_hydro_plus_particles               1      9.309      9.311      9.315  86.38%
+Nyx::advance_hydro_plus_particles()                     1      9.309      9.311      9.315  86.38%
+just_the_hydro                                          1      7.225      7.737      8.712  80.79%
+Nyx::sdc_hydro()                                        1      7.225      7.737      8.712  80.79%
+sdc_reactions                                           1      4.915      5.428      6.401  59.36%
+Nyx::sdc_reactions()                                    1      4.915      5.428      6.401  59.36%
+Nyx::integrate_state_struct_mfin                       64      4.603      4.926      6.082  56.40%
+Nyx::reactions_cvode                                   64      4.219      4.534      5.673  52.61%
+Nyx::reactions_f                                      619      4.201      4.515       5.65  52.39%
+Nyx::advance_hydro_pc_umdrv()                           1      2.056      2.099      2.153  19.97%
+Nyx::umdrv()                                           64      2.035      2.076      2.116  19.62%
+Nyx::umeth()                                           64      1.996      2.037      2.078  19.27%
+solve_for_new_phi                                       1     0.1059      1.079      1.594  14.78%
+Gravity::solve_for_new_phi()                            1     0.1059      1.079      1.594  14.78%
+FabArray::ParallelCopy_finish()                        42    0.02557     0.9999      1.515  14.05%
+ParticleContainer::AssignCellDensitySingleLevel()       2    0.01944     0.9936      1.507  13.98%
+Gravity::AddParticlesToRhs()                            1    0.01069      0.984      1.498  13.89%
+FabArray<FAB>::SumBoundary()                            2   0.002987     0.9809      1.496  13.87%
+FabArray<FAB>::SumBoundary_finish()                     2     0.0007     0.9785      1.494  13.85%
+Nyx::compute_new_temp()                                 2     0.5811     0.6033     0.6615   6.13%
+Nyx::reactions_cells_finalize                          64     0.3736     0.3839     0.4001   3.71%
+FabArray::FillBoundary()                              226     0.1156      0.158     0.1903   1.76%
+FillBoundary_finish()                                 224    0.08594     0.1276     0.1623   1.50%
+Gravity::solve_with_MLMG                                2      0.104     0.1044     0.1047   0.97%
+MLMG::solve()                                           2    0.09826    0.09833    0.09838   0.91%
+Gravity::solve_for_phi()                                1    0.09371    0.09437      0.095   0.88%
+Gravity::get_new_grav_vector()                          2    0.04388    0.07214    0.08458   0.78%
+Gravity::get_old_grav_vector()                          3    0.06893    0.07598    0.08108   0.75%
+MLMG::oneIter()                                         4     0.0684    0.06865    0.06899   0.64%
+FabArray::ParallelCopy()                               40    0.05762    0.06096      0.066   0.61%
+FillPatchIterator::Initialize                           8     0.0565     0.0601    0.06495   0.60%
+MLMG::mgVcycle()                                        4    0.06397    0.06415    0.06463   0.60%
+FillPatchSingleLevel                                    8    0.05613    0.05961    0.06455   0.60%
+amrex::Copy()                                          26    0.05442    0.06074    0.06445   0.60%
+MLCellLinOp::smooth()                                  96     0.0454    0.04568     0.0461   0.43%
+FabArray::ParallelCopy_nowait()                        42    0.03737    0.04078    0.04448   0.41%
+FabArray::setVal()                                    103    0.03624    0.03919    0.04129   0.38%
+MLPoisson::Fsmooth()                                  192     0.0332    0.03376    0.03591   0.33%
+FillBoundary_nowait()                                 224    0.02751    0.02986    0.03513   0.33%
+MLMG::mgVcycle_down::0                                  4    0.03046    0.03072    0.03103   0.29%
+solve_for_old_phi                                       1    0.02813    0.02855    0.02878   0.27%
+Nyx::srctoprim()                                       64   0.009802    0.01474    0.02765   0.26%
+Gravity::multilevel_solve_for_old_phi()                 1    0.02569    0.02661    0.02712   0.25%
+Gravity::actual_multilevel_solve()                      1     0.0256    0.02653    0.02707   0.25%
+DarkMatterParticleContainer::moveKickDrift()            2    0.01436    0.01686     0.0246   0.23%
+Nyx::update_state_with_sources()                        1    0.02087    0.02236    0.02408   0.22%
+MLMG::mgVcycle_up::0                                    4    0.02141    0.02155    0.02197   0.20%
+MLCellLinOp::applyBC()                                226    0.01745    0.02009     0.0214   0.20%
+DarkMatterParticleContainer::moveKick()                 1    0.01287    0.01479    0.01909   0.18%
+MLCellLinOp::apply()                                   32    0.01344     0.0169    0.01802   0.17%
+MLCellLinOp::solutionResidual()                         6    0.01318    0.01656    0.01769   0.16%
+Gravity::AddParticlesToRhsML()                          1    0.01105    0.01168    0.01223   0.11%
+ParticleContainer::AssignDensity()                      1    0.01036      0.011    0.01157   0.11%
+MLMG::prepareForSolve()                                 2   0.009935    0.01028    0.01131   0.10%
+Nyx::reset_internal_energy()                            3   0.006809   0.009807    0.01097   0.10%
+Nyx::ctoprim()                                         64   0.006652   0.008063    0.01016   0.09%
+MLPoisson::Fapply()                                    32   0.008617   0.009397    0.00992   0.09%
+MLMG::computeResidual()                                 4   0.008577   0.008902   0.009189   0.09%
+MLCellLinOp::correctionResidual()                      24   0.008189   0.008509   0.008851   0.08%
+MLMG:computeResOfCorrection()                          24   0.008225    0.00854   0.008843   0.08%
+MLMG::computeMLResidual()                               2   0.004084   0.007722   0.008779   0.08%
+FabArray::Xpay()                                       31   0.007613   0.008113     0.0086   0.08%
+amrex::Add()                                            9   0.005962    0.00637   0.007035   0.07%
+MLMG::getGradSolution()                                 2   0.005415   0.005861   0.006238   0.06%
+MLCellLinOp::compGrad()                                 2   0.005401    0.00585   0.006226   0.06%
+Nyx::reactions_cells_initialize                        64   0.005812   0.005948   0.006093   0.06%
+MLMG::addInterpCorrection()                            24   0.003438   0.004781   0.005324   0.05%
+FabArray<FAB>::SumBoundary_nowait()                     2   0.001627   0.002367   0.005173   0.05%
+MLMG::mgVcycle_down::1                                  4   0.004477   0.004716   0.004961   0.05%
+Nyx::enforce_minimum_density()                          1  0.0003007   0.001906   0.003651   0.03%
+MultiFab::min()                                         1  0.0002836    0.00188   0.003612   0.03%
+Nyx::reset_internal_energy_nostore()                    1    0.00262   0.003094   0.003506   0.03%
+MLMG::mgVcycle_up::1                                    4   0.003098    0.00313   0.003211   0.03%
+amrex::average_down                                    24   0.002516   0.002643   0.002715   0.03%
+MLMG::mgVcycle_up::2                                    4  0.0008401   0.002179   0.002397   0.02%
+FabArray::norminf()                                    10   0.001594   0.001698   0.001834   0.02%
+MLMG::ResNormInf()                                      6   0.001229   0.001444   0.001772   0.02%
+FabArray::sum()                                         6   0.001539   0.001606   0.001688   0.02%
+FabArray::plus()                                       10   0.001298   0.001439   0.001617   0.01%
+MultiFab::Subtract()                                    2  0.0009071   0.001061   0.001223   0.01%
+vol_weight_sum                                          2  0.0005783  0.0008719   0.001131   0.01%
+MLMG::mgVcycle_down::2                                  4   0.001004   0.001073   0.001118   0.01%
+FabArray::mult()                                        6   0.000806   0.001012   0.001116   0.01%
+Gravity::CorrectRhsUsingOffset()                        1  0.0005912   0.000839   0.001098   0.01%
+Nyx::reactions_alloc                                   64   0.001044   0.001075   0.001097   0.01%
+Nyx::reactions_cvsetup                                 64  0.0006636  0.0006838  0.0007029   0.01%
+MLMG::mgVcycle_down::3                                  4   0.000109  0.0001707  0.0005552   0.01%
+Nyx::vol_weight_sum()::ReduceOpsOnDevice                2  0.0005222  0.0005254  0.0005309   0.00%
+MLMG::MLResNormInf()                                    2  0.0003836  0.0004188  0.0004836   0.00%
+FabArrayBase::getFB()                                 224  0.0003896  0.0004302  0.0004797   0.00%
+MLMG::MLRhsNormInf()                                    2  0.0004109  0.0004337  0.0004533   0.00%
+MLMG::mgVcycle_up::3                                    4  7.487e-05  0.0001221  0.0004454   0.00%
+Nyx::reactions_free                                    64  0.0003539   0.000383  0.0004199   0.00%
+MLMG::mgVcycle_bottom                                   4  9.067e-06  5.816e-05  0.0003956   0.00%
+MLMG::actualBottomSolve()                               4  4.227e-06  5.302e-05   0.000391   0.00%
+MLCGSolver::bicgstab                                    0          0  4.118e-05  0.0003294   0.00%
+FabArrayBase::getCPC()                                 42  0.0002407  0.0002582  0.0002783   0.00%
+MLPoisson::prepareForSolve()                            2  0.0001899  0.0002119   0.000244   0.00%
+MLCellLinOp::prepareForSolve()                          2  0.0001835  0.0002049  0.0002369   0.00%
+FabArrayBase::FB::FB()                                  8  0.0001618  0.0001848  0.0002299   0.00%
+MLMG::mgVcycle_down::4                                  4  9.969e-05  0.0001155  0.0002175   0.00%
+StateDataPhysBCFunct::()                                8  0.0001229  0.0001527  0.0001808   0.00%
+MLMG::mgVcycle_up::4                                    4  7.654e-05  9.438e-05  0.0001648   0.00%
+MLMG::mgVcycle_down::5                                  4   9.75e-05  0.0001062  0.0001599   0.00%
+MLMG::mgVcycle_up::5                                    4  8.189e-05  8.927e-05  0.0001269   0.00%
+FabArrayBase::CPC::define()                            11  8.038e-05  9.536e-05  0.0001069   0.00%
+FabArray::setDomainBndry()                              8  7.276e-05  8.558e-05   9.51e-05   0.00%
+Nyx::reactions_numsteps                                64  5.155e-05  5.883e-05  6.819e-05   0.00%
+Nyx::reactions_single_copy                             64  4.009e-05  4.241e-05  4.978e-05   0.00%
+MLCGSolver::ParallelAllReduce                           5          0   5.06e-06  4.048e-05   0.00%
+MLCellLinOp::setLevelBC()                               2   2.14e-05  2.727e-05  3.925e-05   0.00%
+Gravity::add_to_fluxes()                                1  1.214e-05  1.685e-05  2.164e-05   0.00%
+amrex::Dot()                                            4          0  2.429e-06  1.944e-05   0.00%
+Gravity::AddVirtualParticlesToRhs()                     1  5.651e-06  1.108e-05  1.757e-05   0.00%
+FabArray::Saxpy()                                       2          0  1.727e-06  1.382e-05   0.00%
+FabArray::LinComb()                                     2          0  1.549e-06  1.239e-05   0.00%
+Gravity::AddGhostParticlesToRhsML()                     1   5.48e-06  7.285e-06  1.002e-05   0.00%
+Gravity::AddGhostParticlesToRhs()                       1  2.996e-06  4.647e-06  6.362e-06   0.00%
+Gravity::AddVirtualParticlesToRhsML()                   1  2.204e-06  3.181e-06  4.188e-06   0.00%
+Nyx::setup_virtual_particles()                          1  2.154e-06   3.29e-06  3.858e-06   0.00%
+--------------------------------------------------------------------------------------------------
+
+END REGION R::Nyx::advance::STEP1
+
+
+BEGIN REGION R::Nyx::advance_hydro_plus_particles
+
+--------------------------------------------------------------------------------------------------
+Name                                               NCalls  Excl. Min  Excl. Avg  Excl. Max   Max %
+--------------------------------------------------------------------------------------------------
+Nyx::reactions_f                                      619      4.201      4.515       5.65  52.39%
+Nyx::umeth()                                           64      1.996      2.037      2.078  19.27%
+FabArray::ParallelCopy_finish()                        42    0.02557     0.9999      1.515  14.05%
+Nyx::sdc_reactions()                                    1  0.0001157     0.1973      1.481  13.74%
+Nyx::compute_new_temp()                                 2     0.5811     0.6033     0.6615   6.13%
+Nyx::reactions_cells_finalize                          64     0.3736     0.3839     0.4001   3.71%
+FillBoundary_finish()                                 224    0.08594     0.1276     0.1623   1.50%
+amrex::Copy()                                          26    0.05442    0.06074    0.06445   0.60%
+FabArray::ParallelCopy_nowait()                        42    0.03712    0.04052    0.04421   0.41%
+FabArray::setVal()                                    103    0.03624    0.03919    0.04129   0.38%
+Nyx::umdrv()                                           64    0.03831    0.03922    0.04044   0.38%
+MLPoisson::Fsmooth()                                  192     0.0332    0.03376    0.03591   0.33%
+FillBoundary_nowait()                                 224    0.02709    0.02943    0.03468   0.32%
+Nyx::srctoprim()                                       64   0.009802    0.01474    0.02765   0.26%
+DarkMatterParticleContainer::moveKickDrift()            2    0.01436    0.01686     0.0246   0.23%
+Nyx::update_state_with_sources()                        1    0.01911    0.02045    0.02378   0.22%
+Nyx::reactions_cvode                                   64    0.01772    0.01913    0.02363   0.22%
+DarkMatterParticleContainer::moveKick()                 1    0.01287    0.01479    0.01909   0.18%
+ParticleContainer::AssignCellDensitySingleLevel()       2    0.01059     0.0117    0.01516   0.14%
+Gravity::get_old_grav_vector()                          3     0.0106    0.01097    0.01119   0.10%
+Nyx::reset_internal_energy()                            3   0.006809   0.009807    0.01097   0.10%
+Nyx::ctoprim()                                         64   0.006652   0.008063    0.01016   0.09%
+MLPoisson::Fapply()                                    32   0.008617   0.009397    0.00992   0.09%
+Nyx::advance_hydro_plus_particles()                     1   0.008162   0.008616   0.009489   0.09%
+FabArray::Xpay()                                       31   0.007613   0.008113     0.0086   0.08%
+Gravity::get_new_grav_vector()                          2   0.007359   0.007506   0.007684   0.07%
+amrex::Add()                                            9   0.005962    0.00637   0.007035   0.07%
+Nyx::reactions_cells_initialize                        64   0.005812   0.005948   0.006093   0.06%
+MLCellLinOp::compGrad()                                 2   0.004426   0.004967   0.005356   0.05%
+MLMG::solve()                                           2  0.0001102  0.0008772   0.004582   0.04%
+MLMG::addInterpCorrection()                            24   0.003244   0.003329   0.003718   0.03%
+MultiFab::min()                                         1  0.0002836    0.00188   0.003612   0.03%
+amrex::average_down                                    24    0.00242    0.00254   0.002624   0.02%
+Nyx::sdc_hydro()                                        1  0.0009768   0.001462   0.002552   0.02%
+FabArray::norminf()                                    10   0.001594   0.001698   0.001834   0.02%
+MLCellLinOp::applyBC()                                226   0.001275   0.001434   0.001828   0.02%
+FabArray::sum()                                         6   0.001539   0.001606   0.001688   0.02%
+FabArray::plus()                                       10   0.001298   0.001439   0.001617   0.01%
+MultiFab::Subtract()                                    2  0.0009071   0.001061   0.001223   0.01%
+FabArray::mult()                                        6   0.000806   0.001012   0.001116   0.01%
+Nyx::reactions_alloc                                   64   0.001044   0.001075   0.001097   0.01%
+MLMG::prepareForSolve()                                 2  0.0006669   0.000801   0.001038   0.01%
+Nyx::reactions_cvsetup                                 64  0.0006636  0.0006838  0.0007029   0.01%
+FillPatchIterator::Initialize                           8  0.0003047  0.0004045  0.0006317   0.01%
+vol_weight_sum                                          2  5.613e-05  0.0003465  0.0006042   0.01%
+Nyx::vol_weight_sum()::ReduceOpsOnDevice                2  0.0005222  0.0005254  0.0005309   0.00%
+FabArray::FillBoundary()                              226  0.0004433  0.0004766  0.0005301   0.00%
+Nyx::advance_hydro_pc_umdrv()                           1  0.0003087  0.0004018  0.0004595   0.00%
+Nyx::reactions_free                                    64  0.0003539   0.000383  0.0004199   0.00%
+MLMG::ResNormInf()                                      6  6.992e-05  0.0001781  0.0003683   0.00%
+Gravity::solve_with_MLMG                                2  9.709e-05  0.0001382  0.0002644   0.00%
+FabArrayBase::getFB()                                 224  0.0002278  0.0002454  0.0002616   0.00%
+MLCellLinOp::prepareForSolve()                          2  0.0001835  0.0002049  0.0002369   0.00%
+FabArrayBase::FB::FB()                                  8  0.0001618  0.0001848  0.0002299   0.00%
+Gravity::multilevel_solve_for_old_phi()                 1  4.926e-05  8.535e-05  0.0001993   0.00%
+FabArray<FAB>::SumBoundary_nowait()                     2  1.746e-05   4.19e-05  0.0001936   0.00%
+MLCellLinOp::smooth()                                  96  0.0001477   0.000157  0.0001823   0.00%
+StateDataPhysBCFunct::()                                8  0.0001229  0.0001527  0.0001808   0.00%
+FabArrayBase::getCPC()                                 42   0.000151  0.0001629  0.0001807   0.00%
+MLMG::oneIter()                                         4  5.721e-05  0.0001506  0.0001778   0.00%
+Nyx::integrate_state_struct_mfin                       64  0.0001125  0.0001178  0.0001235   0.00%
+FabArrayBase::CPC::define()                            11  8.038e-05  9.536e-05  0.0001069   0.00%
+FabArray::ParallelCopy()                               40  7.532e-05   9.24e-05  9.934e-05   0.00%
+FabArray::setDomainBndry()                              8  7.276e-05  8.558e-05   9.51e-05   0.00%
+FillPatchSingleLevel                                    8  3.655e-05  4.816e-05  8.699e-05   0.00%
+Gravity::actual_multilevel_solve()                      1  4.519e-05  6.142e-05  8.287e-05   0.00%
+MLMG::computeResidual()                                 4  2.773e-05  4.428e-05  7.736e-05   0.00%
+MLCellLinOp::apply()                                   32  5.352e-05  5.855e-05   7.41e-05   0.00%
+MLCGSolver::bicgstab                                    0          0  9.215e-06  7.372e-05   0.00%
+sdc_reactions                                           1  2.489e-05  4.016e-05  6.854e-05   0.00%
+Nyx::reactions_numsteps                                64  5.155e-05  5.883e-05  6.819e-05   0.00%
+just_the_hydro                                          1  1.467e-05  2.812e-05  6.201e-05   0.00%
+solve_for_old_phi                                       1  3.788e-05   5.17e-05  6.052e-05   0.00%
+Nyx::reactions_single_copy                             64  4.009e-05  4.241e-05  4.978e-05   0.00%
+MLCellLinOp::solutionResidual()                         6  3.224e-05  3.738e-05  4.889e-05   0.00%
+Gravity::solve_for_new_phi()                            1  2.711e-05  3.279e-05  4.716e-05   0.00%
+MLMG:computeResOfCorrection()                          24  3.242e-05   3.67e-05  4.601e-05   0.00%
+MLCellLinOp::correctionResidual()                      24  3.576e-05  3.961e-05  4.356e-05   0.00%
+ParticleContainer::AssignDensity()                      1  2.048e-05  2.939e-05  4.293e-05   0.00%
+Gravity::AddParticlesToRhs()                            1  3.016e-05  3.566e-05  4.279e-05   0.00%
+MLMG::actualBottomSolve()                               4  4.227e-06  9.385e-06  4.189e-05   0.00%
+MLMG::mgVcycle_down::0                                  4  2.121e-05  2.666e-05  3.998e-05   0.00%
+MLCellLinOp::setLevelBC()                               2   2.14e-05  2.727e-05  3.925e-05   0.00%
+Nyx::enforce_minimum_density()                          1  1.717e-05  2.612e-05  3.833e-05   0.00%
+Nyx::reset_internal_energy_nostore()                    1  2.265e-05  2.797e-05  3.831e-05   0.00%
+MLMG::mgVcycle()                                        4  2.577e-05  2.829e-05  3.348e-05   0.00%
+Gravity::solve_for_phi()                                1  1.561e-05  2.566e-05  3.317e-05   0.00%
+MLMG::computeMLResidual()                               2  1.013e-05  1.613e-05  3.147e-05   0.00%
+MLMG::mgVcycle_down::3                                  4  7.802e-06  1.171e-05   2.99e-05   0.00%
+Gravity::CorrectRhsUsingOffset()                        1  1.129e-05  1.693e-05   2.96e-05   0.00%
+Gravity::AddParticlesToRhsML()                          1  1.402e-05  1.957e-05  2.954e-05   0.00%
+MLMG::mgVcycle_down::1                                  4  1.749e-05   2.08e-05  2.943e-05   0.00%
+MLCGSolver::ParallelAllReduce                           5          0  3.659e-06  2.927e-05   0.00%
+solve_for_new_phi                                       1  9.778e-06  1.412e-05  2.547e-05   0.00%
+FabArray<FAB>::SumBoundary()                            2  1.377e-05  1.727e-05  2.306e-05   0.00%
+Gravity::add_to_fluxes()                                1  1.214e-05  1.685e-05  2.164e-05   0.00%
+MLMG::mgVcycle_up::0                                    4  1.451e-05  1.625e-05  2.056e-05   0.00%
+amrex::Dot()                                            4          0  2.429e-06  1.944e-05   0.00%
+FabArray<FAB>::SumBoundary_finish()                     2  9.217e-06  1.426e-05  1.844e-05   0.00%
+Gravity::AddVirtualParticlesToRhs()                     1  5.651e-06  1.108e-05  1.757e-05   0.00%
+MLMG::MLResNormInf()                                    2  8.385e-06  1.125e-05  1.601e-05   0.00%
+MLMG::mgVcycle_down::2                                  4  8.545e-06  1.028e-05  1.408e-05   0.00%
+MLMG::getGradSolution()                                 2  8.105e-06  1.019e-05  1.392e-05   0.00%
+FabArray::Saxpy()                                       2          0  1.727e-06  1.382e-05   0.00%
+FabArray::LinComb()                                     2          0  1.549e-06  1.239e-05   0.00%
+Gravity::AddGhostParticlesToRhsML()                     1   5.48e-06  7.285e-06  1.002e-05   0.00%
+REG::R::Nyx::advance_hydro_plus_particles               1  6.382e-06  8.505e-06  9.959e-06   0.00%
+MLMG::mgVcycle_up::1                                    4   6.29e-06  7.082e-06  8.867e-06   0.00%
+MLPoisson::prepareForSolve()                            2  6.062e-06  6.971e-06  8.106e-06   0.00%
+MLMG::mgVcycle_down::5                                  4  5.599e-06  6.051e-06  6.451e-06   0.00%
+Gravity::AddGhostParticlesToRhs()                       1  2.996e-06  4.647e-06  6.362e-06   0.00%
+MLMG::mgVcycle_up::5                                    4  4.748e-06  5.408e-06  6.192e-06   0.00%
+MLMG::mgVcycle_down::4                                  4  5.106e-06  5.553e-06   6.11e-06   0.00%
+MLMG::mgVcycle_up::2                                    4  4.772e-06   5.23e-06  5.664e-06   0.00%
+MLMG::mgVcycle_up::4                                    4  4.729e-06  5.185e-06   5.52e-06   0.00%
+MLMG::mgVcycle_bottom                                   4  4.588e-06  5.136e-06  5.501e-06   0.00%
+MLMG::mgVcycle_up::3                                    4  4.512e-06  4.648e-06  5.018e-06   0.00%
+Gravity::AddVirtualParticlesToRhsML()                   1  2.204e-06  3.181e-06  4.188e-06   0.00%
+Nyx::setup_virtual_particles()                          1  2.154e-06   3.29e-06  3.858e-06   0.00%
+MLMG::MLRhsNormInf()                                    2  2.414e-06   2.83e-06  3.186e-06   0.00%
+--------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------
+Name                                               NCalls  Incl. Min  Incl. Avg  Incl. Max   Max %
+--------------------------------------------------------------------------------------------------
+REG::R::Nyx::advance_hydro_plus_particles               1      9.309      9.311      9.315  86.38%
+Nyx::advance_hydro_plus_particles()                     1      9.309      9.311      9.315  86.38%
+just_the_hydro                                          1      7.225      7.737      8.712  80.79%
+Nyx::sdc_hydro()                                        1      7.225      7.737      8.712  80.79%
+sdc_reactions                                           1      4.915      5.428      6.401  59.36%
+Nyx::sdc_reactions()                                    1      4.915      5.428      6.401  59.36%
+Nyx::integrate_state_struct_mfin                       64      4.603      4.926      6.082  56.40%
+Nyx::reactions_cvode                                   64      4.219      4.534      5.673  52.61%
+Nyx::reactions_f                                      619      4.201      4.515       5.65  52.39%
+Nyx::advance_hydro_pc_umdrv()                           1      2.056      2.099      2.153  19.97%
+Nyx::umdrv()                                           64      2.035      2.076      2.116  19.62%
+Nyx::umeth()                                           64      1.996      2.037      2.078  19.27%
+solve_for_new_phi                                       1     0.1059      1.079      1.594  14.78%
+Gravity::solve_for_new_phi()                            1     0.1059      1.079      1.594  14.78%
+FabArray::ParallelCopy_finish()                        42    0.02557     0.9999      1.515  14.05%
+ParticleContainer::AssignCellDensitySingleLevel()       2    0.01944     0.9936      1.507  13.98%
+Gravity::AddParticlesToRhs()                            1    0.01069      0.984      1.498  13.89%
+FabArray<FAB>::SumBoundary()                            2   0.002987     0.9809      1.496  13.87%
+FabArray<FAB>::SumBoundary_finish()                     2     0.0007     0.9785      1.494  13.85%
+Nyx::compute_new_temp()                                 2     0.5811     0.6033     0.6615   6.13%
+Nyx::reactions_cells_finalize                          64     0.3736     0.3839     0.4001   3.71%
+FabArray::FillBoundary()                              226     0.1156      0.158     0.1903   1.76%
+FillBoundary_finish()                                 224    0.08594     0.1276     0.1623   1.50%
+Gravity::solve_with_MLMG                                2      0.104     0.1044     0.1047   0.97%
+MLMG::solve()                                           2    0.09826    0.09833    0.09838   0.91%
+Gravity::solve_for_phi()                                1    0.09371    0.09437      0.095   0.88%
+Gravity::get_new_grav_vector()                          2    0.04388    0.07214    0.08458   0.78%
+Gravity::get_old_grav_vector()                          3    0.06893    0.07598    0.08108   0.75%
+MLMG::oneIter()                                         4     0.0684    0.06865    0.06899   0.64%
+FabArray::ParallelCopy()                               40    0.05762    0.06096      0.066   0.61%
+FillPatchIterator::Initialize                           8     0.0565     0.0601    0.06495   0.60%
+MLMG::mgVcycle()                                        4    0.06397    0.06415    0.06463   0.60%
+FillPatchSingleLevel                                    8    0.05613    0.05961    0.06455   0.60%
+amrex::Copy()                                          26    0.05442    0.06074    0.06445   0.60%
+MLCellLinOp::smooth()                                  96     0.0454    0.04568     0.0461   0.43%
+FabArray::ParallelCopy_nowait()                        42    0.03737    0.04078    0.04448   0.41%
+FabArray::setVal()                                    103    0.03624    0.03919    0.04129   0.38%
+MLPoisson::Fsmooth()                                  192     0.0332    0.03376    0.03591   0.33%
+FillBoundary_nowait()                                 224    0.02751    0.02986    0.03513   0.33%
+MLMG::mgVcycle_down::0                                  4    0.03046    0.03072    0.03103   0.29%
+solve_for_old_phi                                       1    0.02813    0.02855    0.02878   0.27%
+Nyx::srctoprim()                                       64   0.009802    0.01474    0.02765   0.26%
+Gravity::multilevel_solve_for_old_phi()                 1    0.02569    0.02661    0.02712   0.25%
+Gravity::actual_multilevel_solve()                      1     0.0256    0.02653    0.02707   0.25%
+DarkMatterParticleContainer::moveKickDrift()            2    0.01436    0.01686     0.0246   0.23%
+Nyx::update_state_with_sources()                        1    0.02087    0.02236    0.02408   0.22%
+MLMG::mgVcycle_up::0                                    4    0.02141    0.02155    0.02197   0.20%
+MLCellLinOp::applyBC()                                226    0.01745    0.02009     0.0214   0.20%
+DarkMatterParticleContainer::moveKick()                 1    0.01287    0.01479    0.01909   0.18%
+MLCellLinOp::apply()                                   32    0.01344     0.0169    0.01802   0.17%
+MLCellLinOp::solutionResidual()                         6    0.01318    0.01656    0.01769   0.16%
+Gravity::AddParticlesToRhsML()                          1    0.01105    0.01168    0.01223   0.11%
+ParticleContainer::AssignDensity()                      1    0.01036      0.011    0.01157   0.11%
+MLMG::prepareForSolve()                                 2   0.009935    0.01028    0.01131   0.10%
+Nyx::reset_internal_energy()                            3   0.006809   0.009807    0.01097   0.10%
+Nyx::ctoprim()                                         64   0.006652   0.008063    0.01016   0.09%
+MLPoisson::Fapply()                                    32   0.008617   0.009397    0.00992   0.09%
+MLMG::computeResidual()                                 4   0.008577   0.008902   0.009189   0.09%
+MLCellLinOp::correctionResidual()                      24   0.008189   0.008509   0.008851   0.08%
+MLMG:computeResOfCorrection()                          24   0.008225    0.00854   0.008843   0.08%
+MLMG::computeMLResidual()                               2   0.004084   0.007722   0.008779   0.08%
+FabArray::Xpay()                                       31   0.007613   0.008113     0.0086   0.08%
+amrex::Add()                                            9   0.005962    0.00637   0.007035   0.07%
+MLMG::getGradSolution()                                 2   0.005415   0.005861   0.006238   0.06%
+MLCellLinOp::compGrad()                                 2   0.005401    0.00585   0.006226   0.06%
+Nyx::reactions_cells_initialize                        64   0.005812   0.005948   0.006093   0.06%
+MLMG::addInterpCorrection()                            24   0.003438   0.004781   0.005324   0.05%
+FabArray<FAB>::SumBoundary_nowait()                     2   0.001627   0.002367   0.005173   0.05%
+MLMG::mgVcycle_down::1                                  4   0.004477   0.004716   0.004961   0.05%
+Nyx::enforce_minimum_density()                          1  0.0003007   0.001906   0.003651   0.03%
+MultiFab::min()                                         1  0.0002836    0.00188   0.003612   0.03%
+Nyx::reset_internal_energy_nostore()                    1    0.00262   0.003094   0.003506   0.03%
+MLMG::mgVcycle_up::1                                    4   0.003098    0.00313   0.003211   0.03%
+amrex::average_down                                    24   0.002516   0.002643   0.002715   0.03%
+MLMG::mgVcycle_up::2                                    4  0.0008401   0.002179   0.002397   0.02%
+FabArray::norminf()                                    10   0.001594   0.001698   0.001834   0.02%
+MLMG::ResNormInf()                                      6   0.001229   0.001444   0.001772   0.02%
+FabArray::sum()                                         6   0.001539   0.001606   0.001688   0.02%
+FabArray::plus()                                       10   0.001298   0.001439   0.001617   0.01%
+MultiFab::Subtract()                                    2  0.0009071   0.001061   0.001223   0.01%
+vol_weight_sum                                          2  0.0005783  0.0008719   0.001131   0.01%
+MLMG::mgVcycle_down::2                                  4   0.001004   0.001073   0.001118   0.01%
+FabArray::mult()                                        6   0.000806   0.001012   0.001116   0.01%
+Gravity::CorrectRhsUsingOffset()                        1  0.0005912   0.000839   0.001098   0.01%
+Nyx::reactions_alloc                                   64   0.001044   0.001075   0.001097   0.01%
+Nyx::reactions_cvsetup                                 64  0.0006636  0.0006838  0.0007029   0.01%
+MLMG::mgVcycle_down::3                                  4   0.000109  0.0001707  0.0005552   0.01%
+Nyx::vol_weight_sum()::ReduceOpsOnDevice                2  0.0005222  0.0005254  0.0005309   0.00%
+MLMG::MLResNormInf()                                    2  0.0003836  0.0004188  0.0004836   0.00%
+FabArrayBase::getFB()                                 224  0.0003896  0.0004302  0.0004797   0.00%
+MLMG::MLRhsNormInf()                                    2  0.0004109  0.0004337  0.0004533   0.00%
+MLMG::mgVcycle_up::3                                    4  7.487e-05  0.0001221  0.0004454   0.00%
+Nyx::reactions_free                                    64  0.0003539   0.000383  0.0004199   0.00%
+MLMG::mgVcycle_bottom                                   4  9.067e-06  5.816e-05  0.0003956   0.00%
+MLMG::actualBottomSolve()                               4  4.227e-06  5.302e-05   0.000391   0.00%
+MLCGSolver::bicgstab                                    0          0  4.118e-05  0.0003294   0.00%
+FabArrayBase::getCPC()                                 42  0.0002407  0.0002582  0.0002783   0.00%
+MLPoisson::prepareForSolve()                            2  0.0001899  0.0002119   0.000244   0.00%
+MLCellLinOp::prepareForSolve()                          2  0.0001835  0.0002049  0.0002369   0.00%
+FabArrayBase::FB::FB()                                  8  0.0001618  0.0001848  0.0002299   0.00%
+MLMG::mgVcycle_down::4                                  4  9.969e-05  0.0001155  0.0002175   0.00%
+StateDataPhysBCFunct::()                                8  0.0001229  0.0001527  0.0001808   0.00%
+MLMG::mgVcycle_up::4                                    4  7.654e-05  9.438e-05  0.0001648   0.00%
+MLMG::mgVcycle_down::5                                  4   9.75e-05  0.0001062  0.0001599   0.00%
+MLMG::mgVcycle_up::5                                    4  8.189e-05  8.927e-05  0.0001269   0.00%
+FabArrayBase::CPC::define()                            11  8.038e-05  9.536e-05  0.0001069   0.00%
+FabArray::setDomainBndry()                              8  7.276e-05  8.558e-05   9.51e-05   0.00%
+Nyx::reactions_numsteps                                64  5.155e-05  5.883e-05  6.819e-05   0.00%
+Nyx::reactions_single_copy                             64  4.009e-05  4.241e-05  4.978e-05   0.00%
+MLCGSolver::ParallelAllReduce                           5          0   5.06e-06  4.048e-05   0.00%
+MLCellLinOp::setLevelBC()                               2   2.14e-05  2.727e-05  3.925e-05   0.00%
+Gravity::add_to_fluxes()                                1  1.214e-05  1.685e-05  2.164e-05   0.00%
+amrex::Dot()                                            4          0  2.429e-06  1.944e-05   0.00%
+Gravity::AddVirtualParticlesToRhs()                     1  5.651e-06  1.108e-05  1.757e-05   0.00%
+FabArray::Saxpy()                                       2          0  1.727e-06  1.382e-05   0.00%
+FabArray::LinComb()                                     2          0  1.549e-06  1.239e-05   0.00%
+Gravity::AddGhostParticlesToRhsML()                     1   5.48e-06  7.285e-06  1.002e-05   0.00%
+Gravity::AddGhostParticlesToRhs()                       1  2.996e-06  4.647e-06  6.362e-06   0.00%
+Gravity::AddVirtualParticlesToRhsML()                   1  2.204e-06  3.181e-06  4.188e-06   0.00%
+Nyx::setup_virtual_particles()                          1  2.154e-06   3.29e-06  3.858e-06   0.00%
+--------------------------------------------------------------------------------------------------
+
+END REGION R::Nyx::advance_hydro_plus_particles
+
+
+BEGIN REGION R::Nyx::coarseTimeStep
+
+----------------------------------------------------------------------------------------------------------
+Name                                                       NCalls  Excl. Min  Excl. Avg  Excl. Max   Max %
+----------------------------------------------------------------------------------------------------------
+Nyx::reactions_f                                              619      4.201      4.515       5.65  52.39%
+Nyx::umeth()                                                   64      1.996      2.037      2.078  19.27%
+FabArray::ParallelCopy_finish()                                48    0.05249       1.03      1.547  14.34%
+Nyx::sdc_reactions()                                            1  0.0001157     0.1973      1.481  13.74%
+Nyx::compute_new_temp()                                         4      1.159      1.203       1.32  12.24%
+Nyx::reactions_cells_finalize                                  64     0.3736     0.3839     0.4001   3.71%
+FillBoundary_finish()                                         230    0.09324     0.1338     0.1673   1.55%
+amrex::Copy()                                                  36    0.07846    0.08536    0.08954   0.83%
+FabArray::ParallelCopy_nowait()                                48    0.05562    0.06006    0.06311   0.59%
+FabArray::setVal()                                            147    0.05313    0.05597    0.05814   0.54%
+Amr::writePlotFile()                                            1   0.004638    0.02911    0.04344   0.40%
+FabArray::norminf()                                            13   0.002303    0.03135    0.04218   0.39%
+Nyx::umdrv()                                                   64    0.03831    0.03922    0.04044   0.38%
+Amr::coarseTimeStep()                                           1  3.325e-05   0.005289    0.04033   0.37%
+ParticleContainer::RedistributeCPU()                            2    0.02831    0.03172    0.03747   0.35%
+FillBoundary_nowait()                                         230    0.02888    0.03131    0.03687   0.34%
+MLPoisson::Fsmooth()                                          192     0.0332    0.03376    0.03591   0.33%
+Nyx::srctoprim()                                               64   0.009802    0.01474    0.02765   0.26%
+DarkMatterParticleContainer::moveKickDrift()                    2    0.01436    0.01686     0.0246   0.23%
+Nyx::update_state_with_sources()                                1    0.01911    0.02045    0.02378   0.22%
+Nyx::reactions_cvode                                           64    0.01772    0.01913    0.02363   0.22%
+ParticleContainer::AssignCellDensitySingleLevel()               3    0.01619    0.01809    0.02314   0.21%
+ParticleContainer::RedistributeMPI()                            2    0.01389    0.01967     0.0227   0.21%
+RedistributeMPI_copy                                            2    0.01517      0.018    0.02066   0.19%
+ParticleContainer::WriteParticles()                             1    0.01597    0.01772    0.01947   0.18%
+Nyx::reset_internal_energy()                                    5    0.01495    0.01796    0.01918   0.18%
+DarkMatterParticleContainer::moveKick()                         1    0.01287    0.01479    0.01909   0.18%
+H5DwriteData                                                    2    0.01702    0.01739    0.01789   0.17%
+NyxParticleContainer<NSR,NSI,NAR,NAI>::estTimestep(lev)         1    0.01203    0.01207    0.01213   0.11%
+Gravity::get_new_grav_vector()                                  3    0.01068      0.011    0.01151   0.11%
+Gravity::get_old_grav_vector()                                  3     0.0106    0.01097    0.01119   0.10%
+MLPoisson::Fapply()                                            33   0.009542    0.01045    0.01093   0.10%
+Nyx::ctoprim()                                                 64   0.006652   0.008063    0.01016   0.09%
+Nyx::advance_hydro_plus_particles()                             1   0.008162   0.008616   0.009489   0.09%
+FabArray::Xpay()                                               32    0.00832   0.008839   0.009449   0.09%
+WriteBinaryParticleData()                                       1   0.006758    0.00774   0.008805   0.08%
+amrex::Add()                                                   11   0.007169   0.007519    0.00821   0.08%
+RedistributeMPI_locate                                          2   0.005881   0.006593    0.00786   0.07%
+MLCellLinOp::compGrad()                                         3   0.006791   0.007362    0.00776   0.07%
+H5writeAllLevel                                                 1   0.006301   0.006814   0.007218   0.07%
+MLLinOp::makeSubCommunicator()                                  1  4.072e-05   0.003474   0.006918   0.06%
+Nyx::reactions_cells_initialize                                64   0.005812   0.005948   0.006093   0.06%
+WriteMultiLevelPlotfileHDF5SingleDset                           1   0.002211   0.005031   0.005562   0.05%
+MLMG::solve()                                                   3  0.0001607   0.001017   0.004888   0.05%
+Nyx::est_time_step()                                            1   0.002708   0.004095   0.004397   0.04%
+MLMG::addInterpCorrection()                                    24   0.003244   0.003329   0.003718   0.03%
+MultiFab::min()                                                 1  0.0002836    0.00188   0.003612   0.03%
+Nyx::compute_rho_temp()::OnHost                                 1   0.002819   0.003143   0.003306   0.03%
+ParticleContainer::BuildRedistributeMask                        2   0.002802   0.002837   0.002913   0.03%
+Amr::timeStep()                                                 1   0.002077   0.002464   0.002802   0.03%
+H5writeMetadata                                                 0          0  0.0003442   0.002754   0.03%
+amrex::average_down                                            24    0.00242    0.00254   0.002624   0.02%
+Nyx::sdc_hydro()                                                1  0.0009768   0.001462   0.002552   0.02%
+FabArray::plus()                                               13   0.001645    0.00184   0.002076   0.02%
+FabArray::sum()                                                 7   0.001815     0.0019   0.001956   0.02%
+MLCellLinOp::applyBC()                                        228   0.001378   0.001543   0.001944   0.02%
+FabArray::mult()                                                9   0.001173    0.00144   0.001582   0.01%
+MLMG::prepareForSolve()                                         3  0.0009262   0.001126   0.001484   0.01%
+MultiFab::Subtract()                                            2  0.0009071   0.001061   0.001223   0.01%
+Nyx::reactions_alloc                                           64   0.001044   0.001075   0.001097   0.01%
+vol_weight_sum                                                  3  6.889e-05  0.0004982   0.000938   0.01%
+Nyx::init(old)                                                  1  0.0005654  0.0007035  0.0008743   0.01%
+Nyx::vol_weight_sum()::ReduceOpsOnDevice                        3  0.0007834  0.0007881  0.0008023   0.01%
+FillPatchIterator::Initialize                                  13  0.0004288  0.0005698  0.0007708   0.01%
+Nyx::reactions_cvsetup                                         64  0.0006636  0.0006838  0.0007029   0.01%
+Nyx::Nyx(Amr)                                                   1  9.844e-05  0.0001967  0.0006381   0.01%
+FabArray::FillBoundary()                                      233  0.0004734  0.0005185  0.0005662   0.01%
+Nyx::compute_rho_temp()                                         1  8.526e-06  0.0001738  0.0005006   0.00%
+Nyx::compute_gas_fractions()::OnHost                            1  0.0004744  0.0004858  0.0004993   0.00%
+FabArrayBase::CPC::define()                                    62  0.0003366  0.0003589  0.0004647   0.00%
+Nyx::advance_hydro_pc_umdrv()                                   1  0.0003087  0.0004018  0.0004595   0.00%
+Nyx::post_timestep()::sum_write                                 1  4.068e-05  0.0001257   0.000427   0.00%
+Nyx::reactions_free                                            64  0.0003539   0.000383  0.0004199   0.00%
+FabArrayBase::FB::FB()                                         13  0.0003196  0.0003528  0.0004029   0.00%
+MLMG::ResNormInf()                                              7  7.135e-05  0.0001809  0.0003699   0.00%
+WriteGenericPlotfileHeaderHDF5()                                0          0  4.495e-05  0.0003596   0.00%
+MLCellLinOp::prepareForSolve()                                  3    0.00026  0.0002926  0.0003439   0.00%
+Gravity::solve_with_MLMG                                        3  0.0001457   0.000205    0.00033   0.00%
+FabArrayBase::getFB()                                         230  0.0002387  0.0002567   0.000272   0.00%
+MLCellLinOp::defineAuxData()                                    1   0.000244  0.0002498  0.0002666   0.00%
+FabArrayBase::getCPC()                                         96  0.0002304  0.0002452   0.000266   0.00%
+StateDataPhysBCFunct::()                                       13  0.0001745  0.0002087  0.0002329   0.00%
+FabArray<FAB>::SumBoundary_nowait()                             3  2.661e-05  5.346e-05  0.0002186   0.00%
+Nyx::post_regrid()                                              1  0.0001137  0.0001459  0.0002101   0.00%
+Gravity::multilevel_solve_for_old_phi()                         1  4.926e-05  8.535e-05  0.0001993   0.00%
+MLCellLinOp::smooth()                                          96  0.0001477   0.000157  0.0001823   0.00%
+MLMG::oneIter()                                                 4  5.721e-05  0.0001506  0.0001778   0.00%
+Gravity::actual_multilevel_solve()                              2   8.93e-05  0.0001145  0.0001512   0.00%
+FabArray::ParallelCopy()                                       45   0.000103  0.0001212  0.0001333   0.00%
+BndryData::define()                                             1   0.000113    0.00012  0.0001269   0.00%
+Nyx::integrate_state_struct_mfin                               64  0.0001125  0.0001178  0.0001235   0.00%
+FabArray::setDomainBndry()                                     13  9.525e-05  0.0001086  0.0001176   0.00%
+FillPatchSingleLevel                                           13    5.7e-05  6.852e-05  0.0001091   0.00%
+ParticleContainer::AssignDensity()                              2  3.812e-05  4.911e-05  8.287e-05   0.00%
+MLCellLinOp::apply()                                           33  5.852e-05  6.413e-05  7.919e-05   0.00%
+DistributionMapping::LeastUsedCPUs()                            1  3.958e-06  5.108e-05  7.845e-05   0.00%
+MLMG::computeResidual()                                         4  2.773e-05  4.428e-05  7.736e-05   0.00%
+MLCGSolver::bicgstab                                            0          0  9.215e-06  7.372e-05   0.00%
+Nyx::reset_internal_energy_nostore()                            2  4.742e-05   5.72e-05  7.055e-05   0.00%
+sdc_reactions                                                   1  2.489e-05  4.016e-05  6.854e-05   0.00%
+Nyx::reactions_numsteps                                        64  5.155e-05  5.883e-05  6.819e-05   0.00%
+FabArray::setVal(val, thecmd, scomp, ncomp)                    48  6.285e-05  6.432e-05  6.681e-05   0.00%
+StateData::define()                                             5   4.25e-05  5.568e-05  6.611e-05   0.00%
+Nyx::particle_redistribute()                                    1  2.265e-05  3.154e-05  6.568e-05   0.00%
+just_the_hydro                                                  1  1.467e-05  2.812e-05  6.201e-05   0.00%
+solve_for_old_phi                                               1  3.788e-05   5.17e-05  6.052e-05   0.00%
+MLCellLinOp::solutionResidual()                                 7  3.746e-05  4.344e-05  5.521e-05   0.00%
+MLLinOp::defineGrids()                                          1  1.476e-05  2.405e-05  5.075e-05   0.00%
+MLCellLinOp::setLevelBC()                                       3  2.971e-05  3.678e-05  5.004e-05   0.00%
+Nyx::reactions_single_copy                                     64  4.009e-05  4.241e-05  4.978e-05   0.00%
+Gravity::AddParticlesToRhsML()                                  2  2.971e-05  3.475e-05   4.78e-05   0.00%
+Gravity::solve_for_new_phi()                                    1  2.711e-05  3.279e-05  4.716e-05   0.00%
+MLMG:computeResOfCorrection()                                  24  3.242e-05   3.67e-05  4.601e-05   0.00%
+REG::R::Nyx::coarseTimeStep                                     1  8.607e-06   2.55e-05   4.46e-05   0.00%
+MLCellLinOp::correctionResidual()                              24  3.576e-05  3.961e-05  4.356e-05   0.00%
+Gravity::AddParticlesToRhs()                                    1  3.016e-05  3.566e-05  4.279e-05   0.00%
+MLMG::actualBottomSolve()                                       4  4.227e-06  9.385e-06  4.189e-05   0.00%
+MLMG::mgVcycle_down::0                                          4  2.121e-05  2.666e-05  3.998e-05   0.00%
+Nyx::enforce_minimum_density()                                  1  1.717e-05  2.612e-05  3.833e-05   0.00%
+Gravity::multilevel_solve_for_new_phi()                         1   1.45e-05  1.937e-05  3.744e-05   0.00%
+MLMG::computeMLResidual()                                       3  1.291e-05  2.215e-05  3.702e-05   0.00%
+FabArray<FAB>::SumBoundary()                                    3  2.042e-05  2.504e-05  3.434e-05   0.00%
+MLMG::mgVcycle()                                                4  2.577e-05  2.829e-05  3.348e-05   0.00%
+Gravity::solve_for_phi()                                        1  1.561e-05  2.566e-05  3.317e-05   0.00%
+Nyx::compute_gas_fractions()                                    1  7.424e-06  2.104e-05  3.286e-05   0.00%
+NyxParticleContainer<NSR,NSI,NAR,NAI>::WriteNyxPlotFile()       1  8.425e-06  1.676e-05  3.237e-05   0.00%
+NeighborParticleContainer::clearNeighborsCPU                    2  1.457e-05   2.08e-05   3.16e-05   0.00%
+MLMG::mgVcycle_down::3                                          4  7.802e-06  1.171e-05   2.99e-05   0.00%
+Gravity::CorrectRhsUsingOffset()                                1  1.129e-05  1.693e-05   2.96e-05   0.00%
+MLMG::mgVcycle_down::1                                          4  1.749e-05   2.08e-05  2.943e-05   0.00%
+MLCGSolver::ParallelAllReduce                                   5          0  3.659e-06  2.927e-05   0.00%
+FabArray<FAB>::SumBoundary_finish()                             3  1.395e-05  2.024e-05   2.56e-05   0.00%
+solve_for_new_phi                                               1  9.778e-06  1.412e-05  2.547e-05   0.00%
+REG::R::Nyx::advance::STEP1                                     1  1.415e-05  2.006e-05   2.49e-05   0.00%
+Gravity::add_to_fluxes()                                        1  1.214e-05  1.685e-05  2.164e-05   0.00%
+MLMG::MLResNormInf()                                            3  1.141e-05  1.596e-05  2.157e-05   0.00%
+MLMG::mgVcycle_up::0                                            4  1.451e-05  1.625e-05  2.056e-05   0.00%
+MLMG::getGradSolution()                                         3  1.173e-05  1.438e-05  2.031e-05   0.00%
+amrex::Dot()                                                    4          0  2.429e-06  1.944e-05   0.00%
+Nyx::computeNewDt()                                             1  4.187e-06  6.602e-06  1.811e-05   0.00%
+Gravity::AddVirtualParticlesToRhs()                             1  5.651e-06  1.108e-05  1.757e-05   0.00%
+Gravity::AddGhostParticlesToRhsML()                             2  1.074e-05  1.396e-05  1.665e-05   0.00%
+Nyx::particle_est_time_step()                                   1   1.01e-05  1.312e-05  1.651e-05   0.00%
+Nyx::post_timestep()::compute_temp                              1   5.06e-06  7.538e-06  1.608e-05   0.00%
+Nyx::post_timestep()                                            1  7.354e-06  1.005e-05  1.571e-05   0.00%
+MLMG::mgVcycle_down::2                                          4  8.545e-06  1.028e-05  1.408e-05   0.00%
+FabArray::Saxpy()                                               2          0  1.727e-06  1.382e-05   0.00%
+AmrLevel::AmrLevel(dm)                                          1  8.978e-06  1.039e-05  1.249e-05   0.00%
+FabArray::LinComb()                                             2          0  1.549e-06  1.239e-05   0.00%
+MLPoisson::define()                                             1  4.688e-06  7.062e-06  1.184e-05   0.00%
+MLCellLinOp::defineBC()                                         1  9.147e-06  1.033e-05  1.132e-05   0.00%
+MLPoisson::prepareForSolve()                                    3  8.106e-06  9.457e-06  1.123e-05   0.00%
+Nyx::postCoarseTimeStep()                                       1  5.149e-06  7.113e-06   1.12e-05   0.00%
+makeSFC                                                         4  2.615e-06  4.039e-06   1.04e-05   0.00%
+REG::R::Nyx::advance_hydro_plus_particles                       1  6.382e-06  8.505e-06  9.959e-06   0.00%
+MLMG::mgVcycle_up::1                                            4   6.29e-06  7.082e-06  8.867e-06   0.00%
+Nyx::remove_virtual_particles()                                 1  1.813e-06  4.391e-06  8.386e-06   0.00%
+Gravity::AddVirtualParticlesToRhsML()                           2  4.328e-06  5.542e-06  7.395e-06   0.00%
+DistributionMapping::Distribute()                               5  3.316e-06  4.404e-06  7.062e-06   0.00%
+MLMG::mgVcycle_down::5                                          4  5.599e-06  6.051e-06  6.451e-06   0.00%
+Gravity::AddGhostParticlesToRhs()                               1  2.996e-06  4.647e-06  6.362e-06   0.00%
+DistributionMapping::SFCProcessorMapDoIt()                      1  3.597e-06  4.803e-06  6.211e-06   0.00%
+MLMG::mgVcycle_up::5                                            4  4.748e-06  5.408e-06  6.192e-06   0.00%
+MLMG::mgVcycle_down::4                                          4  5.106e-06  5.553e-06   6.11e-06   0.00%
+Nyx::post_timestep()::redist                                    1  2.615e-06  3.461e-06  6.053e-06   0.00%
+MLLinOp::define()                                               1  2.455e-06  3.457e-06  6.041e-06   0.00%
+MLMG::mgVcycle_up::2                                            4  4.772e-06   5.23e-06  5.664e-06   0.00%
+ParticleContainer::RemoveParticlesAtLevel()                     2  2.615e-06  4.456e-06  5.571e-06   0.00%
+MLMG::mgVcycle_up::4                                            4  4.729e-06  5.185e-06   5.52e-06   0.00%
+MLMG::mgVcycle_bottom                                           4  4.588e-06  5.136e-06  5.501e-06   0.00%
+MLMG::mgVcycle_up::3                                            4  4.512e-06  4.648e-06  5.018e-06   0.00%
+MLMG::MLRhsNormInf()                                            3  3.617e-06  3.906e-06  4.179e-06   0.00%
+Nyx::setup_virtual_particles()                                  1  2.154e-06   3.29e-06  3.858e-06   0.00%
+Nyx::post_timestep()::do_reflux                                 1  2.515e-06  2.874e-06  3.697e-06   0.00%
+Nyx::doAnalysisNow()                                            1  1.102e-06  1.861e-06  3.366e-06   0.00%
+Nyx::post_timestep()::remove_virt_ghost                         1  1.133e-06  1.917e-06  3.257e-06   0.00%
+MLLinOp::makeAgglomeratedDMap                                   1  1.501e-06  1.871e-06  3.145e-06   0.00%
+Nyx::remove_ghost_particles()                                   1  1.072e-06  1.443e-06  2.004e-06   0.00%
+----------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------
+Name                                                       NCalls  Incl. Min  Incl. Avg  Incl. Max   Max %
+----------------------------------------------------------------------------------------------------------
+REG::R::Nyx::coarseTimeStep                                     1      10.26      10.26      10.26  95.17%
+Amr::coarseTimeStep()                                           1      10.26      10.26      10.26  95.17%
+Amr::timeStep()                                                 1      10.14      10.16      10.18  94.44%
+REG::R::Nyx::advance::STEP1                                     1      9.309      9.311      9.315  86.38%
+REG::R::Nyx::advance_hydro_plus_particles                       1      9.309      9.311      9.315  86.38%
+Nyx::advance_hydro_plus_particles()                             1      9.309      9.311      9.315  86.38%
+just_the_hydro                                                  1      7.225      7.737      8.712  80.79%
+Nyx::sdc_hydro()                                                1      7.225      7.737      8.712  80.79%
+sdc_reactions                                                   1      4.915      5.428      6.401  59.36%
+Nyx::sdc_reactions()                                            1      4.915      5.428      6.401  59.36%
+Nyx::integrate_state_struct_mfin                               64      4.603      4.926      6.082  56.40%
+Nyx::reactions_cvode                                           64      4.219      4.534      5.673  52.61%
+Nyx::reactions_f                                              619      4.201      4.515       5.65  52.39%
+Nyx::advance_hydro_pc_umdrv()                                   1      2.056      2.099      2.153  19.97%
+Nyx::umdrv()                                                   64      2.035      2.076      2.116  19.62%
+Nyx::umeth()                                                   64      1.996      2.037      2.078  19.27%
+solve_for_new_phi                                               1     0.1059      1.079      1.594  14.78%
+Gravity::solve_for_new_phi()                                    1     0.1059      1.079      1.594  14.78%
+FabArray::ParallelCopy_finish()                                48    0.05249       1.03      1.547  14.34%
+ParticleContainer::AssignCellDensitySingleLevel()               3    0.03123      1.006       1.52  14.09%
+FabArray<FAB>::SumBoundary()                                    3   0.006557     0.9863      1.502  13.93%
+FabArray<FAB>::SumBoundary_finish()                             3  0.0009491     0.9825      1.499  13.90%
+Gravity::AddParticlesToRhs()                                    1    0.01069      0.984      1.498  13.89%
+Nyx::compute_new_temp()                                         4      1.159      1.203       1.32  12.24%
+Nyx::post_timestep()                                            1     0.6458     0.6557     0.6848   6.35%
+Nyx::reactions_cells_finalize                                  64     0.3736     0.3839     0.4001   3.71%
+Nyx::post_timestep()::compute_temp                              1     0.2935     0.3048     0.3341   3.10%
+Nyx::post_timestep()::sum_write                                 1      0.333     0.3331     0.3333   3.09%
+FabArray::FillBoundary()                                      233     0.1248     0.1663     0.1973   1.83%
+FillBoundary_finish()                                         230    0.09324     0.1338     0.1673   1.55%
+Nyx::post_regrid()                                              1     0.1163     0.1167     0.1174   1.09%
+Gravity::solve_with_MLMG                                        3     0.1153     0.1157     0.1161   1.08%
+FabArray::ParallelCopy()                                       45     0.1026     0.1058     0.1109   1.03%
+FillPatchIterator::Initialize                                  13     0.1017     0.1052     0.1103   1.02%
+FillPatchSingleLevel                                           13     0.1012     0.1045     0.1095   1.02%
+MLMG::solve()                                                   3     0.1066     0.1067     0.1068   0.99%
+Gravity::get_new_grav_vector()                                  3    0.06108    0.08958     0.1017   0.94%
+Amr::writePlotFile()                                            1    0.06131    0.08534     0.0995   0.92%
+Gravity::solve_for_phi()                                        1    0.09371    0.09437      0.095   0.88%
+amrex::Copy()                                                  36    0.07846    0.08536    0.08954   0.83%
+ParticleContainer::RedistributeCPU()                            2    0.08119     0.0842    0.08945   0.83%
+Gravity::get_old_grav_vector()                                  3    0.06893    0.07598    0.08108   0.75%
+Nyx::particle_redistribute()                                    1    0.06299    0.06648    0.07061   0.65%
+MLMG::oneIter()                                                 4     0.0684    0.06865    0.06899   0.64%
+MLMG::mgVcycle()                                                4    0.06397    0.06415    0.06463   0.60%
+FabArray::ParallelCopy_nowait()                                48    0.05597    0.06042    0.06349   0.59%
+Nyx::init(old)                                                  1    0.05996    0.06184    0.06261   0.58%
+FabArray::setVal()                                            147    0.05313    0.05597    0.05814   0.54%
+Gravity::actual_multilevel_solve()                              2    0.05397     0.0549     0.0554   0.51%
+ParticleContainer::RedistributeMPI()                            2    0.03882    0.04427    0.05096   0.47%
+MLCellLinOp::smooth()                                          96     0.0454    0.04568     0.0461   0.43%
+FabArray::norminf()                                            13   0.002303    0.03135    0.04218   0.39%
+FillBoundary_nowait()                                         230    0.02949    0.03192    0.03753   0.35%
+MLPoisson::Fsmooth()                                          192     0.0332    0.03376    0.03591   0.33%
+MLMG::mgVcycle_down::0                                          4    0.03046    0.03072    0.03103   0.29%
+WriteMultiLevelPlotfileHDF5SingleDset                           1    0.02951    0.02962    0.02977   0.28%
+solve_for_old_phi                                               1    0.02813    0.02855    0.02878   0.27%
+Gravity::multilevel_solve_for_new_phi()                         1     0.0282     0.0284    0.02848   0.26%
+Nyx::srctoprim()                                               64   0.009802    0.01474    0.02765   0.26%
+Gravity::multilevel_solve_for_old_phi()                         1    0.02569    0.02661    0.02712   0.25%
+NyxParticleContainer<NSR,NSI,NAR,NAI>::WriteNyxPlotFile()       1    0.02418    0.02548    0.02624   0.24%
+WriteBinaryParticleData()                                       1    0.02416    0.02546    0.02622   0.24%
+Gravity::AddParticlesToRhsML()                                  2    0.02456    0.02527    0.02585   0.24%
+DarkMatterParticleContainer::moveKickDrift()                    2    0.01436    0.01686     0.0246   0.23%
+ParticleContainer::AssignDensity()                              2     0.0234    0.02395    0.02455   0.23%
+H5writeAllLevel                                                 1    0.02418     0.0242    0.02424   0.22%
+Nyx::update_state_with_sources()                                1    0.02087    0.02236    0.02408   0.22%
+MLCellLinOp::applyBC()                                        228     0.0191    0.02185    0.02346   0.22%
+MLMG::mgVcycle_up::0                                            4    0.02141    0.02155    0.02197   0.20%
+MLCellLinOp::solutionResidual()                                 7    0.01621    0.01964    0.02076   0.19%
+RedistributeMPI_copy                                            2    0.01517      0.018    0.02066   0.19%
+MLCellLinOp::apply()                                           33    0.01561    0.01924    0.02036   0.19%
+Nyx::post_timestep()::redist                                    1     0.0135    0.01778    0.01959   0.18%
+ParticleContainer::WriteParticles()                             1    0.01597    0.01772    0.01947   0.18%
+Nyx::reset_internal_energy()                                    5    0.01495    0.01796    0.01918   0.18%
+DarkMatterParticleContainer::moveKick()                         1    0.01287    0.01479    0.01909   0.18%
+H5DwriteData                                                    2    0.01702    0.01739    0.01789   0.17%
+MLMG::prepareForSolve()                                         3    0.01441      0.015    0.01688   0.16%
+Nyx::computeNewDt()                                             1    0.01486    0.01618    0.01645   0.15%
+Nyx::est_time_step()                                            1    0.01485    0.01618    0.01644   0.15%
+Nyx::particle_est_time_step()                                   1    0.01205    0.01208    0.01214   0.11%
+NyxParticleContainer<NSR,NSI,NAR,NAI>::estTimestep(lev)         1    0.01203    0.01207    0.01213   0.11%
+MLMG::computeMLResidual()                                       3   0.007121    0.01081    0.01186   0.11%
+MLPoisson::Fapply()                                            33   0.009542    0.01045    0.01093   0.10%
+Nyx::ctoprim()                                                 64   0.006652   0.008063    0.01016   0.09%
+ParticleContainer::BuildRedistributeMask                        2   0.004052   0.008222   0.009977   0.09%
+FabArray::Xpay()                                               32    0.00832   0.008839   0.009449   0.09%
+MLMG::computeResidual()                                         4   0.008577   0.008902   0.009189   0.09%
+MLMG::getGradSolution()                                         3   0.008211   0.008735   0.009112   0.08%
+MLCellLinOp::compGrad()                                         3    0.00819   0.008721   0.009097   0.08%
+MLCellLinOp::correctionResidual()                              24   0.008189   0.008509   0.008851   0.08%
+MLMG:computeResOfCorrection()                                  24   0.008225    0.00854   0.008843   0.08%
+Nyx::reset_internal_energy_nostore()                            2   0.007575   0.008035   0.008517   0.08%
+Nyx::Nyx(Amr)                                                   1   0.007107   0.007615   0.008491   0.08%
+amrex::Add()                                                   11   0.007169   0.007519    0.00821   0.08%
+RedistributeMPI_locate                                          2   0.005881   0.006593    0.00786   0.07%
+MLPoisson::define()                                             1  0.0007319   0.004204   0.007665   0.07%
+MLLinOp::define()                                               1  6.523e-05   0.003511   0.006994   0.06%
+MLLinOp::defineGrids()                                          1  6.259e-05   0.003507   0.006988   0.06%
+MLLinOp::makeSubCommunicator()                                  1  4.072e-05   0.003474   0.006918   0.06%
+FabArray<FAB>::SumBoundary_nowait()                             3   0.002768   0.003859   0.006292   0.06%
+Nyx::reactions_cells_initialize                                64   0.005812   0.005948   0.006093   0.06%
+MLMG::addInterpCorrection()                                    24   0.003438   0.004781   0.005324   0.05%
+MLMG::mgVcycle_down::1                                          4   0.004477   0.004716   0.004961   0.05%
+Nyx::enforce_minimum_density()                                  1  0.0003007   0.001906   0.003651   0.03%
+MultiFab::min()                                                 1  0.0002836    0.00188   0.003612   0.03%
+Nyx::compute_rho_temp()                                         1   0.003314   0.003317    0.00332   0.03%
+Nyx::compute_rho_temp()::OnHost                                 1   0.002819   0.003143   0.003306   0.03%
+MLMG::mgVcycle_up::1                                            4   0.003098    0.00313   0.003211   0.03%
+H5writeMetadata                                                 0          0  0.0003892   0.003114   0.03%
+amrex::average_down                                            24   0.002516   0.002643   0.002715   0.03%
+MLMG::mgVcycle_up::2                                            4  0.0008401   0.002179   0.002397   0.02%
+FabArray::plus()                                               13   0.001645    0.00184   0.002076   0.02%
+MLMG::ResNormInf()                                              7   0.001429   0.001665   0.001964   0.02%
+FabArray::sum()                                                 7   0.001815     0.0019   0.001956   0.02%
+vol_weight_sum                                                  3  0.0008523   0.001286    0.00174   0.02%
+FabArray::mult()                                                9   0.001173    0.00144   0.001582   0.01%
+MultiFab::Subtract()                                            2  0.0009071   0.001061   0.001223   0.01%
+MLMG::mgVcycle_down::2                                          4   0.001004   0.001073   0.001118   0.01%
+Gravity::CorrectRhsUsingOffset()                                1  0.0005912   0.000839   0.001098   0.01%
+Nyx::reactions_alloc                                           64   0.001044   0.001075   0.001097   0.01%
+Nyx::vol_weight_sum()::ReduceOpsOnDevice                        3  0.0007834  0.0007881  0.0008023   0.01%
+MLMG::MLResNormInf()                                            3  0.0005775  0.0006447  0.0007776   0.01%
+FabArrayBase::getCPC()                                         96   0.000567  0.0006041  0.0007168   0.01%
+Nyx::reactions_cvsetup                                         64  0.0006636  0.0006838  0.0007029   0.01%
+MLMG::MLRhsNormInf()                                            3  0.0006455  0.0006658  0.0006961   0.01%
+FabArrayBase::getFB()                                         230  0.0005662  0.0006094  0.0006649   0.01%
+MLCellLinOp::defineAuxData()                                    1  0.0004311  0.0004545  0.0005762   0.01%
+MLMG::mgVcycle_down::3                                          4   0.000109  0.0001707  0.0005552   0.01%
+Nyx::compute_gas_fractions()                                    1  0.0005064  0.0005068  0.0005073   0.00%
+Nyx::compute_gas_fractions()::OnHost                            1  0.0004744  0.0004858  0.0004993   0.00%
+FabArrayBase::CPC::define()                                    62  0.0003366  0.0003589  0.0004647   0.00%
+MLMG::mgVcycle_up::3                                            4  7.487e-05  0.0001221  0.0004454   0.00%
+Nyx::reactions_free                                            64  0.0003539   0.000383  0.0004199   0.00%
+FabArrayBase::FB::FB()                                         13  0.0003196  0.0003528  0.0004029   0.00%
+MLMG::mgVcycle_bottom                                           4  9.067e-06  5.816e-05  0.0003956   0.00%
+MLMG::actualBottomSolve()                                       4  4.227e-06  5.302e-05   0.000391   0.00%
+WriteGenericPlotfileHeaderHDF5()                                0          0  4.495e-05  0.0003596   0.00%
+MLPoisson::prepareForSolve()                                    3  0.0002712   0.000302  0.0003537   0.00%
+MLCellLinOp::prepareForSolve()                                  3    0.00026  0.0002926  0.0003439   0.00%
+MLCGSolver::bicgstab                                            0          0  4.118e-05  0.0003294   0.00%
+MLCellLinOp::defineBC()                                         1  0.0002208  0.0002319    0.00024   0.00%
+StateDataPhysBCFunct::()                                       13  0.0001745  0.0002087  0.0002329   0.00%
+BndryData::define()                                             1  0.0002106  0.0002215  0.0002293   0.00%
+MLMG::mgVcycle_down::4                                          4  9.969e-05  0.0001155  0.0002175   0.00%
+MLMG::mgVcycle_up::4                                            4  7.654e-05  9.438e-05  0.0001648   0.00%
+MLMG::mgVcycle_down::5                                          4   9.75e-05  0.0001062  0.0001599   0.00%
+MLMG::mgVcycle_up::5                                            4  8.189e-05  8.927e-05  0.0001269   0.00%
+FabArray::setDomainBndry()                                     13  9.525e-05  0.0001086  0.0001176   0.00%
+DistributionMapping::SFCProcessorMapDoIt()                      1  8.997e-06  5.737e-05  8.653e-05   0.00%
+DistributionMapping::LeastUsedCPUs()                            1  3.958e-06  5.108e-05  7.845e-05   0.00%
+AmrLevel::AmrLevel(dm)                                          1  5.154e-05  6.607e-05  7.819e-05   0.00%
+Nyx::reactions_numsteps                                        64  5.155e-05  5.883e-05  6.819e-05   0.00%
+FabArray::setVal(val, thecmd, scomp, ncomp)                    48  6.285e-05  6.432e-05  6.681e-05   0.00%
+StateData::define()                                             5   4.25e-05  5.568e-05  6.611e-05   0.00%
+MLCellLinOp::setLevelBC()                                       3  2.971e-05  3.678e-05  5.004e-05   0.00%
+Nyx::reactions_single_copy                                     64  4.009e-05  4.241e-05  4.978e-05   0.00%
+MLCGSolver::ParallelAllReduce                                   5          0   5.06e-06  4.048e-05   0.00%
+NeighborParticleContainer::clearNeighborsCPU                    2  1.457e-05   2.08e-05   3.16e-05   0.00%
+Gravity::add_to_fluxes()                                        1  1.214e-05  1.685e-05  2.164e-05   0.00%
+amrex::Dot()                                                    4          0  2.429e-06  1.944e-05   0.00%
+MLLinOp::makeAgglomeratedDMap                                   1  6.342e-06   8.83e-06  1.917e-05   0.00%
+Gravity::AddVirtualParticlesToRhs()                             1  5.651e-06  1.108e-05  1.757e-05   0.00%
+Gravity::AddGhostParticlesToRhsML()                             2  1.074e-05  1.396e-05  1.665e-05   0.00%
+makeSFC                                                         4  4.709e-06   6.96e-06  1.602e-05   0.00%
+Nyx::post_timestep()::remove_virt_ghost                         1  7.825e-06  1.221e-05  1.462e-05   0.00%
+FabArray::Saxpy()                                               2          0  1.727e-06  1.382e-05   0.00%
+FabArray::LinComb()                                             2          0  1.549e-06  1.239e-05   0.00%
+Nyx::postCoarseTimeStep()                                       1  5.149e-06  7.113e-06   1.12e-05   0.00%
+Nyx::remove_virtual_particles()                                 1  3.837e-06  8.048e-06   1.11e-05   0.00%
+Gravity::AddVirtualParticlesToRhsML()                           2  4.328e-06  5.542e-06  7.395e-06   0.00%
+DistributionMapping::Distribute()                               5  3.316e-06  4.404e-06  7.062e-06   0.00%
+Gravity::AddGhostParticlesToRhs()                               1  2.996e-06  4.647e-06  6.362e-06   0.00%
+ParticleContainer::RemoveParticlesAtLevel()                     2  2.615e-06  4.456e-06  5.571e-06   0.00%
+Nyx::setup_virtual_particles()                                  1  2.154e-06   3.29e-06  3.858e-06   0.00%
+Nyx::post_timestep()::do_reflux                                 1  2.515e-06  2.874e-06  3.697e-06   0.00%
+Nyx::doAnalysisNow()                                            1  1.102e-06  1.861e-06  3.366e-06   0.00%
+Nyx::remove_ghost_particles()                                   1  1.653e-06  2.242e-06  3.046e-06   0.00%
+----------------------------------------------------------------------------------------------------------
+
+END REGION R::Nyx::coarseTimeStep
+Unused ParmParse Variables:
+  [TOP]::nyx.use_colglaz(nvals = 1)  :: [0]
+  [TOP]::nyx.corner_coupling(nvals = 1)  :: [1]
+  [TOP]::nyx.inhomo_zhi_file(nvals = 1)  :: [zhi.bin]
+  [TOP]::nyx.inhomo_grid(nvals = 1)  :: [512]
+  [TOP]::particles.nparts_per_read(nvals = 1)  :: [2097152]
+  [TOP]::amr.probin_file(nvals = 1)  :: []
+
+Pinned Memory Usage:
+---------------------------------------------------------------------------------------------------------------------
+Name                            Nalloc  Nfree  AvgMem min  AvgMem avg  AvgMem max  MaxMem min  MaxMem avg  MaxMem max
+---------------------------------------------------------------------------------------------------------------------
+The_Pinned_Arena::Initialize()       8      8    1511   B    2294   B    2708   B    8192 KiB    8192 KiB    8192 KiB
+---------------------------------------------------------------------------------------------------------------------
+
+AMReX (v0.1.0-4-g1404a6ca47bc-dirty) finalized

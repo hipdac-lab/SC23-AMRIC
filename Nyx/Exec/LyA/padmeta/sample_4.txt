@@ -1,0 +1,21 @@
+normErrOri: 3.08942e+18
+normErrX: 2.94533e+18 ratio: 0.1
+normErrX: 2.84488e+18 ratio: 0.2
+normErrX: 2.78362e+18 ratio: 0.3
+normErrX: 2.75445e+18 ratio: 0.4
+normErrX: 2.73177e+18 ratio: 0.5
+normErrX: 2.71557e+18 ratio: 0.6
+-----------------------------
+normErrY: 2.94533e+18 ratio: 0.1
+normErrY: 2.84488e+18 ratio: 0.2
+normErrY: 2.78362e+18 ratio: 0.3
+normErrY: 2.75445e+18 ratio: 0.4
+normErrY: 2.73177e+18 ratio: 0.5
+normErrY: 2.71557e+18 ratio: 0.6
+-----------------------------
+normErrZ: 2.94533e+18 ratio: 0.1
+normErrZ: 2.84488e+18 ratio: 0.2
+normErrZ: 2.78362e+18 ratio: 0.3
+normErrZ: 2.75445e+18 ratio: 0.4
+normErrZ: 2.73177e+18 ratio: 0.5
+normErrZ: 2.71557e+18 ratio: 0.6
