@@ -404,24 +404,24 @@ static size_t H5Z_filter_sz3(unsigned int flags, size_t cd_nelmts, const unsigne
 
                 long realLength;
         char meta_name[640];
-        // if (level == finest_level) {
-        //     sprintf(meta_name, "../padmeta/meta_%d.txt", level);
-        //     FILE* file = fopen(meta_name, "r+");
-        //     if (file == NULL) {
-        //         printf("Could not open meta file!\n");
-        //         return 1;
-        //     }
-        //     int count = 0;
-        //     // printf("cnt: %d\n", cnt[level]);
-        //     while (fscanf(file, "%ld", &realLength) == 1) {
-        //         if (count == cnt[level]/ncomp) {
-        //             break;
-        //         }
-        //         count++;
-        //     }
-        //     fclose(file);
-        // } else {
-            sprintf(meta_name, "../padmeta/meta_%d_%d.txt", level, cnt[level+1]/ncomp);
+        if (level == finest_level) {
+            sprintf(meta_name, "../padmeta/meta_%d.txt", level);
+            FILE* file = fopen(meta_name, "r+");
+            if (file == NULL) {
+                printf("Could not open meta file!\n");
+                return 1;
+            }
+            int count = 0;
+            // printf("cnt: %d\n", cnt[level]);
+            while (fscanf(file, "%ld", &realLength) == 1) {
+                if (count == cnt[level]/ncomp) {
+                    break;
+                }
+                count++;
+            }
+            fclose(file);
+        } else {
+            sprintf(meta_name, "../padmeta/meta_%d_%d.txt", level, cnt[level]/ncomp);
             FILE* file = fopen(meta_name, "r+");
             if (file == NULL) {
                 printf("Could not open meta file!\n");
@@ -431,9 +431,9 @@ static size_t H5Z_filter_sz3(unsigned int flags, size_t cd_nelmts, const unsigne
             fscanf(file, "%ld", &realLength);
             fclose(file);
             while (realLength < 0) {
-                printf("-----------------------------: %ld\n", cnt[level+1] / ncomp);
-                cnt[level+1] += ncomp;
-                sprintf(meta_name, "../padmeta/meta_%d_%d.txt", level, cnt[level+1] / ncomp);
+                printf("-----------------------------: %ld\n", cnt[level] / ncomp);
+                cnt[level] += ncomp;
+                sprintf(meta_name, "../padmeta/meta_%d_%d.txt", level, cnt[level] / ncomp);
                 file = fopen(meta_name, "r+");
 
                 if (file == NULL) {
@@ -446,7 +446,7 @@ static size_t H5Z_filter_sz3(unsigned int flags, size_t cd_nelmts, const unsigne
                 fclose(file);
                 printf("realLength: %ld\n", realLength);
             }
-        // }
+        }
 
         /* decompress data */
         SZ::Config conf;
@@ -478,7 +478,7 @@ static size_t H5Z_filter_sz3(unsigned int flags, size_t cd_nelmts, const unsigne
             free(*buf);
             *buf = d_decompressedData;
             *buf_size = nbEle * sizeof(double);
-            cnt[level+1]++;
+            cnt[level]++;
             break;
         }
 
