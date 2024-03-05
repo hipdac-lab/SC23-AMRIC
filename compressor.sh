@@ -1,11 +1,11 @@
-cd SZ_SLE
-mkdir install
-mkdir build
-cd build
-cmake -DCMAKE_INSTALL_PREFIX:PATH=$AMRIC_HOME/SZ_SLE/install -DBUILD_H5Z_FILTER=ON ..
-export SZ_SLE_HOME=$AMRIC_HOME/SZ_SLE/install
-make -j 8
-make install 
+# cd SZ_SLE
+# mkdir install
+# mkdir build
+# cd build
+# cmake -DCMAKE_INSTALL_PREFIX:PATH=$AMRIC_HOME/SZ_SLE/install -DBUILD_H5Z_FILTER=ON ..
+# export SZ_SLE_HOME=$AMRIC_HOME/SZ_SLE/install
+# make -j 8
+# make install 
 
 cd $AMRIC_HOME
 cd SZ3
@@ -16,6 +16,26 @@ cmake -DCMAKE_INSTALL_PREFIX:PATH=$AMRIC_HOME/SZ3/install -DBUILD_H5Z_FILTER=ON 
 export SZ3_HOME=$AMRIC_HOME/SZ3/install
 make -j 8
 make install 
+
+cd $AMRIC_HOME
+cd SZ3
+mkdir install
+mkdir build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX:PATH=$AMRIC_HOME/SZ3/install-pad -DBUILD_H5Z_FILTER=ON ..
+# export SZ3_HOME=$AMRIC_HOME/SZ3/install
+make -j 8
+make install 
+
+# cd $AMRIC_HOME
+# cd SZ3
+# mkdir install
+# mkdir build
+# cd build
+# cmake -DCMAKE_INSTALL_PREFIX:PATH=$AMRIC_HOME/SZ3/install-adp -DBUILD_H5Z_FILTER=ON ..
+# # export SZ3_HOME=$AMRIC_HOME/SZ3/install
+# make -j 8
+# make install 
 
 cd $AMRIC_HOME
 cd orisz3
