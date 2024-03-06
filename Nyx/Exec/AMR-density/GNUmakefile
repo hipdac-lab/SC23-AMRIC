@@ -1,5 +1,5 @@
 # AMREX_HOME defines the directory in which we will find all the AMReX code
-AMREX_HOME = $(AMRIC_HOME)/amrex
+AMREX_HOME = ${AMRIC_HOME}/amrex
 # TOP defines the directory in which we will find Source, Exec, etc
 TOP = ../..
 
@@ -13,14 +13,14 @@ USE_CUDA = FALSE
 
 USE_SUNDIALS      = TRUE
 USE_FORT_ODE = FALSE
-SUNDIALS_ROOT =  $(AMRIC_HOME)/Nyx/subprojects/sundials/instdir
+SUNDIALS_ROOT =  ${AMRIC_HOME}/Nyx/subprojects/sundials/instdir
 PROFILE       = FALSE
 TRACE_PROFILE = FALSE
 COMM_PROFILE  = FALSE
 TINY_PROFILE  = TRUE
 
 USE_HDF5=TRUE
-HDF5_HOME=$(AMRIC_H5_HOME)
+HDF5_HOME=${AMRIC_H5_HOME}
 
 #USE_HDF5_SZ3 = TRUE
 #SZ3_HOME = /opt/orisz3/install
